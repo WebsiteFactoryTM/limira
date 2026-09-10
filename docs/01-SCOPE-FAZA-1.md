@@ -13,7 +13,9 @@ Statusul viu se ține în `06-STATE.md`; tabelul de aici este specificația.
 | # | Cerință | Criteriu de acceptanță |
 |---|---|---|
 | A1 | Identitate vizuală construită pe brandul beneficiarului (roz neon, negru, alb), **fără adaptare de template** | Sistem de design propriu documentat în `03-DESIGN-SYSTEM.md`; niciun theme comercial în dependențe |
-| A2 | **Două teme vizuale, o singură identitate**: mod magazin (luminos, editorial) și mod atelier (întunecat, neon) | Ambele moduri derivă din același set de tokens; comutare fără reîncărcare de pagină, fără FOUC |
+| A2 | **Două teme vizuale, o singură identitate**: mod magazin (luminos, editorial) și mod atelier (întunecat, neon) | Ambele moduri derivă din același set de tokens; comutare fără reîncărcare de pagină, fără FOUC. Comutatorul magazin/atelier e livrat din Faza 1, cu atelierul blocat până la Faza 2 |
+| A2b | **Comutator de temă Luminos / Întunecat / Sistem** pentru magazin — *adăugire față de Anexă, inclusă fără cost* | Axă independentă de modul editorial (ADR-008); preferința se ține minte; `system` urmărește setarea dispozitivului |
+| A5 | **Meniu mobil ca modal pe tot ecranul** sub 1200px, cu hamburger animat și feedback per acțiune | Focus trap, `Esc` închide, blocare de scroll, ținte ≥44px; conține navigația, ambele comutatoare, contul, contactul rapid și limba |
 | A3 | Structurarea informației pe baza comportamentului de cumpărare; parcurs clar de la prima pagină la finalizarea comenzii | Flux testat: Home → Categorie → PDP → Coș → Checkout în maximum 5 pași, fără fundături |
 | A4 | Abordare mobile-first; testare pe mobil, tabletă, laptop, desktop | Breakpoints 390 / 768 / 1024 / 1440 / 1920 verificate; test real pe un device Android și unul iOS |
 

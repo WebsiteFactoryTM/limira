@@ -44,9 +44,43 @@ raza. Este o decizie de identitate, nu de gust — nu o inversa fără acordul c
 Alegerea accesibilă este și cea mai apropiată de estetica anilor '90. Vezi
 `03-DESIGN-SYSTEM.md §3.2`.
 
-### ADR-008 — Modul (shop/atelier) se rezolvă pe server, din cookie + rută
-**Decis.** Evită FOUC și menține modul între navigări. `prefers-color-scheme` **nu**
-comută modul — modul e o decizie editorială, nu o preferință de sistem.
+### ADR-008 — Două axe independente: luminozitate și mod *(revizuit)*
+**Decis.** Un singur comutator nu poate face două treburi. Le separăm:
+
+- **`data-lum`** = `light` | `dark` — luminozitatea magazinului, **aleasă de vizitator**
+  dintr-un comutator dedicat *Luminos / Întunecat / Sistem*. Persistat în
+  `localStorage` + cookie; `system` se re-rezolvă la schimbarea `prefers-color-scheme`.
+- **`data-mode`** = `shop` | `atelier` — identitatea editorială, **rezolvată din rută**
+  (`/atelier/*`) plus comutatorul permanent din meniu (cerință contractuală).
+
+Atelierul e întunecat prin definiție contractuală, deci `data-mode="atelier"`
+suprascrie luminozitatea. Rezultă **trei suprafețe**: magazin·lumină, magazin·întuneric
+(fundal cald `#121014`, editorial) și atelier (vid `#08070A`, neon maxim).
+Ambele se rezolvă pe server → fără FOUC. Detalii: `03-DESIGN-SYSTEM.md §3.3`.
+
+*Versiunea anterioară a acestui ADR folosea un singur atribut `data-mode` pentru ambele
+roluri, ceea ce lega tema întunecată de atelier și lăsa magazinul fără temă întunecată
+proprie. Revizuit la 10.09.2026.*
+
+### ADR-011 — Neonul se implementează cu `filter: drop-shadow()`, nu `box-shadow`
+**Decis.** Butoanele și cardurile au colț tăiat prin `clip-path`, iar `box-shadow` e
+tăiat odată cu elementul. `drop-shadow` se aplică **după** clip și urmează silueta
+reală, deci e singura variantă compatibilă cu motivul „cut & fold".
+
+Corolar de design: **neonul nu strălucește la lumina zilei.** Pe tema luminoasă haloul
+devine o umbră colorată difuză (cerneală saturată, lumină scursă pe hârtie); pe temele
+întunecate se aprinde complet, cu miez alb și halou în două straturi. **Mișcarea rămâne
+identică** pe toate suprafețele. Tokens: `--nf-1/2/3`, `--nt`, `--tube` — componentele
+nu știu pe ce suprafață sunt.
+
+### ADR-012 — Meniu mobil ca modal pe tot ecranul, cu tăietură diagonală
+**Decis.** Sub 1200px, navigația trece integral într-un modal full-screen care intră cu
+aceeași **tăietură diagonală** ca tranziția de mod — un singur gest de brand, folosit
+consecvent. Itemele intră decalat cu mască, iar la atingere se aprind ca un tub de neon
+înainte ca meniul să se închidă (feedback per acțiune).
+Modalul conține și ce nu încape în antetul de mobil: comutatoarele de temă și de mod,
+contul, contactul rapid și limba. Antetul de mobil rămâne la logo + căutare + favorite +
+coș + hamburger.
 
 ### ADR-009 — `visitorId` se emite din Faza 1
 **Decis.** Coșul de guest și favoritele au nevoie de el oricum, iar Faza 2 leagă progresul

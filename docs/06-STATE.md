@@ -54,7 +54,14 @@ art. 2.8) în `08-DECISIONS.md §D`.
   toate OFL, fără costuri de licență
 - **CTA roz cu text negru** — singura combinație accesibilă (ADR-007)
 - Fără colțuri rotunjite pe structură; colț tăiat prin `clip-path` (ADR-006)
-- Modul shop/atelier se rezolvă pe server din cookie + rută, nu din `prefers-color-scheme` (ADR-008)
+- **Două axe independente**: `data-lum` (luminozitate, alegerea vizitatorului) și
+  `data-mode` (identitate editorială, din rută). Trei suprafețe: magazin·lumină,
+  magazin·întuneric, atelier (ADR-008, revizuit)
+- **Neonul cu `filter: drop-shadow()`**, nu `box-shadow` — `box-shadow` ar fi tăiat de
+  `clip-path`-ul colțurilor. La lumină haloul devine umbră colorată, mișcarea rămâne
+  identică (ADR-011)
+- **Meniu mobil ca modal full-screen** sub 1200px, cu aceeași tăietură diagonală ca
+  tranziția de mod (ADR-012)
 - Folosim `@payloadcms/plugin-ecommerce`, nu comerț scris de la zero (ADR-002)
 - RON se definește ca monedă custom (ADR-003)
 - `visitorId` se emite din Faza 1, pentru ca Faza 2 să nu ceară migrare (ADR-009)
@@ -111,6 +118,35 @@ Constatări care au schimbat planul:
   roz cu text negru (5,64:1), care e și mai aproape de estetica anilor '90 cerută.
 - **Fără produse și fără fotografii momentan** → mockup-ul folosește texturi generate,
   marcate vizibil ca placeholder, iar catalogul se populează la M6–M7.
+
+---
+
+### Sesiunea 2 — 10.09.2026
+**Milestone:** M0 (revizuire de mockup, înainte de trimiterea către clientă)
+
+**Făcut:**
+- **Sistem de neon complet** — CTA-uri, badge-uri, puncte interactive, cifre de impact și
+  bara sliderului primesc halou și mișcare. Cuvântul-cheie din titlul erou se aprinde ca
+  un tub de neon la fiecare încărcare.
+- **Separarea celor două comutatoare.** Înainte, un singur comutator făcea două treburi:
+  schimba și identitatea editorială, și luminozitatea. Acum: comutator dedicat
+  *Luminos / Întunecat / Sistem* (funcțional, cu memorie) + comutator *Magazin / Atelier*
+  vizibil dar **blocat**, cu lacăt și mesaj „se deschide în faza 2".
+- **Meniu mobil**: modal full-screen, hamburger care se transformă în X, intrare cu
+  tăietură diagonală, iteme decalate, aprindere de neon la atingere înainte de închidere.
+  Focus trap, `Esc`, blocare de scroll.
+- **Overlay de căutare** și **dock de contact rapid pe mobil** (cerința C8).
+- **CSS rescris mobile-first** — `min-width` peste tot, baza e telefonul.
+  Breakpoint de antet complet: 1200px. Sub el, hamburger.
+
+**Decizii luate:** ADR-008 revizuit, ADR-011 și ADR-012 adăugate.
+Documentate în `08-DECISIONS.md`; `03-DESIGN-SYSTEM.md §3.3–3.4` și
+`design/tokens/tokens.css` sunt aliniate.
+
+**De reținut:** tema întunecată a magazinului folosește `#121014` (cald, ridicat), NU
+`#08070A`. Vidul absolut e rezervat atelierului, ca cele două să rămână distincte.
+
+**Următoarea acțiune:** neschimbată — trimite mockup-ul clientei și cere aprobarea scrisă.
 
 ---
 

@@ -82,34 +82,82 @@ Neutre **calde**, nu reci (hârtie reciclată, nu ecran de birou):
 > **Decizia care definește look-ul:** CTA-ul primar este **roz plin cu text negru**.
 > E accesibil, e brutal-90s, și ține rozul în rolul de semnal.
 
-### 3.3 Cele două moduri — o singură identitate
+### 3.3 Două axe independente — trei suprafețe
 
-Ambele derivă din **același** set de tokens brute. Comutarea schimbă doar maparea semantică.
+Un singur comutator nu poate face două treburi. Separăm explicit:
 
-**`[data-mode="shop"]` — luminos, editorial**
-```
---bg: #F5F2EE      --fg: #08070A      --fg-muted: #6E6A78
---surface: #FFFFFF --line: rgba(0,0,0,.12)
---accent: #E64593  --accent-fg: #000000   --accent-text: #A31E60
---glow: none
-```
+| Atribut pe `<html>` | Valori | Ce controlează | Cine decide |
+|---|---|---|---|
+| **`data-lum`** | `light` \| `dark` | luminozitatea magazinului | **vizitatorul**, din comutatorul Luminos / Întunecat / Sistem |
+| **`data-mode`** | `shop` \| `atelier` | identitatea editorială | **ruta** (`/atelier/*` → `atelier`) + comutatorul permanent din meniu |
 
-**`[data-mode="atelier"]` — întunecat, neon**
+Atelierul este **întunecat prin definiție contractuală**, deci `data-mode="atelier"`
+suprascrie luminozitatea. Rezultă trei suprafețe, nu patru:
+
+**1. Magazin · lumină** (implicit) — hârtie reciclată, editorial
 ```
---bg: #08070A      --fg: #FFFFFF      --fg-muted: #9B96A3
---surface: #0E0D11 --line: rgba(255,255,255,.14)
---accent: #E64593  --accent-fg: #000000   --accent-text: #FF9EC9
---glow: 0 0 48px rgba(230,69,147,.32)
+--bg:#F5F2EE  --bg-alt:#FFFFFF  --fg:#08070A  --fg-muted:#6E6A78
+--line:rgb(0 0 0/.13)  --accent:#E64593  --accent-fg:#000  --accent-text:#A31E60
 ```
 
-**Cum se comută:** atribut `data-mode` pe `<html>`, setat de rută (rutele de shop → `shop`,
-`/atelier/*` → `atelier`) și suprascriptibil manual din comutatorul permanent din meniu.
-Persistat în cookie, citit pe server → **fără FOUC**.
-Tranziția între moduri folosește View Transitions cu o **tăietură diagonală** (vezi §6.1).
+**2. Magazin · întuneric** — editorial, nu atelier. Fundal **cald și ridicat** (`#121014`),
+ca să rămână distinct de vidul atelierului.
+```
+--bg:#121014  --bg-alt:#191720  --fg:#F7F5F8  --fg-muted:#9B96A3
+--line:rgb(255 255 255/.13)  --accent:#E64593  --accent-fg:#000  --accent-text:#FF9EC9
+```
 
-> Preferința de sistem `prefers-color-scheme` **nu** comută modul — modul e o decizie
-> editorială, nu o preferință de citit. Este însă respectat `prefers-contrast` și
-> `prefers-reduced-transparency` pentru halouri și grain.
+**3. Atelier** (Faza 2) — vidul absolut, neonul la maxim.
+```
+--bg:#08070A  --bg-alt:#0D0C11  --fg:#FFFFFF  --grain-op:.08
+```
+
+**Cascadă CSS** — ordinea contează, `atelier` trebuie să fie ultimul:
+```css
+:root                        { /* magazin · lumină, paleta completă */ }
+:root[data-lum="dark"]       { /* magazin · întuneric */ }
+@media (prefers-color-scheme:dark){ :root:not([data-lum="light"]){ /* idem, fără JS */ } }
+:root[data-mode="atelier"]   { /* atelier — câștigă peste ambele */ }
+```
+
+**Persistență:** preferința de temă (`light` / `dark` / `system`) în `localStorage` +
+cookie, citită pe server → **fără FOUC**. `system` se re-rezolvă la schimbarea
+`prefers-color-scheme`.
+Modul se ține în cookie `limira_mode` și se rezolvă pe server din rută.
+Tranziția între moduri folosește View Transitions cu o **tăietură diagonală** (§6.1).
+
+> `prefers-color-scheme` controlează **luminozitatea**, nu modul. Modul e o decizie
+> editorială. Sunt respectate și `prefers-contrast` și `prefers-reduced-transparency`
+> (halouri și grain).
+
+### 3.4 Neonul — cum se comportă la lumină și la întuneric
+
+Neonul nu strălucește la lumina zilei. Refuzul de a recunoaște asta e ce face ca
+majoritatea „temelor luminoase cu neon" să arate murdar. Deci:
+
+| | Magazin · lumină | Magazin · întuneric / Atelier |
+|---|---|---|
+| **Metaforă** | firmă de neon stinsă, la lumina zilei | tubul aprins |
+| **Tratament** | cerneală saturată + umbră colorată difuză — lumina scursă pe hârtie | miez alb-fierbinte + halou roz în două straturi |
+| **Mișcarea** | **identică** | **identică** |
+
+Tokens (aceleași nume, valori diferite per suprafață — componentele nu știu diferența):
+
+```
+--nf-1 / --nf-2 / --nf-3   filtre `drop-shadow()`, intensitate crescătoare
+--nt                        text-shadow pentru text neon
+--tube                      culoarea „tubului" pentru linii și contururi
+```
+
+> **De ce `filter: drop-shadow()` și nu `box-shadow`:** butoanele au colț tăiat prin
+> `clip-path`, iar `box-shadow` ar fi tăiat odată cu ele. `drop-shadow` se aplică
+> **după** clip și urmează silueta reală. Este singura variantă care funcționează
+> cu motivul „cut & fold".
+
+Cine primește neon (și nimeni altcineva — rozul rămâne sub 10%):
+CTA primar · un singur cuvânt din titlul erou · bara promo · badge-urile de coș și
+favorite · eticheta de reducere · punctele interactive · bara sliderului before/after ·
+cifrele de impact · dock-ul de contact rapid pe mobil.
 
 ---
 

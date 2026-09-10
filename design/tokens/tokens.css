@@ -1,8 +1,14 @@
 /* ==========================================================================
    LIMIRA LAMIRA — NEON SALVAGE design tokens
-   Sursa de adevăr pentru culoare, tipografie, spațiu și mișcare.
+   Sursa de adevăr pentru culoare, tipografie, spațiu, mișcare și neon.
    Documentație: docs/03-DESIGN-SYSTEM.md
    Se importă în src/app/(frontend)/globals.css înaintea Tailwind.
+
+   DOUĂ AXE INDEPENDENTE (ADR-008):
+     data-lum  = light | dark     → luminozitatea magazinului (alegerea vizitatorului)
+     data-mode = shop  | atelier  → identitatea editorială (ruta + comutatorul din meniu)
+   Atelierul e întunecat prin definiție contractuală → suprascrie data-lum.
+   ORDINEA BLOCURILOR CONTEAZĂ: atelier trebuie să rămână ultimul.
    ========================================================================== */
 
 :root {
@@ -20,11 +26,12 @@
   --pink-rgb: 230 69 147;
 
   /* ---------- Neutre calde ---------- */
-  --ink-950: #08070a;
-  --ink-900: #0e0d11;
-  --ink-800: #17161b;
-  --ink-700: #222027;
-  --ink-600: #35323c;
+  --ink-950: #08070a; /* rezervat atelierului */
+  --ink-900: #121014; /* fundal magazin · întuneric */
+  --ink-850: #191720;
+  --ink-800: #221f29;
+  --ink-700: #2e2a37;
+  --ink-600: #3f3a49;
   --ink-400: #6e6a78;
   --ink-300: #9b96a3;
   --ink-200: #c9c4ce;
@@ -44,38 +51,30 @@
 
   --step--2: clamp(0.69rem, 0.66rem + 0.12vw, 0.75rem);
   --step--1: clamp(0.83rem, 0.78rem + 0.22vw, 0.94rem);
-  --step-0: clamp(1rem, 0.94rem + 0.3vw, 1.19rem);
-  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
-  --step-2: clamp(1.44rem, 1.28rem + 0.8vw, 1.9rem);
-  --step-3: clamp(1.73rem, 1.48rem + 1.25vw, 2.4rem);
-  --step-4: clamp(2.07rem, 1.7rem + 1.9vw, 3.03rem);
-  --step-5: clamp(2.49rem, 1.94rem + 2.75vw, 3.82rem);
-  --step-6: clamp(2.99rem, 2.2rem + 3.9vw, 4.83rem);
-  --step-7: clamp(3.58rem, 2.48rem + 5.5vw, 6.1rem);
+  --step-0: clamp(1rem, 0.94rem + 0.3vw, 1.13rem);
+  --step-1: clamp(1.15rem, 1.05rem + 0.5vw, 1.44rem);
+  --step-2: clamp(1.38rem, 1.2rem + 0.8vw, 1.85rem);
+  --step-3: clamp(1.66rem, 1.4rem + 1.25vw, 2.35rem);
+  --step-4: clamp(2rem, 1.6rem + 1.9vw, 3rem);
+  --step-5: clamp(2.35rem, 1.85rem + 2.6vw, 3.8rem);
+  --step-6: clamp(2.8rem, 2.1rem + 3.7vw, 4.8rem);
+  --step-7: clamp(3.1rem, 2.2rem + 5.2vw, 6rem);
   --step-display: clamp(3rem, 1rem + 11vw, 12rem);
 
-  --lh-display: 0.88;
+  --lh-display: 0.9;
   --lh-tight: 1.08;
   --lh-body: 1.6;
   --ls-display: -0.03em;
-  --ls-label: 0.16em;
+  --ls-label: 0.14em;
 
   /* ---------- Spațiu (bază 4px) ---------- */
-  --sp-1: 0.25rem;
-  --sp-2: 0.5rem;
-  --sp-3: 0.75rem;
-  --sp-4: 1rem;
-  --sp-6: 1.5rem;
-  --sp-8: 2rem;
-  --sp-12: 3rem;
-  --sp-16: 4rem;
-  --sp-24: 6rem;
-  --sp-32: 8rem;
-  --sp-48: 12rem;
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;   --sp-3: 0.75rem;  --sp-4: 1rem;
+  --sp-6: 1.5rem;   --sp-8: 2rem;     --sp-12: 3rem;    --sp-16: 4rem;
+  --sp-24: 6rem;    --sp-32: 8rem;    --sp-48: 12rem;
 
-  --gutter: clamp(1rem, 3vw, 2rem);
-  --container: min(1440px, 100% - 2 * var(--gutter));
-  --section-y: clamp(4rem, 10vw, 10rem);
+  --gutter: clamp(1.1rem, 4vw, 2.5rem);
+  --container: min(1400px, 100% - 2 * var(--gutter));
+  --section-y: clamp(3rem, 8vw, 7.5rem);
 
   /* ---------- Formă ---------- */
   --radius-0: 0px;
@@ -93,90 +92,159 @@
   --dur-slow: 620ms;
   --dur-reveal: 900ms;
 
+  /* ---------- Breakpoint-uri (referință; CSS-ul e mobile-first) ---------- */
+  --bp-sm: 600px;
+  --bp-md: 900px;
+  --bp-lg: 1200px; /* de aici antetul complet de desktop; sub → hamburger */
+
   /* ---------- Straturi ---------- */
+  --z-header: 800;
+  --z-dock: 820;
+  --z-scrim: 840;
+  --z-drawer: 850;
+  --z-menu: 880;
+  --z-search: 890;
+  --z-toast: 950;
   --z-grain: 9000;
   --z-cursor: 9500;
-  --z-header: 800;
-  --z-drawer: 850;
-  --z-modal: 900;
 }
 
 /* ==========================================================================
-   MOD MAGAZIN — luminos, editorial (implicit)
+   1. MAGAZIN · LUMINĂ (implicit)
+   Neonul nu strălucește la lumina zilei: devine cerneală saturată cu umbră
+   colorată difuză. Mișcarea rămâne identică pe toate suprafețele. (ADR-011)
    ========================================================================== */
 :root,
-[data-mode="shop"] {
+:root[data-lum="light"] {
   --bg: var(--bone);
   --bg-alt: var(--paper);
   --surface: var(--paper);
-  --surface-sunken: #ebe7e2;
+  --surface-sunken: #eae6e0;
   --fg: var(--ink-950);
   --fg-muted: var(--ink-400);
-  --fg-faint: var(--ink-300);
-  --line: rgb(0 0 0 / 0.12);
-  --line-strong: rgb(0 0 0 / 0.28);
+  --fg-faint: #a8a3ae;
+  --line: rgb(0 0 0 / 0.13);
+  --line-strong: rgb(0 0 0 / 0.32);
 
   --accent: var(--pink-500);
   --accent-hover: var(--pink-600);
-  --accent-fg: #000000; /* text NEGRU pe roz — 5,64:1 */
+  --accent-fg: #000000;          /* text NEGRU pe roz — 5,64:1 (ADR-007) */
   --accent-text: var(--pink-700); /* roz pentru text de corp — 7,24:1 */
   --accent-soft: var(--pink-100);
 
-  --glow: none;
-  --grain-opacity: 0.045;
-  --scheme: light;
+  --nf-1: drop-shadow(0 1px 5px rgb(var(--pink-rgb) / 0.24));
+  --nf-2: drop-shadow(0 2px 9px rgb(var(--pink-rgb) / 0.34));
+  --nf-3: drop-shadow(0 4px 18px rgb(var(--pink-rgb) / 0.48));
+  --nt: 0 1px 14px rgb(var(--pink-rgb) / 0.32);
+  --nb: 0 4px 22px rgb(var(--pink-rgb) / 0.26);
+  --tube: rgb(var(--pink-rgb) / 0.55);
+
+  --grain-opacity: 0.05;
   color-scheme: light;
 }
 
 /* ==========================================================================
-   MOD ATELIER — întunecat, neon
+   2. MAGAZIN · ÎNTUNERIC — editorial, nu atelier. Fundal cald și ridicat.
    ========================================================================== */
-[data-mode="atelier"] {
-  --bg: var(--ink-950);
-  --bg-alt: var(--ink-900);
-  --surface: var(--ink-900);
-  --surface-sunken: #000000;
-  --fg: var(--limira-white);
+:root[data-lum="dark"] {
+  --bg: var(--ink-900);
+  --bg-alt: var(--ink-850);
+  --surface: var(--ink-850);
+  --surface-sunken: #0b0a0e;
+  --fg: #f7f5f8;
   --fg-muted: var(--ink-300);
   --fg-faint: var(--ink-400);
-  --line: rgb(255 255 255 / 0.14);
+  --line: rgb(255 255 255 / 0.13);
   --line-strong: rgb(255 255 255 / 0.32);
 
   --accent: var(--pink-500);
   --accent-hover: var(--pink-300);
   --accent-fg: #000000;
-  --accent-text: var(--pink-300); /* 10,4:1 pe ink-950 */
-  --accent-soft: rgb(var(--pink-rgb) / 0.12);
+  --accent-text: var(--pink-300); /* 10,4:1 */
+  --accent-soft: rgb(var(--pink-rgb) / 0.13);
 
-  --glow: 0 0 48px rgb(var(--pink-rgb) / 0.32);
-  --grain-opacity: 0.06;
-  --scheme: dark;
+  --nf-1: drop-shadow(0 0 5px rgb(var(--pink-rgb) / 0.5));
+  --nf-2: drop-shadow(0 0 3px rgb(255 255 255 / 0.3))
+          drop-shadow(0 0 10px rgb(var(--pink-rgb) / 0.8))
+          drop-shadow(0 0 24px rgb(var(--pink-rgb) / 0.4));
+  --nf-3: drop-shadow(0 0 4px rgb(255 255 255 / 0.5))
+          drop-shadow(0 0 14px rgb(var(--pink-rgb) / 0.95))
+          drop-shadow(0 0 38px rgb(var(--pink-rgb) / 0.55));
+  --nt: 0 0 4px rgb(255 255 255 / 0.22), 0 0 14px rgb(var(--pink-rgb) / 0.72),
+        0 0 34px rgb(var(--pink-rgb) / 0.42);
+  --nb: 0 0 0 1px rgb(var(--pink-rgb) / 0.45), 0 0 18px rgb(var(--pink-rgb) / 0.42),
+        0 0 46px rgb(var(--pink-rgb) / 0.2);
+  --tube: rgb(var(--pink-rgb) / 0.9);
+
+  --grain-opacity: 0.07;
+  color-scheme: dark;
+}
+
+/* Fără JS / înainte de hidratare: urmăm preferința sistemului.
+   Aceleași valori ca blocul de mai sus — ține-le sincronizate. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-lum="light"]) {
+    --bg: var(--ink-900);
+    --bg-alt: var(--ink-850);
+    --surface: var(--ink-850);
+    --surface-sunken: #0b0a0e;
+    --fg: #f7f5f8;
+    --fg-muted: var(--ink-300);
+    --fg-faint: var(--ink-400);
+    --line: rgb(255 255 255 / 0.13);
+    --line-strong: rgb(255 255 255 / 0.32);
+    --accent-hover: var(--pink-300);
+    --accent-text: var(--pink-300);
+    --accent-soft: rgb(var(--pink-rgb) / 0.13);
+    --nf-1: drop-shadow(0 0 5px rgb(var(--pink-rgb) / 0.5));
+    --nf-2: drop-shadow(0 0 3px rgb(255 255 255 / 0.3))
+            drop-shadow(0 0 10px rgb(var(--pink-rgb) / 0.8))
+            drop-shadow(0 0 24px rgb(var(--pink-rgb) / 0.4));
+    --nf-3: drop-shadow(0 0 4px rgb(255 255 255 / 0.5))
+            drop-shadow(0 0 14px rgb(var(--pink-rgb) / 0.95))
+            drop-shadow(0 0 38px rgb(var(--pink-rgb) / 0.55));
+    --nt: 0 0 4px rgb(255 255 255 / 0.22), 0 0 14px rgb(var(--pink-rgb) / 0.72),
+          0 0 34px rgb(var(--pink-rgb) / 0.42);
+    --nb: 0 0 0 1px rgb(var(--pink-rgb) / 0.45), 0 0 18px rgb(var(--pink-rgb) / 0.42),
+          0 0 46px rgb(var(--pink-rgb) / 0.2);
+    --tube: rgb(var(--pink-rgb) / 0.9);
+    --grain-opacity: 0.07;
+    color-scheme: dark;
+  }
+}
+
+/* ==========================================================================
+   3. ATELIER (Faza 2) — vidul absolut, neonul la maxim.
+   Trebuie să rămână ULTIMUL: suprascrie luminozitatea, indiferent de data-lum.
+   ========================================================================== */
+:root[data-mode="atelier"] {
+  --bg: var(--ink-950);
+  --bg-alt: #0d0c11;
+  --surface: #0d0c11;
+  --surface-sunken: #000000;
+  --fg: var(--limira-white);
+  --fg-muted: var(--ink-300);
+  --fg-faint: var(--ink-400);
+  --line: rgb(255 255 255 / 0.15);
+  --line-strong: rgb(255 255 255 / 0.35);
+  --accent-hover: var(--pink-300);
+  --accent-text: var(--pink-300);
+  --accent-soft: rgb(var(--pink-rgb) / 0.12);
+  --grain-opacity: 0.08;
   color-scheme: dark;
 }
 
 /* ==========================================================================
-   Utilitare de formă din sistemul „cut & fold"
+   Utilitare din sistemul „cut & fold"
    ========================================================================== */
 .u-cut {
-  clip-path: polygon(
-    0 0,
-    calc(100% - var(--cut)) 0,
-    100% var(--cut),
-    100% 100%,
-    0 100%
-  );
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%);
 }
 .u-cut-tl {
-  clip-path: polygon(
-    var(--cut) 0,
-    100% 0,
-    100% 100%,
-    0 100%,
-    0 var(--cut)
-  );
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut));
 }
 .u-seam {
-  border: var(--hairline) dashed color-mix(in oklab, var(--accent) 60%, transparent);
+  border: var(--hairline) dashed color-mix(in oklab, var(--accent) 55%, transparent);
 }
 .u-label {
   font-family: var(--font-mono);
@@ -185,8 +253,35 @@
   letter-spacing: var(--ls-label);
   color: var(--fg-muted);
 }
-.u-num {
-  font-variant-numeric: tabular-nums;
+.u-num { font-variant-numeric: tabular-nums; }
+
+/* Neon. drop-shadow, nu box-shadow — urmează silueta după clip-path (ADR-011). */
+.u-neon-1 { filter: var(--nf-1); }
+.u-neon-2 { filter: var(--nf-2); }
+.u-neon-3 { filter: var(--nf-3); }
+.u-neon-text { color: var(--accent-text); text-shadow: var(--nt); }
+.u-neon-hum { animation: neon-hum 5s ease-in-out infinite; }
+
+@keyframes neon-hum {
+  0%, 100% { filter: var(--nf-2); }
+  50%      { filter: var(--nf-3); }
+}
+
+/* Aprinderea tubului. Textul rămâne lizibil tot timpul — pâlpâie haloul,
+   nu conținutul: prima imagine a paginii trebuie să fie mereu bună. */
+@keyframes neon-on {
+  0%       { opacity: 0.55; text-shadow: none; }
+  8%       { opacity: 1;    text-shadow: var(--nt); }
+  13%      { opacity: 0.6;  text-shadow: none; }
+  20%      { opacity: 1;    text-shadow: var(--nt); }
+  26%      { opacity: 0.75; text-shadow: none; }
+  34%,100% { opacity: 1;    text-shadow: var(--nt); }
+}
+
+/* Lumina care aleargă prin tub, la hover pe CTA. */
+@keyframes neon-sweep {
+  from { transform: translateX(-130%) skewX(-18deg); }
+  to   { transform: translateX(360%) skewX(-18deg); }
 }
 
 /* ==========================================================================
@@ -199,37 +294,40 @@
     --dur-slow: 120ms;
     --dur-reveal: 120ms;
   }
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 120ms !important;
     scroll-behavior: auto !important;
   }
+  .u-neon-hum { animation: none; filter: var(--nf-2); }
 }
 
 @media (prefers-reduced-transparency: reduce) {
-  :root {
-    --glow: none;
-    --grain-opacity: 0;
-  }
+  :root { --grain-opacity: 0; }
 }
 
 @media (prefers-contrast: more) {
-  [data-mode="shop"] {
+  :root, :root[data-lum="light"] {
     --fg-muted: var(--ink-600);
     --line: rgb(0 0 0 / 0.3);
   }
-  [data-mode="atelier"] {
+  :root[data-lum="dark"], :root[data-mode="atelier"] {
     --fg-muted: var(--ink-200);
     --line: rgb(255 255 255 / 0.35);
   }
 }
 
-/* Focus vizibil pe ambele moduri — nenegociabil */
+/* Focus vizibil pe toate suprafețele — nenegociabil */
 :where(a, button, input, select, textarea, [tabindex]):focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
   border-radius: var(--radius-1);
+}
+
+/* Țintă de atingere ≥ 44px pe mobil */
+@media (pointer: coarse) {
+  :where(a, button, [role="button"], input, select) {
+    min-height: 44px;
+  }
 }
