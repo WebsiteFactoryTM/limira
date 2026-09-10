@@ -14,8 +14,16 @@
 **Trimite clientei link-ul mockup-ului și cere aprobarea scrisă a direcției vizuale**,
 împreună cu cele 12 întrebări din `08-DECISIONS.md §B`.
 
-Mockup: **https://claude.ai/code/artifact/d0dc9c0e-9f54-4508-9bca-9047aebd3750**
-(sursa locală: `design/mockup/index.html` — republicarea pe același path păstrează URL-ul)
+**Două căi de a-l arăta clientei:**
+
+| | Link | Când îl folosești |
+|---|---|---|
+| Artefact | https://claude.ai/code/artifact/d0dc9c0e-9f54-4508-9bca-9047aebd3750 | iterații de lucru — se actualizează la același URL la republicare. **Privat implicit**, trebuie partajat din butonul Share |
+| Hosting propriu | `design/deploy/` — pachet static, vezi `design/deploy/README.md` | prezentarea oficială — URL cu brandul nostru, fără cont, de pe orice device |
+
+⚠️ **`design/mockup/index.html` este sursa.** `design/deploy/index.html` se GENEREAZĂ
+din ea cu `node design/build-standalone.mjs`. După orice modificare a mockup-ului,
+rulează scriptul, altfel copia de pe hosting rămâne în urmă.
 
 Nu începe M1 înainte de aprobare. Motivul e contractual: avem **2 runde de revizuiri de
 design în Faza 1** (art. 2.12), iar o rundă consumată pe cod construit în direcția greșită
@@ -174,6 +182,30 @@ culoare în paletă. Se schimbă un singur token. Decizia îi aparține.
 antetul de desktop. **Neverificat pe device real:** layout-ul de mobil și glitch-ul la
 scroll — artefactul se randează într-un iframe de lățime fixă, iar scroll-ul și
 redimensionarea nu ajung la el. **Deschide link-ul pe telefon înainte de trimitere.**
+
+**Următoarea acțiune:** neschimbată — trimite mockup-ul clientei și cere aprobarea scrisă.
+
+### Sesiunea 4 — 10.09.2026
+**Milestone:** M0 (pachet de livrare)
+
+**Făcut:** pachet static gata de urcat pe Vercel sau pe orice hosting, în `design/deploy/`
+(`index.html`, `og.png`, `robots.txt`, `vercel.json`, `README.md` cu instrucțiuni).
+
+Generat de `design/build-standalone.mjs`. Scriptul există pentru că
+`design/mockup/index.html` e un **fragment** — platforma de artefacte îi adaugă singură
+`<!doctype>`, `<head>` și `<body>`. Urcat ca atare pe un hosting normal ar fi rămas
+**fără `<meta charset>`** (diacriticele se strică) și **fără `<meta viewport>`**
+(telefonul randează versiunea de desktop). Scriptul mută titlul, fonturile și blocul
+`<style>` în `<head>` și adaugă meta-urile lipsă, `noindex`, favicon SVG din semnul
+logo-ului și cardul de previzualizare.
+
+**Verificat:** build-ul servit local se randează corect, diacriticele sunt intacte,
+titlul din tab e corect, structura HTML e validă (câte un singur `<html>`, `<head>`,
+`<body>`, `<title>`).
+
+**Încă neverificat pe device real:** layout-ul de mobil. Redimensionarea ferestrei nu
+are efect în mediul de testare de aici — am încercat de două ori și m-am oprit.
+**De deschis pe telefon după primul deploy.**
 
 **Următoarea acțiune:** neschimbată — trimite mockup-ul clientei și cere aprobarea scrisă.
 

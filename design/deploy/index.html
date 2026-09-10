@@ -1,0 +1,1868 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Limira Lamira — direcție vizuală</title>
+  <meta name="description" content="Mockup de direcție vizuală pentru magazinul online Limira Lamira Art Studio. Sistem de design NEON SALVAGE. Pregătit de Website Factory.">
+
+  <!-- Material de lucru pentru client: nu se indexează. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Website Factory">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:title" content="Limira Lamira — direcție vizuală">
+  <meta property="og:description" content="Mockup de direcție vizuală pentru magazinul online Limira Lamira Art Studio. Sistem de design NEON SALVAGE. Pregătit de Website Factory.">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Rulează cu MOCKUP_URL=https://... ca să se completeze og:url și og:image. -->
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23e64593%22%20stroke-width%3D%228%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M30%2012%20H88%20V88%22%2F%3E%3Cpath%20d%3D%22M70%2088%20H12%20V12%22%2F%3E%3Cpath%20d%3D%22M50%2026%20L74%2050%20L50%2074%20L26%2050%20Z%22%2F%3E%3Cpath%20d%3D%22M30%2034%20L70%2074%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23e64593%22%20stroke-width%3D%228%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M30%2012%20H88%20V88%22%2F%3E%3Cpath%20d%3D%22M70%2088%20H12%20V12%22%2F%3E%3Cpath%20d%3D%22M50%2026%20L74%2050%20L50%2074%20L26%2050%20Z%22%2F%3E%3Cpath%20d%3D%22M30%2034%20L70%2074%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+  <meta name="theme-color" content="#f5f2ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121014" media="(prefers-color-scheme: dark)">
+
+  <style>
+    /* Resetul minim pe care îl oferea platforma de artefacte. */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; }
+    img, svg, video { max-width: 100%; }
+    [hidden] { display: none !important; }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Montserrat:wght@300..700&family=Space+Mono:wght@400;700&display=swap">
+
+  <style>
+  /* ==========================================================================
+     LIMIRA LAMIRA — NEON SALVAGE
+     Mockup de direcție vizuală · Website Factory · 09.2026
+     CSS scris mobile-first: baza e telefonul, min-width adaugă.
+
+     DOUĂ AXE INDEPENDENTE:
+       data-lum  = light | dark      → luminozitatea magazinului (alegerea vizitatorului)
+       data-mode = shop  | atelier   → identitatea editorială (atelierul vine în Faza 2)
+     Atelierul e întunecat prin definiție contractuală, deci suprascrie data-lum.
+     ========================================================================== */
+
+  /* ---------- TOKENS DE BAZĂ ---------- */
+  :root{
+    --limira-pink:#e64593;
+    --pink-100:#ffe9f3; --pink-300:#ff9ec9; --pink-500:#e64593;
+    --pink-600:#c9316f; --pink-700:#a31e60; --pink-rgb:230 69 147;
+
+    --ink-950:#08070a; --ink-900:#121014; --ink-850:#191720; --ink-800:#221f29;
+    --ink-700:#2e2a37; --ink-600:#3f3a49; --ink-400:#6e6a78; --ink-300:#9b96a3;
+    --ink-200:#c9c4ce; --ink-100:#e7e3e8; --bone:#f5f2ee; --paper:#ffffff;
+
+    --font-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+    --font-ui:"Montserrat","Segoe UI",system-ui,sans-serif;
+    --font-mono:"Space Mono",ui-monospace,"Courier New",monospace;
+
+    --step--2:clamp(.69rem,.66rem + .12vw,.75rem);
+    --step--1:clamp(.83rem,.78rem + .22vw,.94rem);
+    --step-0:clamp(1rem,.94rem + .3vw,1.13rem);
+    --step-1:clamp(1.15rem,1.05rem + .5vw,1.44rem);
+    --step-2:clamp(1.38rem,1.2rem + .8vw,1.85rem);
+    --step-3:clamp(1.66rem,1.4rem + 1.25vw,2.35rem);
+    --step-4:clamp(2rem,1.6rem + 1.9vw,3rem);
+    --step-5:clamp(2.35rem,1.85rem + 2.6vw,3.8rem);
+    --step-6:clamp(2.8rem,2.1rem + 3.7vw,4.8rem);
+    --step-7:clamp(3.1rem,2.2rem + 5.2vw,6rem);
+
+    --gutter:clamp(1.1rem,4vw,2.5rem);
+    --container:min(1400px,100% - 2*var(--gutter));
+    --section-y:clamp(3rem,8vw,7.5rem);
+    --cut:18px;
+
+    --ease-out-expo:cubic-bezier(.16,1,.3,1);
+    --ease-inout-quart:cubic-bezier(.76,0,.24,1);
+    --ease-out-back:cubic-bezier(.34,1.56,.64,1);
+    --dur-fast:180ms; --dur:320ms; --dur-slow:620ms;
+
+    --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ==========================================================================
+     MAGAZIN · LUMINĂ (implicit)
+     Neonul nu strălucește la lumina zilei. Aici devine cerneală saturată cu o
+     umbră colorată — lumina care se scurge pe hârtie — și păstrează mișcarea.
+     ========================================================================== */
+  :root, :root[data-lum="light"]{
+    --bg:var(--bone); --bg-alt:var(--paper); --surface:var(--paper);
+    --surface-sunken:#eae6e0;
+    --fg:var(--ink-950); --fg-muted:var(--ink-400); --fg-faint:#a8a3ae;
+    --line:rgb(0 0 0 / .13); --line-strong:rgb(0 0 0 / .32);
+    --accent:var(--pink-500); --accent-hover:var(--pink-600);
+    --accent-fg:#000; --accent-text:var(--pink-700); --accent-soft:var(--pink-100);
+
+    --nf-1:drop-shadow(0 1px 5px rgb(var(--pink-rgb)/.24));
+    --nf-2:drop-shadow(0 2px 9px rgb(var(--pink-rgb)/.34));
+    --nf-3:drop-shadow(0 4px 18px rgb(var(--pink-rgb)/.48));
+    --nt:0 1px 14px rgb(var(--pink-rgb)/.32);
+    --nb:0 4px 22px rgb(var(--pink-rgb)/.26);
+    --tube:rgb(var(--pink-rgb)/.55);
+    /* plăcile de tipar dezaliniate — magenta iese, alb rămâne în urmă */
+    --glitch-a:rgb(var(--pink-rgb)/.9);
+    --glitch-b:rgb(255 255 255/.95);
+    --grain-op:.05;
+    color-scheme:light;
+  }
+
+  /* ==========================================================================
+     MAGAZIN · ÎNTUNERIC — editorial, nu atelier. Fundal cald, neon real.
+     ========================================================================== */
+  :root[data-lum="dark"]{
+    --bg:var(--ink-900); --bg-alt:var(--ink-850); --surface:var(--ink-850);
+    --surface-sunken:#0b0a0e;
+    --fg:#f7f5f8; --fg-muted:var(--ink-300); --fg-faint:var(--ink-400);
+    --line:rgb(255 255 255 / .13); --line-strong:rgb(255 255 255 / .32);
+    --accent:var(--pink-500); --accent-hover:var(--pink-300);
+    --accent-fg:#000; --accent-text:var(--pink-300);
+    --accent-soft:rgb(var(--pink-rgb)/.13);
+
+    --nf-1:drop-shadow(0 0 5px rgb(var(--pink-rgb)/.5));
+    --nf-2:drop-shadow(0 0 3px rgb(255 255 255/.3)) drop-shadow(0 0 10px rgb(var(--pink-rgb)/.8)) drop-shadow(0 0 24px rgb(var(--pink-rgb)/.4));
+    --nf-3:drop-shadow(0 0 4px rgb(255 255 255/.5)) drop-shadow(0 0 14px rgb(var(--pink-rgb)/.95)) drop-shadow(0 0 38px rgb(var(--pink-rgb)/.55));
+    --nt:0 0 4px rgb(255 255 255/.22), 0 0 14px rgb(var(--pink-rgb)/.72), 0 0 34px rgb(var(--pink-rgb)/.42);
+    --nb:0 0 0 1px rgb(var(--pink-rgb)/.45), 0 0 18px rgb(var(--pink-rgb)/.42), 0 0 46px rgb(var(--pink-rgb)/.2);
+    --tube:rgb(var(--pink-rgb)/.9);
+    --glitch-a:rgb(var(--pink-rgb)/.95);
+    --glitch-b:rgb(255 255 255/.6);
+    --grain-op:.07;
+    color-scheme:dark;
+  }
+
+  /* fără JS: urmăm preferința sistemului */
+  @media (prefers-color-scheme:dark){
+    :root:not([data-lum="light"]){
+      --bg:var(--ink-900); --bg-alt:var(--ink-850); --surface:var(--ink-850);
+      --surface-sunken:#0b0a0e;
+      --fg:#f7f5f8; --fg-muted:var(--ink-300); --fg-faint:var(--ink-400);
+      --line:rgb(255 255 255 / .13); --line-strong:rgb(255 255 255 / .32);
+      --accent-hover:var(--pink-300); --accent-text:var(--pink-300);
+      --accent-soft:rgb(var(--pink-rgb)/.13);
+      --nf-1:drop-shadow(0 0 5px rgb(var(--pink-rgb)/.5));
+      --nf-2:drop-shadow(0 0 3px rgb(255 255 255/.3)) drop-shadow(0 0 10px rgb(var(--pink-rgb)/.8)) drop-shadow(0 0 24px rgb(var(--pink-rgb)/.4));
+      --nf-3:drop-shadow(0 0 4px rgb(255 255 255/.5)) drop-shadow(0 0 14px rgb(var(--pink-rgb)/.95)) drop-shadow(0 0 38px rgb(var(--pink-rgb)/.55));
+      --nt:0 0 4px rgb(255 255 255/.22), 0 0 14px rgb(var(--pink-rgb)/.72), 0 0 34px rgb(var(--pink-rgb)/.42);
+      --nb:0 0 0 1px rgb(var(--pink-rgb)/.45), 0 0 18px rgb(var(--pink-rgb)/.42), 0 0 46px rgb(var(--pink-rgb)/.2);
+      --tube:rgb(var(--pink-rgb)/.9);
+      --glitch-a:rgb(var(--pink-rgb)/.95);
+      --glitch-b:rgb(255 255 255/.6);
+      --grain-op:.07;
+      color-scheme:dark;
+    }
+  }
+
+  /* ==========================================================================
+     ATELIER — Faza 2. Vidul absolut, neonul la maxim. Suprascrie luminozitatea.
+     ========================================================================== */
+  :root[data-mode="atelier"]{
+    --bg:var(--ink-950); --bg-alt:#0d0c11; --surface:#0d0c11; --surface-sunken:#000;
+    --fg:#fff; --fg-muted:var(--ink-300); --fg-faint:var(--ink-400);
+    --line:rgb(255 255 255 / .15); --line-strong:rgb(255 255 255 / .35);
+    --accent-hover:var(--pink-300); --accent-text:var(--pink-300);
+    --grain-op:.08;
+    color-scheme:dark;
+  }
+
+  /* ---------- RESET ---------- */
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font-family:var(--font-ui); font-size:var(--step-0); line-height:1.6;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    transition:background var(--dur) ease, color var(--dur) ease;
+  }
+  body.locked{overflow:hidden}
+  img{max-width:100%}
+  ::selection{background:var(--accent); color:#000}
+  .grain{position:fixed; inset:0; z-index:9000; pointer-events:none;
+    background-image:var(--grain); opacity:var(--grain-op); mix-blend-mode:overlay}
+
+  .wrap{width:var(--container); margin-inline:auto}
+  .section{padding-block:var(--section-y)}
+
+  h1,h2,h3,h4{font-family:var(--font-display); font-weight:700; margin:0;
+    line-height:.94; letter-spacing:-.03em; text-wrap:balance;
+    font-variation-settings:"wdth" 100}
+  p{margin:0}
+  a{color:inherit}
+  .label{font-family:var(--font-mono); font-size:var(--step--2); text-transform:uppercase;
+    letter-spacing:.14em; color:var(--fg-muted); display:inline-flex; gap:.5em;
+    align-items:center; flex-wrap:wrap}
+  .label b{color:var(--accent-text); font-weight:400}
+  .num{font-variant-numeric:tabular-nums}
+  .cut{clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,0 100%)}
+
+  :where(a,button,input,[tabindex]):focus-visible{
+    outline:2px solid var(--accent); outline-offset:3px}
+
+  /* ==========================================================================
+     NEON — sistemul de lumină
+     ========================================================================== */
+  @keyframes hum{0%,100%{filter:var(--nf-2)} 50%{filter:var(--nf-3)}}
+  /* Aprinderea tubului. Cuvântul rămâne lizibil tot timpul — pâlpâie haloul,
+     nu textul — ca prima imagine a paginii să fie mereu bună. */
+  @keyframes tubeOn{
+    0%{opacity:.55; text-shadow:none}   8%{opacity:1; text-shadow:var(--nt)}
+    13%{opacity:.6; text-shadow:none}   20%{opacity:1; text-shadow:var(--nt)}
+    26%{opacity:.75; text-shadow:none}
+    34%,100%{opacity:1; text-shadow:var(--nt)}
+  }
+  @keyframes sweep{from{transform:translateX(-130%) skewX(-18deg)}
+                   to{transform:translateX(360%) skewX(-18deg)}}
+
+  /* ---------- GLITCH ----------
+     Pe fundal deschis haloul de neon nu se vede — dar dezalinierea plăcilor de
+     tipar se vede foarte bine. Fantomele sunt făcute cu drop-shadow decalat, nu
+     cu text duplicat: funcționează pe orice text, pe oricâte rânduri, fără să
+     rupă layout-ul. Feliile taie orizontal, ca un semnal prost.               */
+  @keyframes glitch{
+    0%  {filter:none; transform:translate(0); clip-path:inset(0)}
+    7%  {filter:drop-shadow(-4px 0 var(--glitch-a)) drop-shadow(4px 0 var(--glitch-b));
+         transform:translate(2px,-1px); clip-path:inset(0)}
+    13% {filter:none; transform:translate(0); clip-path:inset(0)}
+    21% {filter:drop-shadow(6px 0 var(--glitch-a)) drop-shadow(-5px 0 var(--glitch-b));
+         transform:translate(-4px,1px); clip-path:inset(24% 0 54% 0)}
+    27% {filter:none; transform:translate(0); clip-path:inset(0)}
+    36% {filter:drop-shadow(-5px 0 var(--glitch-a)) drop-shadow(3px 0 var(--glitch-b));
+         text-shadow:var(--nt); transform:translate(2px,2px); clip-path:inset(64% 0 16% 0)}
+    43% {filter:none; transform:translate(0); clip-path:inset(0)}
+    51% {filter:drop-shadow(-3px 0 var(--glitch-a)); text-shadow:var(--nt);
+         transform:translate(-1px,0); clip-path:inset(8% 0 78% 0)}
+    57% {filter:none; transform:translate(0); clip-path:inset(0)}
+    66% {filter:drop-shadow(2px 0 var(--glitch-a)) drop-shadow(-2px 0 var(--glitch-b));
+         transform:translate(1px,-1px); clip-path:inset(0)}
+    74%,100%{filter:none; transform:translate(0); clip-path:inset(0)}
+  }
+  .glitch{will-change:filter,transform}
+  .glitch.fire{animation:glitch .62s steps(1,end) 1}
+  .glitch.fire.twice{animation-iteration-count:2}
+
+  /* Tubul care se desenează sub eticheta de secțiune — momentul „luminos"
+     care funcționează și pe fundal deschis. */
+  .tube{display:block; height:2px; width:0; margin-top:.85rem; background:var(--accent);
+    box-shadow:0 0 10px var(--tube),0 0 26px var(--tube); position:relative}
+  .tube.lit{animation:tubeDraw .9s var(--ease-out-expo) forwards}
+  @keyframes tubeDraw{
+    0%{width:0; opacity:.2}
+    6%{opacity:1} 10%{opacity:.3} 16%{opacity:1}
+    to{width:min(120px,38%); opacity:1}
+  }
+  .tube::after{content:""; position:absolute; right:-3px; top:-3px; width:8px; height:8px;
+    border-radius:999px; background:var(--accent); box-shadow:0 0 14px var(--tube),0 0 30px var(--tube)}
+  @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.55)}100%{transform:scale(1)}}
+  @keyframes ring{0%{box-shadow:0 0 0 0 rgb(var(--pink-rgb)/.6)}
+                  70%{box-shadow:0 0 0 20px rgb(var(--pink-rgb)/0)}
+                  100%{box-shadow:0 0 0 0 rgb(var(--pink-rgb)/0)}}
+
+  .neon-txt{color:var(--accent-text); text-shadow:var(--nt)}
+
+  /* ---------- BUTOANE ---------- */
+  .btn{
+    font-family:var(--font-ui); font-weight:600; font-size:var(--step--1);
+    letter-spacing:.02em; padding:1em 1.6em; border:1px solid transparent;
+    background:var(--accent); color:var(--accent-fg); cursor:pointer;
+    display:inline-flex; align-items:center; justify-content:center; gap:.6em;
+    text-decoration:none; position:relative; overflow:hidden; min-height:48px;
+    clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);
+    filter:var(--nf-2);
+    transition:background var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out-back),
+               filter var(--dur) ease;
+  }
+  .btn > span{position:relative; z-index:2}
+  .btn::after{  /* lumina care aleargă prin tub la hover */
+    content:""; position:absolute; top:-20%; bottom:-20%; left:0; width:30%;
+    background:linear-gradient(90deg,transparent,rgb(255 255 255/.6),transparent);
+    transform:translateX(-130%) skewX(-18deg); pointer-events:none; z-index:1;
+  }
+  .btn:hover{background:var(--accent-hover); transform:translateY(-2px); filter:var(--nf-3)}
+  .btn:hover::after{animation:sweep .8s var(--ease-out-expo)}
+  .btn:active{transform:translateY(0)}
+  .btn--hum{animation:hum 5s ease-in-out infinite}
+  .btn--ghost{background:transparent; color:var(--fg); border-color:var(--line-strong);
+    filter:none}
+  .btn--ghost:hover{background:transparent; border-color:var(--accent);
+    color:var(--accent-text); filter:var(--nf-1)}
+  .btn--ghost::after{display:none}
+  .btn--sm{padding:.7em 1.15em; font-size:var(--step--2); min-height:40px}
+
+  /* ==========================================================================
+     PROMO
+     ========================================================================== */
+  .promo{background:var(--accent); color:#000; font-family:var(--font-mono);
+    font-size:var(--step--2); letter-spacing:.08em; text-transform:uppercase;
+    padding:.6rem 0; box-shadow:0 0 26px rgb(var(--pink-rgb)/.45); position:relative; z-index:2}
+  .promo .wrap{display:flex; justify-content:center; gap:1rem; align-items:center}
+  .promo .b{display:none}
+  @media (min-width:700px){
+    .promo .wrap{justify-content:space-between}
+    .promo .b{display:inline; opacity:.75}
+  }
+
+  /* ==========================================================================
+     HEADER — mobile-first
+     ========================================================================== */
+  .hdr{position:sticky; top:0; z-index:800; background:var(--bg);
+    border-bottom:1px solid var(--line); padding-block:.85rem;
+    transition:padding var(--dur) var(--ease-out-expo), background var(--dur) ease}
+  .hdr.is-condensed{padding-block:.45rem;
+    background:color-mix(in oklab,var(--bg) 86%,transparent); backdrop-filter:blur(14px)}
+  .hdr .wrap{display:flex; align-items:center; gap:.4rem}
+
+  .logo{display:flex; align-items:center; gap:.55rem; text-decoration:none;
+    flex-shrink:0; margin-inline-end:auto; min-width:0}
+  .logo svg{width:30px; height:30px; display:block; flex-shrink:0; filter:var(--nf-1);
+    transition:width var(--dur) var(--ease-out-expo), height var(--dur) var(--ease-out-expo)}
+  .hdr.is-condensed .logo svg{width:26px; height:26px}
+  /* logo complet — semn + wordmark — inclusiv pe telefon */
+  .logo .wm{font-family:var(--font-ui); font-weight:300; color:var(--accent);
+    white-space:nowrap; font-size:.72rem; letter-spacing:.1em; line-height:1}
+  @media (min-width:420px){.logo .wm{font-size:.8rem; letter-spacing:.12em}}
+  @media (min-width:1200px){.logo .wm{font-size:var(--step--1); letter-spacing:.14em}}
+  /* favoritele trăiesc în meniu pe ecrane mici — antetul rămâne respirabil */
+  #wishBtn{display:none}
+  @media (min-width:600px){#wishBtn{display:grid}}
+
+  .nav{display:none}
+  .hdr .desk{display:none}
+
+  .ico{background:none; border:0; color:inherit; cursor:pointer;
+    width:44px; height:44px; position:relative; display:grid; place-items:center;
+    line-height:0; flex-shrink:0}
+  .ico svg{width:21px; height:21px; stroke:currentColor; fill:none; stroke-width:1.5;
+    stroke-linecap:round; stroke-linejoin:round}
+  .ico .badge{position:absolute; top:4px; right:2px; min-width:18px; height:18px;
+    padding:0 4px; background:var(--accent); color:#000; border-radius:999px;
+    font-family:var(--font-mono); font-size:10px; font-weight:700;
+    display:grid; place-items:center; line-height:1; filter:var(--nf-1)}
+  .ico .badge[data-empty="1"]{display:none}
+  .ico .badge.pop{animation:pop .5s var(--ease-out-back)}
+
+  /* hamburger */
+  .burger{position:relative; width:44px; height:44px; background:none; border:0;
+    color:inherit; cursor:pointer; flex-shrink:0}
+  .burger i{position:absolute; left:11px; width:22px; height:1.6px;
+    background:currentColor; border-radius:2px; top:50%; margin-top:-.8px;
+    transition:transform .45s var(--ease-out-back), opacity .18s ease, background .2s}
+  .burger i:nth-child(1){transform:translateY(-6.5px)}
+  .burger i:nth-child(3){transform:translateY(6.5px); width:14px}
+  .burger:hover i:nth-child(3){width:22px}
+  .burger[aria-expanded="true"] i{background:var(--accent)}
+  .burger[aria-expanded="true"] i:nth-child(1){transform:rotate(45deg)}
+  .burger[aria-expanded="true"] i:nth-child(2){opacity:0; transform:scaleX(.2)}
+  .burger[aria-expanded="true"] i:nth-child(3){transform:rotate(-45deg); width:22px}
+
+  /* comutatoare (segmented) */
+  .seg{display:inline-flex; align-items:center; border:1px solid var(--line-strong);
+    padding:2px; gap:0; flex-shrink:0}
+  .seg button{font-family:var(--font-mono); font-size:10px; letter-spacing:.11em;
+    text-transform:uppercase; padding:.55em .8em; border:0; cursor:pointer;
+    background:transparent; color:var(--fg-muted); white-space:nowrap;
+    display:inline-flex; align-items:center; gap:.4em; min-height:34px;
+    transition:background var(--dur-fast) ease, color var(--dur-fast) ease}
+  .seg button svg{width:14px; height:14px; stroke:currentColor; fill:none;
+    stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round}
+  .seg button[aria-pressed="true"], .seg button[aria-checked="true"]{
+    background:var(--accent); color:#000; font-weight:700; filter:var(--nf-1)}
+  .seg button[aria-disabled="true"]{opacity:.5; cursor:not-allowed}
+  .seg .lock{width:11px; height:11px; opacity:.8}
+
+  @media (min-width:1200px){
+    .hdr .wrap{gap:clamp(.8rem,2vw,1.8rem)}
+    .logo{margin-inline-end:0; gap:.7rem}
+    .nav{display:flex; gap:clamp(1rem,1.8vw,1.7rem); margin-inline-start:auto}
+    .nav a{font-size:var(--step--1); text-decoration:none; font-weight:500;
+      position:relative; padding-block:.35em; white-space:nowrap}
+    .nav a::after{content:""; position:absolute; left:0; right:100%; bottom:0;
+      height:1.5px; background:var(--accent); box-shadow:0 0 10px var(--tube);
+      transition:right var(--dur) var(--ease-out-expo)}
+    .nav a:hover::after,.nav a[aria-current]::after{right:0}
+    .hdr .desk{display:flex; align-items:center; gap:.7rem; margin-inline-start:auto}
+    .hdr .burger{display:none}
+    .hdr .m-only{display:none}
+  }
+
+  /* ==========================================================================
+     MENIU MOBIL — modal pe tot ecranul, intrare cu tăietură diagonală
+     ========================================================================== */
+  .menu{position:fixed; inset:0; z-index:880; background:var(--bg);
+    display:flex; flex-direction:column; overflow-y:auto;
+    clip-path:polygon(0 0,100% 0,100% -32%,0 0%); visibility:hidden;
+  }
+  .menu.open{visibility:visible; animation:menuIn .62s var(--ease-inout-quart) forwards}
+  .menu.closing{animation:menuOut .42s var(--ease-inout-quart) forwards}
+  @keyframes menuIn{from{clip-path:polygon(0 0,100% 0,100% -32%,0 0%)}
+                    to{clip-path:polygon(0 0,100% 0,100% 100%,0 132%)}}
+  @keyframes menuOut{from{clip-path:polygon(0 0,100% 0,100% 100%,0 132%)}
+                     to{clip-path:polygon(0 0,100% 0,100% -32%,0 0%)}}
+  .menu::before{content:""; position:fixed; inset:0; background-image:var(--grain);
+    opacity:var(--grain-op); mix-blend-mode:overlay; pointer-events:none}
+
+  .menu-top{display:flex; align-items:center; justify-content:space-between;
+    padding:.85rem var(--gutter); border-bottom:1px solid var(--line);
+    position:sticky; top:0; background:var(--bg); z-index:3}
+  .menu-body{padding:clamp(1.5rem,6vw,3rem) var(--gutter) 2rem; flex:1;
+    display:flex; flex-direction:column; gap:clamp(1.8rem,5vw,2.6rem)}
+
+  .menu-nav{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+  .menu-nav li{overflow:hidden}
+  .menu.open .menu-nav li > a{animation:mItem .6s var(--ease-out-expo) both}
+  .menu-nav li:nth-child(1) > a{animation-delay:.16s}
+  .menu-nav li:nth-child(2) > a{animation-delay:.22s}
+  .menu-nav li:nth-child(3) > a{animation-delay:.28s}
+  .menu-nav li:nth-child(4) > a{animation-delay:.34s}
+  .menu-nav li:nth-child(5) > a{animation-delay:.40s}
+  @keyframes mItem{from{transform:translateY(105%); opacity:0}
+                   to{transform:translateY(0); opacity:1}}
+  .menu-nav a{
+    display:flex; align-items:baseline; justify-content:space-between; gap:1rem;
+    text-decoration:none; padding-block:.42em; position:relative;
+    font-family:var(--font-display); font-weight:700; font-size:var(--step-5);
+    line-height:1.05; letter-spacing:-.03em;
+  }
+  .menu-nav a .c{font-family:var(--font-mono); font-size:var(--step--2);
+    font-weight:400; letter-spacing:.12em; color:var(--fg-muted);
+    text-transform:uppercase; flex-shrink:0}
+  .menu-nav a::before{ /* tubul de neon care se aprinde sub item */
+    content:""; position:absolute; left:0; bottom:.18em; height:2px; width:0;
+    background:var(--accent); box-shadow:0 0 12px var(--tube),0 0 30px var(--tube);
+    transition:width .45s var(--ease-out-expo);
+  }
+  .menu-nav a:hover::before,.menu-nav a:focus-visible::before{width:100%}
+  .menu-nav a.fired{color:var(--accent-text); text-shadow:var(--nt)}
+  .menu-nav a.fired::before{width:100%}
+
+  .menu-row{display:flex; flex-wrap:wrap; gap:.7rem 1.2rem; align-items:center}
+  .menu-sec > .label{display:block; margin-bottom:.7rem}
+  .menu-sec + .menu-sec{padding-top:clamp(1.2rem,4vw,1.8rem); border-top:1px solid var(--line)}
+  .menu-contact{display:grid; gap:.5rem; grid-template-columns:1fr}
+  @media (min-width:520px){.menu-contact{grid-template-columns:repeat(3,1fr)}}
+  .menu-contact a{display:flex; align-items:center; gap:.6rem; text-decoration:none;
+    border:1px solid var(--line); padding:.85rem 1rem; font-size:var(--step--1);
+    min-height:48px; transition:border-color var(--dur-fast) ease, filter var(--dur) ease}
+  .menu-contact a:hover{border-color:var(--accent); filter:var(--nf-1)}
+  .menu-contact svg{width:18px; height:18px; stroke:var(--accent); fill:none; stroke-width:1.6}
+
+  /* ==========================================================================
+     CĂUTARE
+     ========================================================================== */
+  .search{position:fixed; inset:0; z-index:890; background:color-mix(in oklab,var(--bg) 94%,transparent);
+    backdrop-filter:blur(18px); display:flex; flex-direction:column; visibility:hidden;
+    opacity:0; transition:opacity var(--dur) ease, visibility var(--dur)}
+  .search.open{visibility:visible; opacity:1}
+  .search-in{width:var(--container); margin:clamp(3rem,12vh,7rem) auto 0}
+  .search-field{display:flex; align-items:center; gap:1rem;
+    border-bottom:2px solid var(--accent); padding-bottom:1rem;
+    box-shadow:0 12px 40px -30px var(--tube)}
+  .search-field svg{width:26px; height:26px; stroke:var(--accent); fill:none; stroke-width:1.5}
+  .search-field input{flex:1; border:0; background:transparent; color:var(--fg);
+    font-family:var(--font-display); font-weight:700; font-size:var(--step-4);
+    letter-spacing:-.03em; outline:0; min-width:0}
+  .search-field input::placeholder{color:var(--fg-faint)}
+  .search-sug{margin-top:2rem; display:flex; flex-wrap:wrap; gap:.6rem}
+  .chip{font-family:var(--font-mono); font-size:var(--step--2); text-transform:uppercase;
+    letter-spacing:.1em; border:1px solid var(--line-strong); padding:.6em 1em;
+    border-radius:999px; background:transparent; color:var(--fg-muted); cursor:pointer;
+    min-height:38px; transition:all var(--dur-fast) ease}
+  .chip:hover{border-color:var(--accent); color:var(--accent-text); filter:var(--nf-1)}
+
+  /* ==========================================================================
+     HERO
+     ========================================================================== */
+  .hero{padding-block:clamp(2rem,6vw,3.75rem) clamp(2rem,5vw,4rem)}
+  .hero-grid{display:grid; gap:clamp(1.75rem,5vw,4rem); align-items:center}
+  .hero h1{font-size:var(--step-7); margin-block:1rem 0; line-height:.9;
+    font-variation-settings:"wdth" 96}
+  .hero h1 .w{display:inline-block; overflow:hidden; vertical-align:bottom;
+    padding-bottom:.16em; margin-bottom:-.16em}
+  .hero h1.lit .w{overflow:visible}
+  .hero h1 .w > span{display:inline-block}
+  .js .hero h1 .w > span{transform:translateY(112%); animation:riseUp .7s var(--ease-out-expo) forwards}
+  @keyframes riseUp{to{transform:translateY(0)}}
+  .hero h1 em{font-style:normal; color:var(--accent-text)}
+  .hero h1.lit em{animation:tubeOn .9s steps(1,end) forwards}
+  .hero-lead{margin-top:1.35rem; max-width:46ch; color:var(--fg-muted);
+    font-size:var(--step-1); line-height:1.45; font-weight:300}
+  .hero-cta{display:flex; gap:.7rem; margin-top:1.9rem; flex-wrap:wrap}
+  .hero-cta .btn{flex:1 1 auto}
+
+  .hero-art{position:relative; aspect-ratio:4/5; order:-1}
+  .hero-art .swatch{position:absolute; inset:0}
+  .hero-art .tag{position:absolute; left:0; bottom:20px; background:var(--accent);
+    color:#000; font-family:var(--font-mono); font-size:var(--step--2);
+    letter-spacing:.1em; padding:.55em .9em; text-transform:uppercase;
+    filter:var(--nf-2); z-index:3}
+  .hero-art .halo{position:absolute; inset:14%; border-radius:50%; pointer-events:none;
+    box-shadow:0 0 90px 20px rgb(var(--pink-rgb)/.3); animation:bloom 9s ease-in-out infinite}
+  @keyframes bloom{0%,100%{opacity:.5; transform:scale(.92)}50%{opacity:1; transform:scale(1.06)}}
+
+  @media (min-width:900px){
+    .hero-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+    .hero-art{order:0; height:min(64vh,560px); justify-self:end; width:100%}
+    .hero-cta .btn{flex:0 0 auto}
+    .hero-art .tag{left:-10px}
+  }
+
+  /* ==========================================================================
+     MARQUEE
+     ========================================================================== */
+  .marquee{border-block:1px solid var(--line); background:var(--accent); color:#000;
+    overflow:hidden; padding-block:.7rem; user-select:none;
+    box-shadow:0 0 34px rgb(var(--pink-rgb)/.42)}
+  .marquee-track{display:flex; width:max-content; will-change:transform}
+  .marquee span{font-family:var(--font-mono); font-size:var(--step--1);
+    text-transform:uppercase; letter-spacing:.18em; padding-inline:1.4rem;
+    white-space:nowrap; font-weight:700}
+
+  /* ==========================================================================
+     SWATCH (placeholder de imagine)
+     ========================================================================== */
+  .swatch{position:relative; overflow:hidden; background:var(--sw-a,#2a2f4a);
+    background-image:
+      radial-gradient(120% 90% at 20% 12%, var(--sw-b,#4a5580) 0%, transparent 55%),
+      radial-gradient(90% 70% at 85% 95%, rgb(var(--pink-rgb)/.4) 0%, transparent 60%),
+      linear-gradient(155deg, var(--sw-a,#2a2f4a) 0%, #08070a 100%);
+    isolation:isolate}
+  .swatch::before{content:""; position:absolute; inset:0;
+    background-image:radial-gradient(circle at center, rgb(0 0 0/.55) 1.1px, transparent 1.2px);
+    background-size:7px 7px; opacity:.4; mix-blend-mode:multiply}
+  .swatch::after{content:""; position:absolute; inset:0; background-image:var(--grain);
+    opacity:.16; mix-blend-mode:overlay}
+  .sw-note{position:absolute; left:10px; top:10px; z-index:2;
+    font-family:var(--font-mono); font-size:9px; letter-spacing:.14em;
+    text-transform:uppercase; color:rgb(255 255 255/.6);
+    border:1px solid rgb(255 255 255/.28); padding:.35em .55em}
+  .m-denim{--sw-a:#1d2b4a;--sw-b:#3c5a8f}
+  .m-wool{--sw-a:#3b2f24;--sw-b:#8a6c48}
+  .m-net{--sw-a:#0f3b3a;--sw-b:#2c7f74}
+  .m-linen{--sw-a:#454034;--sw-b:#a2957a}
+  .m-leather{--sw-a:#3a1f1c;--sw-b:#7d4433}
+  .m-plastic{--sw-a:#2a1140;--sw-b:#6b3fa0}
+
+  /* ==========================================================================
+     ANTETURI DE SECȚIUNE
+     ========================================================================== */
+  .head{display:grid; gap:1rem; margin-bottom:clamp(1.5rem,4vw,2.75rem)}
+  .head h2{font-size:var(--step-5); margin-top:.6rem;
+    transition:font-variation-settings .45s var(--ease-out-expo)}
+  .head h2:hover{font-variation-settings:"wdth" 82}
+  .head p{color:var(--fg-muted); max-width:42ch; font-size:var(--step--1)}
+  @media (min-width:900px){
+    .head{grid-template-columns:1.4fr 1fr; align-items:end; gap:2rem}
+  }
+
+  /* ==========================================================================
+     CATEGORII
+     ========================================================================== */
+  .cats{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line)}
+  @media (min-width:900px){.cats{grid-template-columns:repeat(4,1fr)}}
+  .cat{position:relative; aspect-ratio:3/4; display:block; text-decoration:none;
+    overflow:hidden; background:var(--bg)}
+  .cat .swatch{position:absolute; inset:0; transition:transform .7s var(--ease-out-expo)}
+  .cat:hover .swatch{transform:scale(1.06)}
+  .cat-txt{position:absolute; inset:auto 0 0 0; padding:.9rem; z-index:2;
+    background:linear-gradient(to top,rgb(0 0 0/.84),transparent)}
+  .cat-txt h3{color:#fff; font-size:var(--step-2)}
+  .cat-txt .label{color:rgb(255 255 255/.6); margin-top:.3rem}
+  .cat::after{content:""; position:absolute; inset:0; border:2px solid var(--accent);
+    opacity:0; transition:opacity var(--dur) ease; z-index:3;
+    box-shadow:inset 0 0 26px rgb(var(--pink-rgb)/.4)}
+  .cat:hover::after{opacity:1}
+
+  /* ==========================================================================
+     PRODUSE
+     ========================================================================== */
+  .rail{display:grid; grid-auto-flow:column; grid-auto-columns:minmax(215px,72vw);
+    gap:1rem; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:1rem;
+    margin-inline:calc(var(--gutter)*-1); padding-inline:var(--gutter)}
+  .rail > *{scroll-snap-align:start}
+  @media (min-width:600px){.rail{grid-auto-columns:minmax(215px,44vw)}}
+  @media (min-width:1100px){
+    .rail{grid-auto-flow:row; grid-template-columns:repeat(5,1fr);
+      overflow:visible; margin-inline:0; padding-inline:0; gap:clamp(1rem,2vw,1.5rem)}
+  }
+  .card{display:flex; flex-direction:column; gap:.75rem}
+  .card-media{position:relative; aspect-ratio:4/5; overflow:hidden}
+  .card-media .swatch{position:absolute; inset:0;
+    transition:opacity .45s var(--ease-out-expo), transform .7s var(--ease-out-expo)}
+  .card-media .face-mat{opacity:0}
+  .card:hover .face-prod,.card:focus-within .face-prod{opacity:0; transform:scale(1.04)}
+  .card:hover .face-mat,.card:focus-within .face-mat{opacity:1}
+  .card-media .flag{position:absolute; top:0; right:0; z-index:3; background:var(--accent);
+    color:#000; font-family:var(--font-mono); font-size:9px; font-weight:700;
+    letter-spacing:.12em; padding:.45em .7em; text-transform:uppercase; filter:var(--nf-2)}
+  .card-media .flip-hint{position:absolute; left:0; bottom:0; z-index:3;
+    background:rgb(0 0 0/.78); color:#fff; font-family:var(--font-mono); font-size:9px;
+    letter-spacing:.12em; padding:.5em .7em; text-transform:uppercase; opacity:0;
+    transform:translateY(100%); transition:all var(--dur) var(--ease-out-expo)}
+  .card:hover .flip-hint,.card:focus-within .flip-hint{opacity:1; transform:translateY(0)}
+  .card h3{font-size:var(--step-1); line-height:1.08}
+  .card .meta{font-family:var(--font-mono); font-size:var(--step--2);
+    color:var(--fg-muted); letter-spacing:.06em; text-transform:uppercase}
+  .card .price{display:flex; align-items:baseline; gap:.55rem; flex-wrap:wrap;
+    font-family:var(--font-mono); font-size:var(--step-0); font-weight:700}
+  .card .price s{color:var(--fg-faint); font-weight:400; font-size:var(--step--1)}
+  .card .price .off{color:var(--accent-text); font-size:var(--step--2)}
+  .card .add{align-self:flex-start}
+
+  /* ==========================================================================
+     BEFORE / AFTER
+     ========================================================================== */
+  .ba{position:relative; aspect-ratio:4/5; overflow:hidden; user-select:none;
+    touch-action:pan-y}
+  @media (min-width:700px){.ba{aspect-ratio:16/10}}
+  .ba .layer{position:absolute; inset:0}
+  .ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
+  .ba .bar{position:absolute; top:0; bottom:0; left:var(--pos,50%); width:2px;
+    background:var(--accent); z-index:4;
+    box-shadow:0 0 14px var(--tube),0 0 40px rgb(var(--pink-rgb)/.55)}
+  .ba .knob{position:absolute; top:50%; left:var(--pos,50%); translate:-50% -50%;
+    z-index:5; width:54px; height:54px; background:var(--accent); color:#000;
+    display:grid; place-items:center; font-family:var(--font-mono); font-size:12px;
+    font-weight:700; border-radius:999px; pointer-events:none;
+    box-shadow:0 0 22px var(--tube),0 0 55px rgb(var(--pink-rgb)/.5)}
+  .ba .cap{position:absolute; z-index:3; bottom:12px; font-family:var(--font-mono);
+    font-size:var(--step--2); letter-spacing:.12em; text-transform:uppercase;
+    background:rgb(0 0 0/.75); color:#fff; padding:.5em .75em}
+  .ba .cap-l{left:12px} .ba .cap-r{right:12px}
+  .ba input{position:absolute; inset:0; width:100%; height:100%; opacity:0;
+    cursor:ew-resize; margin:0}
+
+  /* ==========================================================================
+     GALERIE ARTĂ
+     ========================================================================== */
+  .gal{display:flex; gap:1rem; overflow-x:auto; scroll-snap-type:x proximity;
+    padding-bottom:1.2rem; margin-inline:calc(var(--gutter)*-1);
+    padding-inline:var(--gutter); align-items:flex-end}
+  @media (min-width:900px){.gal{gap:1.6rem; cursor:grab}}
+  .gal.dragging{cursor:grabbing; scroll-snap-type:none}
+  .gal figure{margin:0; flex:0 0 auto; scroll-snap-align:center; width:clamp(200px,62vw,380px)}
+  .gal figure:nth-child(2n){width:clamp(160px,48vw,290px)}
+  .gal .swatch{aspect-ratio:var(--ar,3/4)}
+  .gal figure:nth-child(1) .swatch{--ar:4/5}
+  .gal figure:nth-child(2) .swatch{--ar:1/1}
+  .gal figure:nth-child(3) .swatch{--ar:3/4}
+  .gal figure:nth-child(4) .swatch{--ar:5/4}
+  .gal figure:nth-child(5) .swatch{--ar:2/3}
+  .gal figcaption{margin-top:.75rem}
+  .gal figcaption strong{font-family:var(--font-display); font-size:var(--step-1);
+    font-weight:600; display:block; line-height:1.1}
+  .gal figcaption span{font-family:var(--font-mono); font-size:var(--step--2);
+    color:var(--fg-muted); letter-spacing:.09em; text-transform:uppercase}
+  .gal .avail{color:var(--accent-text)}
+
+  /* ==========================================================================
+     ATELIER (mereu întunecat — așa e definit contractual)
+     ========================================================================== */
+  .atelier{background:var(--ink-950); color:#fff; position:relative; overflow:hidden;
+    border-block:1px solid rgb(255 255 255/.14);
+    --tube:rgb(var(--pink-rgb)/.9);
+    --nt:0 0 4px rgb(255 255 255/.22),0 0 14px rgb(var(--pink-rgb)/.72),0 0 34px rgb(var(--pink-rgb)/.42);
+    --nf-2:drop-shadow(0 0 3px rgb(255 255 255/.3)) drop-shadow(0 0 10px rgb(var(--pink-rgb)/.8)) drop-shadow(0 0 24px rgb(var(--pink-rgb)/.4));
+    --nf-3:drop-shadow(0 0 4px rgb(255 255 255/.5)) drop-shadow(0 0 14px rgb(var(--pink-rgb)/.95)) drop-shadow(0 0 38px rgb(var(--pink-rgb)/.55));
+    --accent-text:var(--pink-300); --accent-hover:var(--pink-300)}
+  .atelier .wrap{position:relative; z-index:2}
+  .atelier h2{font-size:var(--step-6); color:#fff}
+  .atelier .label{color:var(--ink-300)}
+  .atelier p{color:var(--ink-200)}
+  .atelier-grid{display:grid; gap:clamp(1.75rem,5vw,4rem); align-items:center}
+  @media (min-width:900px){.atelier-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+
+  .pano{position:relative; aspect-ratio:4/3; overflow:hidden;
+    border:1px solid rgb(255 255 255/.18)}
+  @media (min-width:700px){.pano{aspect-ratio:16/10}}
+  .pano .swatch{position:absolute; inset:0}
+  .pano .vig{position:absolute; inset:0;
+    background:radial-gradient(120% 90% at 50% 45%,transparent 30%,rgb(0 0 0/.78) 100%)}
+  .hot{position:absolute; width:30px; height:30px; border-radius:999px; border:0;
+    padding:0; background:var(--pink-500); cursor:pointer; z-index:3; translate:-50% -50%;
+    animation:ring 2.6s ease-out infinite; filter:var(--nf-2)}
+  .hot::after{content:""; position:absolute; inset:9px; background:#000; border-radius:999px}
+  .hot[aria-expanded="true"]{animation:none; background:#fff}
+  .hot-pop{position:absolute; z-index:5; width:min(250px,74vw); background:#0d0c11;
+    border:1px solid rgb(var(--pink-rgb)/.55); padding:1rem; translate:-50% 16px;
+    box-shadow:0 20px 60px rgb(0 0 0/.75),0 0 40px rgb(var(--pink-rgb)/.18)}
+  .hot-pop[hidden]{display:none}
+  .hot-pop .label{color:var(--pink-300); margin-bottom:.35rem}
+  .hot-pop strong{font-family:var(--font-display); font-size:var(--step-1); display:block;
+    line-height:1.1; margin-bottom:.3rem; color:#fff}
+  .hot-pop p{font-size:var(--step--1); color:var(--ink-200); line-height:1.45}
+  .hot-pop .price{font-family:var(--font-mono); color:var(--pink-300); font-weight:700;
+    margin-top:.55rem; display:block; text-shadow:var(--nt)}
+
+  .mechs{display:grid; grid-template-columns:1fr; gap:1px;
+    background:rgb(255 255 255/.14); margin-top:clamp(2rem,5vw,3.5rem)}
+  @media (min-width:700px){.mechs{grid-template-columns:repeat(2,1fr)}}
+  .mech{background:var(--ink-950); padding:clamp(1.2rem,3vw,1.8rem)}
+  .mech .n{font-family:var(--font-mono); font-size:var(--step--2); color:var(--pink-300);
+    letter-spacing:.14em; text-shadow:var(--nt)}
+  .mech h4{font-size:var(--step-2); margin-block:.45rem; color:#fff}
+  .mech p{font-size:var(--step--1); color:var(--ink-300); line-height:1.5}
+
+  /* ==========================================================================
+     STATS · TESTIMONIALE · NEWSLETTER
+     ========================================================================== */
+  .stats{display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(1.4rem,4vw,2.5rem)}
+  @media (min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat b{font-family:var(--font-display); font-size:var(--step-6); font-weight:700;
+    display:block; line-height:.9; font-variant-numeric:tabular-nums;
+    color:var(--accent-text); text-shadow:var(--nt)}
+  .stat span{font-family:var(--font-mono); font-size:var(--step--2); text-transform:uppercase;
+    letter-spacing:.13em; color:var(--fg-muted); display:block; margin-top:.5rem}
+
+  .quotes{display:grid; grid-template-columns:1fr; gap:1px; background:var(--line)}
+  @media (min-width:900px){.quotes{grid-template-columns:repeat(3,1fr)}}
+  .quote{background:var(--bg); padding:clamp(1.3rem,3.5vw,2.2rem)}
+  .quote blockquote{margin:0; font-family:var(--font-display); font-size:var(--step-2);
+    line-height:1.18; letter-spacing:-.02em}
+  .quote .who{margin-top:1.1rem; font-family:var(--font-mono); font-size:var(--step--2);
+    color:var(--fg-muted); letter-spacing:.1em; text-transform:uppercase}
+  .quote .stars{color:var(--accent); letter-spacing:.15em; font-size:var(--step--1);
+    text-shadow:var(--nt)}
+
+  .nl{border-block:1px solid var(--line); background:var(--bg-alt)}
+  .nl-grid{display:grid; gap:2rem; align-items:center}
+  @media (min-width:800px){.nl-grid{grid-template-columns:1fr auto}}
+  .nl h2{font-size:var(--step-4)}
+  .nl form{display:flex; gap:.5rem; flex-wrap:wrap}
+  .nl input{font-family:var(--font-ui); font-size:var(--step--1); padding:1em 1.1em;
+    border:1px solid var(--line-strong); background:var(--surface); color:var(--fg);
+    flex:1 1 240px; min-width:0; min-height:48px}
+  .nl input::placeholder{color:var(--fg-faint)}
+
+  /* ==========================================================================
+     FOOTER
+     ========================================================================== */
+  .ft{padding-block:clamp(2.5rem,6vw,4rem) 2rem; font-size:var(--step--1)}
+  .ft-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:2rem;
+    padding-bottom:2.5rem; border-bottom:1px solid var(--line)}
+  .ft-grid > div:first-child{grid-column:1/-1}
+  @media (min-width:900px){
+    .ft-grid{grid-template-columns:1.4fr repeat(3,1fr)}
+    .ft-grid > div:first-child{grid-column:auto}
+  }
+  .ft h4{font-family:var(--font-mono); font-size:var(--step--2); text-transform:uppercase;
+    letter-spacing:.13em; color:var(--fg-muted); font-weight:400; margin-bottom:.85rem}
+  .ft ul{list-style:none; padding:0; margin:0; display:grid; gap:.55rem}
+  .ft a{text-decoration:none; color:var(--fg-muted)}
+  .ft a:hover{color:var(--accent-text)}
+  .ft .logo{margin-inline-end:0}
+  .ft .logo .wm{display:inline}
+  .ft-bot{display:flex; justify-content:space-between; gap:.8rem; padding-top:1.5rem;
+    flex-wrap:wrap; font-family:var(--font-mono); font-size:var(--step--2);
+    color:var(--fg-faint); letter-spacing:.05em}
+
+  /* ==========================================================================
+     COȘ
+     ========================================================================== */
+  .scrim{position:fixed; inset:0; background:rgb(0 0 0/.62); z-index:840; opacity:0;
+    pointer-events:none; transition:opacity var(--dur) ease; backdrop-filter:blur(3px)}
+  .scrim.open{opacity:1; pointer-events:auto}
+  .drawer{position:fixed; top:0; right:0; bottom:0; width:min(420px,100%); z-index:850;
+    background:var(--bg); border-left:1px solid var(--line); transform:translateX(101%);
+    transition:transform var(--dur-slow) var(--ease-out-expo);
+    display:flex; flex-direction:column}
+  .drawer.open{transform:translateX(0)}
+  .drawer-hd{display:flex; align-items:center; justify-content:space-between;
+    padding:1rem var(--gutter); border-bottom:1px solid var(--line)}
+  .drawer-hd h3{font-size:var(--step-2)}
+  .drawer-body{flex:1; overflow-y:auto; padding:var(--gutter)}
+  .drawer-empty{color:var(--fg-muted); font-size:var(--step--1); text-align:center;
+    padding-block:3rem; line-height:1.6}
+  .ci{display:grid; grid-template-columns:64px 1fr auto; gap:.9rem; align-items:start;
+    padding-block:1rem; border-bottom:1px solid var(--line)}
+  .ci .swatch{aspect-ratio:4/5}
+  .ci h4{font-family:var(--font-ui); font-weight:600; font-size:var(--step--1);
+    letter-spacing:0; line-height:1.3}
+  .ci .meta{font-family:var(--font-mono); font-size:10px; color:var(--fg-muted);
+    text-transform:uppercase; letter-spacing:.1em; margin-top:.2rem}
+  .ci .qty{display:flex; align-items:center; gap:.4rem; margin-top:.6rem}
+  .ci .qty button{width:30px; height:30px; border:1px solid var(--line-strong);
+    background:transparent; color:var(--fg); cursor:pointer; font-family:var(--font-mono);
+    line-height:1; display:grid; place-items:center}
+  .ci .qty span{font-family:var(--font-mono); font-size:var(--step--1); min-width:1.6ch;
+    text-align:center}
+  .ci .ln{font-family:var(--font-mono); font-weight:700; font-size:var(--step--1);
+    white-space:nowrap}
+  .drawer-ft{padding:var(--gutter); border-top:1px solid var(--line); display:grid;
+    gap:.85rem; background:var(--bg-alt)}
+  .drawer-ft .row{display:flex; justify-content:space-between; font-family:var(--font-mono);
+    font-size:var(--step--1)}
+  .drawer-ft .row.total{font-size:var(--step-1); font-weight:700}
+  .drawer-ft .btn{width:100%}
+
+  /* ==========================================================================
+     DOCK DE CONTACT RAPID (mobil) · TOAST
+     ========================================================================== */
+  .dock{position:fixed; right:var(--gutter); bottom:calc(var(--gutter) + env(safe-area-inset-bottom));
+    z-index:820; display:flex; flex-direction:column; gap:.6rem}
+  @media (min-width:1200px){.dock{display:none}}
+  .dock a{width:50px; height:50px; border-radius:999px; background:var(--accent);
+    color:#000; display:grid; place-items:center; filter:var(--nf-2);
+    animation:hum 5s ease-in-out infinite; transition:transform var(--dur-fast) var(--ease-out-back)}
+  .dock a:nth-child(2){animation-delay:-2.5s}
+  .dock a:active{transform:scale(.92)}
+  .dock svg{width:22px; height:22px; stroke:currentColor; fill:none; stroke-width:1.8;
+    stroke-linecap:round; stroke-linejoin:round}
+
+  .toast{position:fixed; left:50%; bottom:calc(var(--gutter) + env(safe-area-inset-bottom));
+    translate:-50% 0; z-index:950; background:var(--accent); color:#000;
+    font-family:var(--font-mono); font-size:var(--step--2); letter-spacing:.08em;
+    text-transform:uppercase; padding:.85em 1.2em; filter:var(--nf-3);
+    opacity:0; transform:translateY(16px); pointer-events:none;
+    transition:opacity var(--dur) ease, transform var(--dur) var(--ease-out-back);
+    max-width:calc(100vw - 2*var(--gutter)); text-align:center}
+  .toast.show{opacity:1; transform:translateY(0)}
+
+  /* ==========================================================================
+     NOTĂ DE PREZENTARE
+     ========================================================================== */
+  .brief{background:var(--surface-sunken); border-block:1px solid var(--line)}
+  .brief-grid{display:grid; grid-template-columns:1fr; gap:clamp(1.5rem,4vw,2.5rem)}
+  @media (min-width:640px){.brief-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (min-width:1100px){.brief-grid{grid-template-columns:repeat(4,1fr)}}
+  .brief h3{font-size:var(--step-2); margin-bottom:.6rem}
+  .brief p,.brief li{font-size:var(--step--1); color:var(--fg-muted); line-height:1.6}
+  .brief ul{padding-left:1.05rem; margin:.5rem 0 0; display:grid; gap:.35rem}
+  .brief .ask{border-left:2px solid var(--accent); padding-left:.9rem; margin-top:.9rem;
+    box-shadow:-6px 0 20px -12px var(--tube)}
+  .brief .ask strong{color:var(--fg)}
+
+  /* ==========================================================================
+     CURSOR · REVEAL
+     ========================================================================== */
+  .cursor{position:fixed; top:0; left:0; z-index:9500; pointer-events:none;
+    width:26px; height:26px; border:1.5px solid var(--accent); border-radius:999px;
+    translate:-50% -50%; display:none; place-items:center;
+    box-shadow:0 0 14px var(--tube);
+    transition:width .25s var(--ease-out-expo), height .25s var(--ease-out-expo),
+      background .25s ease}
+  .cursor.on{display:grid}
+  .cursor.big{width:74px; height:74px; background:var(--accent);
+    box-shadow:0 0 26px var(--tube),0 0 60px rgb(var(--pink-rgb)/.45)}
+  .cursor i{font-family:var(--font-mono); font-style:normal; font-size:9px; font-weight:700;
+    letter-spacing:.1em; color:#000; opacity:0; transition:opacity .2s ease; white-space:nowrap}
+  .cursor.big i{opacity:1}
+
+  .js .rv{opacity:.001; transform:translateY(26px)}
+  .js .rv.in{opacity:1; transform:none;
+    transition:opacity .8s var(--ease-out-expo), transform .8s var(--ease-out-expo)}
+
+  /* ==========================================================================
+     PREFERINȚE DE UTILIZATOR
+     ========================================================================== */
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.01ms !important;
+      animation-iteration-count:1 !important; transition-duration:120ms !important}
+    .js .hero h1 .w > span{transform:none; animation:none}
+    .hero h1.lit em{animation:none; text-shadow:var(--nt)}
+    .js .rv{opacity:1; transform:none}
+    .cursor{display:none !important}
+    .menu.open{animation:none; clip-path:none}
+    .menu.closing{animation:none}
+    .menu.open .menu-nav li > a{animation:none}
+    .btn--hum,.dock a{animation:none}
+    .glitch.fire{animation:none !important; filter:none; transform:none; clip-path:none}
+    .tube.lit{animation:none; width:min(120px,38%)}
+  }
+  @media (prefers-reduced-transparency:reduce){
+    :root{--grain-op:0}
+  }
+  </style>
+</head>
+<body>
+
+<script>
+  /* Rulează înainte de primul paint: fără flash de temă greșită.
+     data-lum = luminozitate (alegerea vizitatorului)
+     data-mode = identitate editorială (rămâne „shop" până în Faza 2) */
+  (function () {
+    var r = document.documentElement;
+    r.classList.add('js');
+    r.setAttribute('data-mode', 'shop');
+    var pref = 'system';
+    try { pref = localStorage.getItem('limira_theme') || 'system'; } catch (e) {}
+    window.__limira = {
+      pref: pref,
+      resolve: function (p) {
+        if (p !== 'system') return p;
+        var host = r.getAttribute('data-theme');
+        if (host === 'dark' || host === 'light') return host;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      },
+      apply: function (p) {
+        this.pref = p;
+        r.setAttribute('data-lum', this.resolve(p));
+        try { localStorage.setItem('limira_theme', p); } catch (e) {}
+      }
+    };
+    r.setAttribute('data-lum', window.__limira.resolve(pref));
+  })();
+</script>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><i></i></div>
+
+<!-- ============ PROMO ============ -->
+<div class="promo">
+  <div class="wrap">
+    <span>Transport gratuit peste 300 lei</span>
+    <span class="b">Fiecare piesă are o viață anterioară</span>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Limira Lamira — acasă">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="#e64593" stroke-width="6" stroke-linecap="square">
+          <path d="M30 12 H88 V88"/><path d="M70 88 H12 V12"/>
+          <path d="M50 26 L74 50 L50 74 L26 50 Z"/><path d="M30 34 L70 74"/>
+        </g>
+      </svg>
+      <span class="wm">LIMIRA LAMIRA</span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="#produse" aria-current="page">Magazin</a>
+      <a href="#categorii">Categorii</a>
+      <a href="#arta">Artă unicat</a>
+      <a href="#atelier">Atelier</a>
+      <a href="#despre">Poveste</a>
+    </nav>
+
+    <!-- comutatoarele: doar pe desktop; pe mobil trăiesc în meniu -->
+    <div class="desk">
+      <div class="seg" role="group" aria-label="Mod de vizitare" data-modesw>
+        <button type="button" data-mode-btn="shop" aria-pressed="true">Magazin</button>
+        <button type="button" data-mode-btn="atelier" aria-pressed="false" aria-disabled="true">
+          Atelier
+          <svg class="lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+        </button>
+      </div>
+
+      <div class="seg" role="radiogroup" aria-label="Temă" data-themesw>
+        <button type="button" data-theme-btn="light" role="radio" aria-checked="false" aria-label="Temă luminoasă" title="Luminos">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+        </button>
+        <button type="button" data-theme-btn="dark" role="radio" aria-checked="false" aria-label="Temă întunecată" title="Întunecat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+        </button>
+        <button type="button" data-theme-btn="system" role="radio" aria-checked="true" aria-label="Ca sistemul" title="Ca sistemul">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <button class="ico" type="button" id="searchBtn" aria-label="Caută">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    </button>
+    <button class="ico" type="button" aria-label="Favorite" id="wishBtn">
+      <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7 2.6C19 15.4 12 20 12 20z"/></svg>
+      <span class="badge num">2</span>
+    </button>
+    <button class="ico" type="button" id="cartBtn" aria-label="Coșul meu">
+      <svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span class="badge num" id="cartCount" data-empty="1">0</span>
+    </button>
+    <button class="burger" type="button" id="burger" aria-expanded="false"
+      aria-controls="menu" aria-label="Deschide meniul">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<!-- ============ MENIU MOBIL ============ -->
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Meniu">
+  <div class="menu-top">
+    <a class="logo" href="#top" data-close-menu aria-label="Limira Lamira">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="#e64593" stroke-width="6" stroke-linecap="square">
+          <path d="M30 12 H88 V88"/><path d="M70 88 H12 V12"/>
+          <path d="M50 26 L74 50 L50 74 L26 50 Z"/><path d="M30 34 L70 74"/>
+        </g>
+      </svg>
+      <span class="wm">LIMIRA LAMIRA</span>
+    </a>
+    <button class="burger" type="button" id="burgerClose" aria-expanded="true"
+      aria-label="Închide meniul"><i></i><i></i><i></i></button>
+  </div>
+
+  <div class="menu-body">
+    <ul class="menu-nav">
+      <li><a href="#produse" data-close-menu>Magazin <span class="c">73 de piese</span></a></li>
+      <li><a href="#categorii" data-close-menu>Categorii <span class="c">4 secțiuni</span></a></li>
+      <li><a href="#arta" data-close-menu>Artă unicat <span class="c">9 lucrări</span></a></li>
+      <li><a href="#atelier" data-close-menu>Atelier <span class="c">faza 2</span></a></li>
+      <li><a href="#despre" data-close-menu>Poveste <span class="c">despre studio</span></a></li>
+    </ul>
+
+    <div class="menu-sec">
+      <span class="label">Mod de vizitare</span>
+      <div class="seg" role="group" aria-label="Mod de vizitare" data-modesw>
+        <button type="button" data-mode-btn="shop" aria-pressed="true">Magazin</button>
+        <button type="button" data-mode-btn="atelier" aria-pressed="false" aria-disabled="true">
+          Atelier
+          <svg class="lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="menu-sec">
+      <span class="label">Temă</span>
+      <div class="seg" role="radiogroup" aria-label="Temă" data-themesw>
+        <button type="button" data-theme-btn="light" role="radio" aria-checked="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+          Luminos
+        </button>
+        <button type="button" data-theme-btn="dark" role="radio" aria-checked="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+          Întunecat
+        </button>
+        <button type="button" data-theme-btn="system" role="radio" aria-checked="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>
+          Sistem
+        </button>
+      </div>
+    </div>
+
+    <div class="menu-sec">
+      <span class="label">Contul meu</span>
+      <div class="menu-contact">
+        <a href="#nota" data-close-menu>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+          Comenzile mele</a>
+        <a href="#nota" data-close-menu>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7 2.6C19 15.4 12 20 12 20z"/></svg>
+          Favorite (2)</a>
+        <a href="#nota" data-close-menu>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          Coșul</a>
+      </div>
+    </div>
+
+    <div class="menu-sec">
+      <span class="label">Contact rapid</span>
+      <div class="menu-contact">
+        <a href="#nota" data-close-menu>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.4-4.2A8.2 8.2 0 1 1 8 19.4l-4.5 1.1z"/></svg>
+          WhatsApp</a>
+        <a href="#nota" data-close-menu>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h3l2 5-2.2 1.5a12 12 0 0 0 5.7 5.7L16 13l5 2v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3z"/></svg>
+          Telefon</a>
+        <a href="#nota" data-close-menu>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>
+          Email</a>
+      </div>
+    </div>
+
+    <div class="menu-sec menu-row">
+      <span class="label">Limbă</span>
+      <div class="seg" role="group" aria-label="Limbă">
+        <button type="button" aria-pressed="true">RO</button>
+        <button type="button" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CĂUTARE ============ -->
+<div class="search" id="search" role="dialog" aria-modal="true" aria-label="Caută">
+  <div class="menu-top">
+    <span class="label">Caută &nbsp;/&nbsp; <b>produse, categorii, lucrări</b></span>
+    <button class="ico" type="button" id="searchClose" aria-label="Închide căutarea">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="search-in">
+    <div class="search-field">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" id="searchInput" placeholder="geantă din blug…" aria-label="Termen de căutare">
+    </div>
+    <div class="search-sug">
+      <button class="chip" type="button">Genți</button>
+      <button class="chip" type="button">Blug recuperat</button>
+      <button class="chip" type="button">Piese unicat</button>
+      <button class="chip" type="button">Sub 400 lei</button>
+      <button class="chip" type="button">Lână</button>
+      <button class="chip" type="button">Colecția „A doua viață"</button>
+    </div>
+    <p class="label" style="margin-top:2rem">Căutarea reală funcționează cu și fără diacritice</p>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="label">Timișoara &nbsp;/&nbsp; <b>Studio de modă și artă reciclată</b></span>
+      <h1 id="heroTitle">Nimic nu se aruncă. Totul se <em>croiește</em> din nou.</h1>
+      <p class="hero-lead">
+        Genți, haine și piese unicat făcute manual din materiale care aveau deja
+        o poveste. Intri în magazin — sau intri direct în atelier, unde le vezi
+        cum se nasc.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn--hum" href="#produse" data-cursor="Vezi"><span>Vezi magazinul</span></a>
+        <a class="btn btn--ghost" href="#atelier" data-cursor="Atelier"><span>Vezi atelierul &nbsp;↗</span></a>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="halo" aria-hidden="true"></div>
+      <div class="swatch m-denim cut"><span class="sw-note">Foto erou · placeholder</span></div>
+      <span class="tag">Colecția „A doua viață"</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="mqTrack"></div></div>
+
+<!-- ============ CATEGORII ============ -->
+<section class="section" id="categorii">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="label">Catalog &nbsp;/&nbsp; <b>04 secțiuni</b></span>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Caută după ce a fost, nu doar după ce este.</h2>
+      </div>
+      <p>Produsele în stoc, conceptele în lucru și colecțiile curatoriate au fiecare
+        propriul fel de a fi răsfoit.</p>
+    </div>
+    <div class="cats rv">
+      <a class="cat" href="#produse" data-cursor="Vezi">
+        <div class="swatch m-denim"><span class="sw-note">Foto categorie</span></div>
+        <div class="cat-txt"><h3>Genți</h3><span class="label">24 de piese</span></div></a>
+      <a class="cat" href="#produse" data-cursor="Vezi">
+        <div class="swatch m-wool"><span class="sw-note">Foto categorie</span></div>
+        <div class="cat-txt"><h3>Haine</h3><span class="label">31 de piese</span></div></a>
+      <a class="cat" href="#produse" data-cursor="Vezi">
+        <div class="swatch m-leather"><span class="sw-note">Foto categorie</span></div>
+        <div class="cat-txt"><h3>Accesorii</h3><span class="label">18 piese</span></div></a>
+      <a class="cat" href="#arta" data-cursor="Vezi">
+        <div class="swatch m-plastic"><span class="sw-note">Foto categorie</span></div>
+        <div class="cat-txt"><h3>Artă unicat</h3><span class="label">9 lucrări</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUSE ============ -->
+<section class="section" id="produse" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="label">Noutăți &nbsp;/&nbsp; <b>Croite luna aceasta</b></span>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Atinge o piesă. Îi vezi materialul de dinainte.</h2>
+      </div>
+      <p>Fiecare produs păstrează fotografia materialului-sursă. Este același câmp
+        care alimentează, în faza a doua, mecanica „Ce poți face din...?".</p>
+    </div>
+    <div class="rail rv" id="rail"></div>
+  </div>
+</section>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="label">Faza 2 &nbsp;/&nbsp; <b>Mecanica 01</b></span>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Ce poți face dintr-un blug vechi?</h2>
+      </div>
+      <p>Trage de bară. Este una dintre cele patru mecanici din modulul atelier —
+        aici, ca previzualizare.</p>
+    </div>
+    <div class="ba rv" id="ba" style="--pos:46%">
+      <div class="layer swatch m-denim"><span class="sw-note">Material sursă</span></div>
+      <div class="layer after swatch m-leather"><span class="sw-note">Piesa finită</span></div>
+      <span class="cap cap-l">Înainte · blug recuperat</span>
+      <span class="cap cap-r">După · Geanta MONO 01</span>
+      <div class="bar" aria-hidden="true"></div>
+      <div class="knob" aria-hidden="true">↔</div>
+      <input type="range" min="4" max="96" value="46" id="baRange"
+        aria-label="Compară înainte și după">
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARTĂ ============ -->
+<section class="section" id="arta" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="label">Galerie &nbsp;/&nbsp; <b>Piese unicat</b></span>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Aici nu se cumpără repede. Se privește întâi.</h2>
+      </div>
+      <p>Proporții mixte, fără crop agresiv, spațiu pentru poveste, proces și material.
+        O piesă vândută rămâne vizibilă — face parte din portofoliu.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="gal rv" id="gal">
+      <figure><div class="swatch m-net"><span class="sw-note">Foto lucrare</span></div>
+        <figcaption><strong>Fereastra din spate</strong>
+          <span>Colaj textil · 2026 · <span class="avail">disponibilă</span></span></figcaption></figure>
+      <figure><div class="swatch m-wool"><span class="sw-note">Foto lucrare</span></div>
+        <figcaption><strong>Cusătura roșie</strong>
+          <span>Panou · 2025 · vândută</span></figcaption></figure>
+      <figure><div class="swatch m-plastic"><span class="sw-note">Foto lucrare</span></div>
+        <figcaption><strong>Nod II</strong>
+          <span>Obiect · 2026 · <span class="avail">disponibilă</span></span></figcaption></figure>
+      <figure><div class="swatch m-linen"><span class="sw-note">Foto lucrare</span></div>
+        <figcaption><strong>Perdeaua de la etaj</strong>
+          <span>Textil · 2025 · vândută</span></figcaption></figure>
+      <figure><div class="swatch m-denim"><span class="sw-note">Foto lucrare</span></div>
+        <figcaption><strong>Indigo, de trei ori</strong>
+          <span>Colaj · 2026 · <span class="avail">disponibilă</span></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATELIER ============ -->
+<section class="atelier section" id="atelier">
+  <div class="wrap">
+    <div class="atelier-grid">
+      <div class="rv">
+        <span class="label">Faza 2 &nbsp;/&nbsp; <b>A doua cale</b></span>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Atelierul tău, digitalizat.</h2>
+        <p style="margin-top:1.1rem; max-width:44ch; font-size:var(--step-1);
+          line-height:1.45; font-weight:300;">
+          Șase până la zece poziții fotografiate 360°, legate între ele. Vizitatorul se
+          uită în jur, atinge obiectele, descoperă. Unele sunt produse și le poate
+          cumpăra pe loc, fără să iasă din scenă.
+        </p>
+        <p style="margin-top:1rem; max-width:44ch; font-size:var(--step--1);">
+          Coșul e comun. Ce adaugi în atelier găsești în magazin, și invers.
+          Comutatorul <em style="font-style:normal;color:var(--pink-300)">Magazin / Atelier</em>
+          din antet e deja pe poziție — se deblochează odată cu faza 2.
+        </p>
+      </div>
+
+      <div class="pano rv" id="pano">
+        <div class="swatch m-wool"><span class="sw-note">Panoramă 360° · placeholder</span></div>
+        <div class="vig" aria-hidden="true"></div>
+        <button class="hot" type="button" style="left:26%; top:58%" aria-expanded="false"
+          data-hot="p1" aria-label="Punct interactiv: Geanta MONO 01"></button>
+        <button class="hot" type="button" style="left:62%; top:36%" aria-expanded="false"
+          data-hot="p2" aria-label="Punct interactiv: mașina de cusut"></button>
+        <button class="hot" type="button" style="left:80%; top:70%" aria-expanded="false"
+          data-hot="p3" aria-label="Punct interactiv: raftul de materiale"></button>
+
+        <div class="hot-pop" id="p1" hidden style="left:26%; top:58%">
+          <span class="label">Produs în scenă</span><strong>Geanta MONO 01</strong>
+          <p>Din blug recuperat, croită manual. Adaugă în coș fără să ieși din atelier.</p>
+          <span class="price">420 lei</span></div>
+        <div class="hot-pop" id="p2" hidden style="left:62%; top:36%">
+          <span class="label">Hai în backstage</span><strong>Mașina de cusut</strong>
+          <p>Idee, schiță, croi, lucru manual. Procesul, arătat unde se întâmplă.</p></div>
+        <div class="hot-pop" id="p3" hidden style="left:80%; top:70%">
+          <span class="label">Atinge materialul</span><strong>Raftul de materiale</strong>
+          <p>Textura, proveniența, ce se poate face mai departe din ea.</p></div>
+      </div>
+    </div>
+
+    <div class="mechs rv">
+      <div class="mech"><span class="n">01</span><h4>Ce poți face din...?</h4>
+        <p>Un slider între materialul-sursă și piesa finită. Argumentul de vânzare al
+          brandului, transformat în gest.</p></div>
+      <div class="mech"><span class="n">02</span><h4>Găsește arta</h4>
+        <p>Referințe artistice ascunse în atelier. Fără ghicit, fără răspuns greșit —
+          doar descoperire.</p></div>
+      <div class="mech"><span class="n">03</span><h4>Ce nu vezi pe etichetă</h4>
+        <p>Mini-povești cu titluri care provoacă curiozitatea. Vizitatorul alege ce
+          îl interesează.</p></div>
+      <div class="mech"><span class="n">04</span><h4>Atinge materialul</h4>
+        <p>Mostre și texturi: de unde vine, cum se comportă, ce mai poate deveni.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POVESTE ============ -->
+<section class="section" id="despre">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="label">Despre &nbsp;/&nbsp; <b>Limira Lamira Art Studio</b></span>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Viața poate fi roz dacă alegi să o privești așa.</h2>
+      </div>
+      <p>Cifrele de mai jos sunt exemplu de structură. Datele reale le pune la
+        dispoziție studioul.</p>
+    </div>
+    <div class="stats rv">
+      <div class="stat"><b class="num" data-count="147">0</b><span>Piese croite</span></div>
+      <div class="stat"><b class="num" data-count="86">0</b><span>Kg material salvat</span></div>
+      <div class="stat"><b class="num" data-count="9">0</b><span>Lucrări unicat</span></div>
+      <div class="stat"><b class="num" data-count="1">0</b><span>Atelier, în Piața Unirii</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALE ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="quotes rv">
+      <div class="quote"><span class="stars">★★★★★</span>
+        <blockquote>„Am primit geanta și prima întrebare a fost din ce e făcută.
+          A doua, dacă mai are."</blockquote>
+        <div class="who">A. M. · Timișoara</div></div>
+      <div class="quote"><span class="stars">★★★★★</span>
+        <blockquote>„Nu semăna cu nimic din ce aveam. Exact ăsta era scopul."</blockquote>
+        <div class="who">R. P. · Cluj-Napoca</div></div>
+      <div class="quote"><span class="stars">★★★★★</span>
+        <blockquote>„Am intrat să mă uit. Am ieșit cu două piese și cu povestea lor."</blockquote>
+        <div class="who">D. I. · București</div></div>
+    </div>
+    <p class="label" style="margin-top:1rem">Text de exemplu · recenziile reale vin din panoul de administrare</p>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="nl section">
+  <div class="wrap nl-grid">
+    <div>
+      <h2 class="glitch">Piesele unicat pleacă în prima zi.</h2>
+      <p style="color:var(--fg-muted); margin-top:.7rem; max-width:44ch;">
+        Un email când apare ceva nou în atelier. Nimic altceva.</p>
+    </div>
+    <form onsubmit="return false">
+      <input type="email" placeholder="adresa ta de email" aria-label="Adresa de email">
+      <button class="btn" type="submit" data-cursor="Trimite"><span>Abonează-mă</span></button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ NOTĂ ============ -->
+<section class="brief section" id="nota">
+  <div class="wrap">
+    <span class="label">Pentru Limira &nbsp;/&nbsp; <b>Cum citești acest mockup</b></span>
+    <h2 class="glitch" style="font-size:var(--step-4); margin-block:.8rem 2rem; max-width:22ch;">
+      Ce vezi aici este direcția, nu site-ul final.</h2>
+
+    <div class="brief-grid">
+      <div>
+        <h3>Ce este real</h3>
+        <p>Paleta, tipografia, ritmul, mișcarea, structura paginii și modul în care se
+          comportă totul pe telefon. Meniul, căutarea și coșul funcționează.</p>
+        <p style="margin-top:.8rem">Rozul ocupă sub 10% din fiecare ecran, conform
+          regulii 70–20–10 pe care ai cerut-o.</p>
+      </div>
+      <div>
+        <h3>Neonul, cinstit</h3>
+        <p>Neonul nu strălucește la lumina zilei. Pe tema luminoasă devine cerneală
+          saturată cu o umbră colorată — lumina scursă pe hârtie. Pe tema întunecată
+          se aprinde complet, cu miez alb și halou.</p>
+        <p style="margin-top:.8rem">Pe fundal deschis intră în schimb <strong>glitch-ul</strong>:
+          plăcile de tipar se dezaliniază pentru o jumătate de secundă — magenta iese,
+          albul rămâne în urmă. Efect de tipar din anii '90, în roz și alb, fără culori
+          noi în paletă.</p>
+      </div>
+      <div>
+        <h3>Două comutatoare, două roluri</h3>
+        <p><strong>Luminos / Întunecat / Sistem</strong> — alegerea vizitatorului, se
+          ține minte. Funcționează acum.</p>
+        <p style="margin-top:.8rem"><strong>Magazin / Atelier</strong> — identitatea
+          editorială. E pe poziție, dar blocat: se deblochează în faza 2. Secțiunea
+          „Atelierul tău, digitalizat" de mai sus arată deja cum va arăta.</p>
+      </div>
+      <div>
+        <h3>Ce urmează</h3>
+        <p>Toate imaginile sunt texturi generate, marcate ca atare. Produsele,
+          prețurile și recenziile sunt exemple.</p>
+        <div class="ask">
+          <strong>Avem nevoie de un răspuns la:</strong>
+          <ul>
+            <li>Direcția vizuală este bună?</li>
+            <li>Ce schimbi la ea? (2 runde de revizuiri incluse)</li>
+            <li>Procesator de plăți, curier, facturare</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <a class="logo" href="#top" aria-label="Limira Lamira">
+          <svg viewBox="0 0 100 100" aria-hidden="true" style="width:30px;height:30px">
+            <g fill="none" stroke="#e64593" stroke-width="6" stroke-linecap="square">
+              <path d="M30 12 H88 V88"/><path d="M70 88 H12 V12"/>
+              <path d="M50 26 L74 50 L50 74 L26 50 Z"/><path d="M30 34 L70 74"/>
+            </g></svg>
+          <span class="wm">LIMIRA LAMIRA</span></a>
+        <p style="color:var(--fg-muted); max-width:32ch; margin-top:.9rem">
+          Studio de modă și artă din materiale reciclate. Piața Unirii 13, Timișoara.</p>
+      </div>
+      <div><h4>Magazin</h4>
+        <ul><li><a href="#produse">Noutăți</a></li><li><a href="#categorii">Categorii</a></li>
+        <li><a href="#produse">Oferte</a></li><li><a href="#arta">Artă unicat</a></li></ul></div>
+      <div><h4>Studio</h4>
+        <ul><li><a href="#despre">Povestea</a></li><li><a href="#atelier">Atelierul</a></li>
+        <li><a href="#nota">Blog</a></li><li><a href="#nota">Contact</a></li></ul></div>
+      <div><h4>Informații</h4>
+        <ul><li><a href="#nota">Termeni și condiții</a></li><li><a href="#nota">Confidențialitate</a></li>
+        <li><a href="#nota">Livrare și retur</a></li><li><a href="#nota">Cookie-uri</a></li></ul></div>
+    </div>
+    <div class="ft-bot">
+      <span>Mockup de direcție vizuală · Website Factory · septembrie 2026</span>
+      <span>Sistem de design NEON SALVAGE</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CONTACT RAPID (mobil) ============ -->
+<div class="dock">
+  <a href="#nota" aria-label="Scrie-ne pe WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.4-4.2A8.2 8.2 0 1 1 8 19.4l-4.5 1.1z"/></svg></a>
+  <a href="#nota" aria-label="Sună-ne">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h3l2 5-2.2 1.5a12 12 0 0 0 5.7 5.7L16 13l5 2v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3z"/></svg></a>
+</div>
+
+<!-- ============ COȘ ============ -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Coșul meu" aria-hidden="true">
+  <div class="drawer-hd">
+    <h3>Coșul tău</h3>
+    <button class="ico" type="button" id="closeCart" aria-label="Închide coșul">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="drawer-body" id="cartBody">
+    <p class="drawer-empty">Încă gol.<br>Fiecare piesă de aici a avut o viață înainte.</p>
+  </div>
+  <div class="drawer-ft">
+    <div class="row"><span>Subtotal</span><span class="num" id="sub">0 lei</span></div>
+    <div class="row"><span>Transport</span><span id="ship">—</span></div>
+    <div class="row total"><span>Total</span><span class="num" id="tot">0 lei</span></div>
+    <button class="btn" type="button" data-cursor="Comandă"><span>Finalizează comanda</span></button>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  var body = document.body;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var L = window.__limira;
+
+  /* ---------- TOAST ---------- */
+  var toastEl = document.getElementById('toast'), toastT;
+  function toast(msg) {
+    toastEl.textContent = msg; toastEl.classList.add('show');
+    clearTimeout(toastT); toastT = setTimeout(function () {
+      toastEl.classList.remove('show');
+    }, 2800);
+  }
+
+  /* ---------- GLITCH ----------
+     Declanșat de: intrarea în ecran (merge și pe mobil, fără hover),
+     încărcarea eroului, atingerea logo-ului, schimbarea temei, plus un
+     puls ambiental care ține firma „vie". */
+  function glitch(el, twice) {
+    if (!el || reduced) return;
+    el.classList.add('glitch');
+    el.classList.remove('fire', 'twice');
+    void el.offsetWidth;                       // repornește animația
+    el.classList.add('fire');
+    if (twice) el.classList.add('twice');
+  }
+  document.addEventListener('animationend', function (e) {
+    if (e.animationName === 'glitch') e.target.classList.remove('fire', 'twice');
+  });
+  function inView(el) {
+    var r = el.getBoundingClientRect();
+    return r.bottom > 60 && r.top < window.innerHeight - 60;
+  }
+
+  /* logo: se dezaliniază la atingere sau la hover */
+  document.querySelectorAll('.logo').forEach(function (a) {
+    var wm = a.querySelector('.wm');
+    if (!wm) return;
+    a.addEventListener('pointerenter', function () { glitch(wm); });
+    a.addEventListener('click', function () { glitch(wm); });
+  });
+
+  /* puls ambiental: la ~7s, un singur element vizibil pâlpâie */
+  var pool = '.stat b, .marquee, .promo span, .card .price, .cat-txt h3, .gal figcaption strong';
+  setInterval(function () {
+    if (reduced || document.hidden) return;
+    var vis = Array.prototype.filter.call(document.querySelectorAll(pool), inView);
+    if (!vis.length) return;
+    glitch(vis[Math.floor(Math.random() * vis.length)]);
+  }, 7000);
+
+  /* ---------- TEMĂ: luminos / întunecat / sistem ---------- */
+  function syncTheme() {
+    document.querySelectorAll('[data-theme-btn]').forEach(function (b) {
+      b.setAttribute('aria-checked', String(b.dataset.themeBtn === L.pref));
+    });
+  }
+  document.querySelectorAll('[data-theme-btn]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      L.apply(b.dataset.themeBtn); syncTheme();
+      glitch(document.querySelector('.hdr .logo .wm'), true);
+      document.querySelectorAll('h2.glitch').forEach(function (h) { if (inView(h)) glitch(h); });
+      var n = { light: 'Temă luminoasă', dark: 'Temă întunecată', system: 'Urmează sistemul' };
+      toast(n[b.dataset.themeBtn]);
+    });
+  });
+  syncTheme();
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+  (mq.addEventListener ? mq.addEventListener.bind(mq, 'change') : mq.addListener.bind(mq))(function () {
+    if (L.pref === 'system') root.setAttribute('data-lum', L.resolve('system'));
+  });
+  new MutationObserver(function () {
+    if (L.pref === 'system') root.setAttribute('data-lum', L.resolve('system'));
+  }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+
+  /* ---------- MOD: magazin / atelier (blocat până în Faza 2) ---------- */
+  document.querySelectorAll('[data-mode-btn]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (b.dataset.modeBtn === 'atelier') {
+        toast('Atelierul se deschide în faza 2');
+        var pano = document.getElementById('atelier');
+        if (menuOpen) closeMenu();
+        setTimeout(function () { pano.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }); }, 260);
+      }
+    });
+  });
+
+  /* ---------- HEADER ---------- */
+  var hdr = document.getElementById('hdr');
+  var lastY = 0, ticking = false, vel = 0;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY; vel = y - lastY; lastY = y;
+      hdr.classList.toggle('is-condensed', y > 80); ticking = false;
+    });
+  }, { passive: true });
+
+  /* ---------- MENIU ---------- */
+  var menu = document.getElementById('menu');
+  var burger = document.getElementById('burger');
+  var burgerClose = document.getElementById('burgerClose');
+  var menuOpen = false, lastFocus = null;
+
+  function openMenu() {
+    menuOpen = true; lastFocus = document.activeElement;
+    menu.classList.remove('closing'); menu.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Închide meniul');
+    body.classList.add('locked');
+    setTimeout(function () { burgerClose.focus(); }, 120);
+  }
+  function closeMenu() {
+    if (!menuOpen) return;
+    menuOpen = false;
+    menu.classList.add('closing');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Deschide meniul');
+    body.classList.remove('locked');
+    setTimeout(function () {
+      menu.classList.remove('open', 'closing');
+      menu.querySelectorAll('.fired').forEach(function (a) { a.classList.remove('fired'); });
+    }, reduced ? 0 : 420);
+    if (lastFocus) lastFocus.focus();
+  }
+  burger.addEventListener('click', function () { menuOpen ? closeMenu() : openMenu(); });
+  burgerClose.addEventListener('click', closeMenu);
+
+  /* mișcare per acțiune: itemul se aprinde, apoi meniul se închide */
+  menu.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-close-menu]');
+    if (!a) return;
+    a.classList.add('fired');
+    setTimeout(closeMenu, reduced ? 0 : 220);
+  });
+
+  /* focus trap pentru meniu și căutare */
+  function trap(container, isOpen) {
+    return function (e) {
+      if (e.key !== 'Tab' || !isOpen()) return;
+      var f = container.querySelectorAll('a[href],button:not([disabled]),input,[tabindex]:not([tabindex="-1"])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
+  }
+  document.addEventListener('keydown', trap(menu, function () { return menuOpen; }));
+
+  /* ---------- CĂUTARE ---------- */
+  var search = document.getElementById('search');
+  var searchOpen = false;
+  function setSearch(o) {
+    searchOpen = o; search.classList.toggle('open', o);
+    body.classList.toggle('locked', o || menuOpen);
+    if (o) setTimeout(function () { document.getElementById('searchInput').focus(); }, 120);
+  }
+  document.getElementById('searchBtn').addEventListener('click', function () { setSearch(true); });
+  document.getElementById('searchClose').addEventListener('click', function () { setSearch(false); });
+  document.addEventListener('keydown', trap(search, function () { return searchOpen; }));
+  document.querySelectorAll('.chip').forEach(function (c) {
+    c.addEventListener('click', function () {
+      document.getElementById('searchInput').value = c.textContent.trim();
+      toast('Căutare: ' + c.textContent.trim());
+    });
+  });
+
+  /* ---------- FAVORITE ---------- */
+  document.getElementById('wishBtn').addEventListener('click', function () {
+    var b = this.querySelector('.badge');
+    b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop');
+    toast('Favoritele se salvează și fără cont');
+  });
+
+  /* ---------- MARQUEE ---------- */
+  var words = ['Piese unicat', 'Materiale recuperate', 'Croit manual în Timișoara',
+    'Nimic nu se aruncă', 'A doua viață', 'Făcut de mână, nu de fabrică'];
+  var track = document.getElementById('mqTrack'), html = '';
+  for (var r = 0; r < 4; r++) words.forEach(function (w) { html += '<span>' + w + ' ·</span>'; });
+  track.innerHTML = html;
+  if (!reduced) {
+    var off = 0, half = 0;
+    (function tick() {
+      if (!half) half = track.scrollWidth / 2;
+      if (!document.hidden) {
+        off -= 0.55 + Math.min(Math.abs(vel) * 0.06, 3);
+        if (half && off <= -half) off += half;
+        track.style.transform = 'translate3d(' + off + 'px,0,0)';
+      }
+      requestAnimationFrame(tick);
+    })();
+  }
+
+  /* ---------- TITLU CINETIC + APRINDEREA NEONULUI ---------- */
+  var h1 = document.getElementById('heroTitle');
+  if (h1) {
+    if (!reduced) {
+      var parts = h1.innerHTML.split(' ');
+      h1.innerHTML = parts.map(function (w, i) {
+        return '<span class="w"><span style="animation-delay:' + (i * 40) + 'ms">' + w + '</span></span>';
+      }).join(' ');
+      /* masca de dezvăluire cade cuvânt cu cuvânt; neonul se aprinde abia
+         după ce ultimul cuvânt a ajuns sus, ca haloul să nu fie tăiat */
+      var spans = h1.querySelectorAll('.w > span'), done = 0;
+      function unmask(s) { s.parentNode.style.overflow = 'visible'; }
+      spans.forEach(function (s) {
+        s.addEventListener('animationend', function () {
+          unmask(s);
+          if (++done === spans.length) { h1.classList.add('lit'); glitch(h1.querySelector('em'), true); }
+        });
+      });
+      setTimeout(function () {           // plasă de siguranță
+        spans.forEach(unmask); h1.classList.add('lit');
+      }, 1500);
+    } else {
+      h1.classList.add('lit');
+    }
+  }
+
+  /* ---------- PRODUSE ---------- */
+  var products = [
+    { id: 1, n: 'Geanta MONO 01', m: 'Din blug recuperat', p: 420, o: 0, mat: 'm-denim', src: 'm-linen' },
+    { id: 2, n: 'Sacou REVERS', m: 'Din sacou de lână', p: 690, o: 850, mat: 'm-wool', src: 'm-leather' },
+    { id: 3, n: 'Rucsac PLASĂ', m: 'Din plasă de pescuit', p: 380, o: 0, mat: 'm-net', src: 'm-plastic' },
+    { id: 4, n: 'Fusta CROI 04', m: 'Din perdea de in', p: 340, o: 0, mat: 'm-linen', src: 'm-wool' },
+    { id: 5, n: 'Geanta NOD', m: 'Din curea de piele', p: 520, o: 0, mat: 'm-leather', src: 'm-denim' }
+  ];
+  document.getElementById('rail').innerHTML = products.map(function (p) {
+    var off = p.o ? Math.round((1 - p.p / p.o) * 100) : 0;
+    return '<article class="card"><div class="card-media">' +
+      (p.o ? '<span class="flag">−' + off + '%</span>' : '') +
+      '<div class="swatch face-prod ' + p.mat + '"><span class="sw-note">Foto produs</span></div>' +
+      '<div class="swatch face-mat ' + p.src + '"><span class="sw-note">Material sursă</span></div>' +
+      '<span class="flip-hint">← materialul de dinainte</span></div>' +
+      '<div><h3>' + p.n + '</h3><span class="meta">' + p.m + '</span></div>' +
+      '<div class="price num">' + p.p + ' lei' +
+      (p.o ? ' <s>' + p.o + ' lei</s> <span class="off">reducere</span>' : '') + '</div>' +
+      '<button class="btn btn--sm add" type="button" data-add="' + p.id + '" data-cursor="Adaugă">' +
+      '<span>Pune-l în coș</span></button></article>';
+  }).join('');
+
+  /* ---------- COȘ ---------- */
+  var cart = [];
+  var drawer = document.getElementById('drawer'), scrim = document.getElementById('scrim');
+  var cartBody = document.getElementById('cartBody'), cartCount = document.getElementById('cartCount');
+  function fmt(n) { return n.toLocaleString('ro-RO') + ' lei'; }
+  function render() {
+    var qty = cart.reduce(function (s, i) { return s + i.q; }, 0);
+    cartCount.textContent = qty;
+    cartCount.dataset.empty = qty ? '0' : '1';
+    cartBody.innerHTML = cart.length ? cart.map(function (i) {
+      return '<div class="ci"><div class="swatch ' + i.mat + '"></div>' +
+        '<div><h4>' + i.n + '</h4><div class="meta">' + i.m + '</div>' +
+        '<div class="qty"><button type="button" data-q="-1" data-id="' + i.id + '" aria-label="Scade">−</button>' +
+        '<span class="num">' + i.q + '</span>' +
+        '<button type="button" data-q="1" data-id="' + i.id + '" aria-label="Crește">+</button></div></div>' +
+        '<div class="ln num">' + fmt(i.p * i.q) + '</div></div>';
+    }).join('') : '<p class="drawer-empty">Încă gol.<br>Fiecare piesă de aici a avut o viață înainte.</p>';
+    var sub = cart.reduce(function (s, i) { return s + i.p * i.q; }, 0);
+    var ship = sub === 0 ? 0 : (sub >= 300 ? 0 : 22);
+    document.getElementById('sub').textContent = fmt(sub);
+    document.getElementById('ship').textContent = sub === 0 ? '—' : (ship ? fmt(ship) : 'gratuit');
+    document.getElementById('tot').textContent = fmt(sub + ship);
+  }
+  function openCart(o) {
+    drawer.classList.toggle('open', o); scrim.classList.toggle('open', o);
+    drawer.setAttribute('aria-hidden', String(!o));
+    body.classList.toggle('locked', o || menuOpen || searchOpen);
+    if (o) document.getElementById('closeCart').focus();
+  }
+  document.addEventListener('click', function (e) {
+    var add = e.target.closest('[data-add]');
+    if (add) {
+      var p = products.filter(function (x) { return x.id === +add.dataset.add; })[0];
+      var ex = cart.filter(function (x) { return x.id === p.id; })[0];
+      if (ex) ex.q++; else cart.push({ id: p.id, n: p.n, m: p.m, p: p.p, mat: p.mat, q: 1 });
+      render();
+      cartCount.classList.remove('pop'); void cartCount.offsetWidth; cartCount.classList.add('pop');
+      openCart(true);
+      return;
+    }
+    var q = e.target.closest('[data-q]');
+    if (q) {
+      var it = cart.filter(function (x) { return x.id === +q.dataset.id; })[0];
+      if (it) { it.q += +q.dataset.q; if (it.q < 1) cart = cart.filter(function (x) { return x.id !== it.id; }); }
+      render();
+    }
+  });
+  document.getElementById('cartBtn').addEventListener('click', function () { openCart(true); });
+  document.getElementById('closeCart').addEventListener('click', function () { openCart(false); });
+  scrim.addEventListener('click', function () { openCart(false); });
+  render();
+
+  /* ---------- ESC ---------- */
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (searchOpen) setSearch(false);
+    else if (menuOpen) closeMenu();
+    else { openCart(false); closeHots(); }
+  });
+
+  /* ---------- BEFORE / AFTER ---------- */
+  var ba = document.getElementById('ba'), baR = document.getElementById('baRange');
+  baR.addEventListener('input', function () { ba.style.setProperty('--pos', baR.value + '%'); });
+
+  /* ---------- HOTSPOTS ---------- */
+  function closeHots() {
+    document.querySelectorAll('.hot-pop').forEach(function (p) { p.hidden = true; });
+    document.querySelectorAll('.hot').forEach(function (h) { h.setAttribute('aria-expanded', 'false'); });
+  }
+  document.querySelectorAll('.hot').forEach(function (h) {
+    h.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = h.getAttribute('aria-expanded') === 'true';
+      closeHots();
+      if (!open) { h.setAttribute('aria-expanded', 'true'); document.getElementById(h.dataset.hot).hidden = false; }
+    });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.pano')) closeHots(); });
+
+  /* ---------- GALERIE ---------- */
+  var gal = document.getElementById('gal'), down = false, sx = 0, sl = 0;
+  gal.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    down = true; sx = e.clientX; sl = gal.scrollLeft; gal.classList.add('dragging');
+  });
+  window.addEventListener('pointerup', function () { down = false; gal.classList.remove('dragging'); });
+  gal.addEventListener('pointermove', function (e) {
+    if (!down) return; e.preventDefault(); gal.scrollLeft = sl - (e.clientX - sx);
+  });
+
+  /* ---------- GLITCH + TUB LA INTRAREA ÎN ECRAN ---------- */
+  if ('IntersectionObserver' in window) {
+    var gio = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        if (el.classList.contains('tube')) el.classList.add('lit');
+        else glitch(el);
+        gio.unobserve(el);
+      });
+    }, { threshold: .3 });
+    document.querySelectorAll('h2.glitch, .tube').forEach(function (el) { gio.observe(el); });
+  } else {
+    document.querySelectorAll('.tube').forEach(function (t) { t.classList.add('lit'); });
+  }
+
+  /* ---------- REVEAL + CONTOARE ---------- */
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  var counters = document.querySelectorAll('[data-count]');
+  if ('IntersectionObserver' in window) {
+    var io2 = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target, target = +el.dataset.count, t0 = null;
+        if (reduced) { el.textContent = target; io2.unobserve(el); return; }
+        (function step(ts) {
+          if (!t0) t0 = ts;
+          var k = Math.min((ts - t0) / 1100, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3)));
+          if (k < 1) requestAnimationFrame(step);
+        })(performance.now());
+        io2.unobserve(el);
+      });
+    }, { threshold: .4 });
+    counters.forEach(function (c) { io2.observe(c); });
+  } else {
+    counters.forEach(function (c) { c.textContent = c.dataset.count; });
+  }
+
+  /* ---------- CURSOR (doar desktop) ---------- */
+  if (window.matchMedia('(pointer:fine)').matches && !reduced) {
+    var cur = document.querySelector('.cursor'), lbl = cur.querySelector('i');
+    var cx = -100, cy = -100, tx = -100, ty = -100;
+    cur.classList.add('on');
+    window.addEventListener('pointermove', function (e) { tx = e.clientX; ty = e.clientY; });
+    (function loop() {
+      cx += (tx - cx) * .18; cy += (ty - cy) * .18;
+      cur.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+      requestAnimationFrame(loop);
+    })();
+    document.addEventListener('pointerover', function (e) {
+      var t = e.target.closest('[data-cursor]');
+      if (t) { cur.classList.add('big'); lbl.textContent = t.dataset.cursor.toUpperCase(); }
+      else if (e.target.closest('a,button')) { cur.classList.add('big'); lbl.textContent = ''; }
+      else cur.classList.remove('big');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+# Material de lucru pentru client. Nu se indexează.
+User-agent: *
+Disallow: /
