@@ -73,14 +73,41 @@ devine o umbră colorată difuză (cerneală saturată, lumină scursă pe hârt
 identică** pe toate suprafețele. Tokens: `--nf-1/2/3`, `--nt`, `--tube` — componentele
 nu știu pe ce suprafață sunt.
 
+### ADR-013 — Glitch-ul este „neonul" suprafețelor luminoase
+**Decis.** Pe fundal deschis haloul de neon nu se vede. În locul lui folosim
+**dezalinierea plăcilor de tipar** — referința de tipar '90 / riso a brandului.
+
+Fantomele sunt **roz și alb**, nu cyan: nicio culoare nouă în paletă, regula 70–20–10
+rămâne intactă, iar artefactul durează ~620 ms.
+*Varianta magenta + cyan (misregistration clasic de offset) e disponibilă schimbând un
+token, dar adaugă o a patra culoare — decizia îi aparține clientei, la revizuire.*
+
+Implementare: fantome prin `filter: drop-shadow()` decalat, **nu** prin text duplicat cu
+`content: attr()` — duplicarea se rupe la text pe mai multe rânduri și e o sursă clasică
+de layout stricat. Plus felii `clip-path: inset()` și `text-shadow` pe vârfuri.
+Timing `steps(1, end)` — tăieturi dure, fără interpolare.
+
+**Toate declanșatoarele funcționează pe mobil**: intrare în ecran, încărcare, atingere,
+schimbare de temă și un puls ambiental la ~7 s. Niciunul nu depinde de hover.
+Detalii: `03-DESIGN-SYSTEM.md §3.5`.
+
+### ADR-014 — Logo complet pe toate ecranele
+**Decis.** Wordmark-ul „LIMIRA LAMIRA" rămâne vizibil lângă semn **inclusiv pe telefon**,
+nu doar semnul. Brandul e tânăr; recunoașterea se construiește prin repetarea numelui,
+nu a pictogramei.
+
+Ca să încapă la 360px: wordmark la `.72rem` cu `letter-spacing` redus sub 420px, iar
+**iconița de favorite iese din antetul de mobil** (rămâne în meniu, unde e oricum
+grupată cu contul). Antetul de telefon: logo complet + căutare + coș + hamburger.
+
 ### ADR-012 — Meniu mobil ca modal pe tot ecranul, cu tăietură diagonală
 **Decis.** Sub 1200px, navigația trece integral într-un modal full-screen care intră cu
 aceeași **tăietură diagonală** ca tranziția de mod — un singur gest de brand, folosit
 consecvent. Itemele intră decalat cu mască, iar la atingere se aprind ca un tub de neon
 înainte ca meniul să se închidă (feedback per acțiune).
 Modalul conține și ce nu încape în antetul de mobil: comutatoarele de temă și de mod,
-contul, contactul rapid și limba. Antetul de mobil rămâne la logo + căutare + favorite +
-coș + hamburger.
+contul, favoritele, contactul rapid și limba.
+Antetul de mobil rămâne la **logo complet + căutare + coș + hamburger** (vezi ADR-014).
 
 ### ADR-009 — `visitorId` se emite din Faza 1
 **Decis.** Coșul de guest și favoritele au nevoie de el oricum, iar Faza 2 leagă progresul

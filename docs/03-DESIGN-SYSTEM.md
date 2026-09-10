@@ -61,12 +61,16 @@ Neutre **calde**, nu reci (hârtie reciclată, nu ecran de birou):
 
 | Token | Hex | | Token | Hex |
 |---|---|---|---|---|
-| `--ink-950` | `#08070A` | | `--ink-300` | `#9B96A3` |
-| `--ink-900` | `#0E0D11` | | `--ink-200` | `#C9C4CE` |
-| `--ink-800` | `#17161B` | | `--ink-100` | `#E7E3E8` |
-| `--ink-700` | `#222027` | | `--bone` | `#F5F2EE` |
-| `--ink-600` | `#35323C` | | `--paper` | `#FFFFFF` |
+| `--ink-950` | `#08070A` | *rezervat atelierului* | `--ink-300` | `#9B96A3` |
+| `--ink-900` | `#121014` | *fundal magazin·întuneric* | `--ink-200` | `#C9C4CE` |
+| `--ink-850` | `#191720` | | `--ink-100` | `#E7E3E8` |
+| `--ink-800` | `#221F29` | | `--bone` | `#F5F2EE` |
+| `--ink-700` | `#2E2A37` | | `--paper` | `#FFFFFF` |
+| `--ink-600` | `#3F3A49` | | | |
 | `--ink-400` | `#6E6A78` | | | |
+
+> `--ink-950` și `--ink-900` **nu sunt interschimbabile**: vidul absolut e rezervat
+> atelierului, magazinul întunecat stă pe un negru cald și ridicat. Așa rămân distincte.
 
 ### 3.2 Reguli de contrast (verificate, nu presupuse)
 
@@ -153,6 +157,50 @@ Tokens (aceleași nume, valori diferite per suprafață — componentele nu ști
 > `clip-path`, iar `box-shadow` ar fi tăiat odată cu ele. `drop-shadow` se aplică
 > **după** clip și urmează silueta reală. Este singura variantă care funcționează
 > cu motivul „cut & fold".
+
+### 3.5 Glitch — neonul care se vede și pe fundal deschis
+
+Pe fundal deschis haloul nu se vede, dar **dezalinierea plăcilor de tipar** se vede
+foarte bine. Este exact referința brandului: tipar din anii '90, riso, fanzin.
+Deci pe suprafețele luminoase rolul de „moment neon" îl preia glitch-ul.
+
+```
+--glitch-a   placa magenta   → rgb(pink / .9) pe lumină · .95 pe întuneric
+--glitch-b   placa albă      → rgb(255 255 255 / .95) pe lumină · .6 pe întuneric
+```
+
+**Fără culori noi în paletă.** Fantomele sunt roz și alb — nu cyan, nu verde acid.
+Regula 70–20–10 rămâne intactă, iar artefactul durează ~620 ms.
+
+> Dacă la revizuire clienta vrea mai multă energie de tipar, varianta cu placă **cyan**
+> (magenta + cyan dezaliniate, misregistration clasic de offset) se obține schimbând un
+> singur token. Este o decizie a ei, nu una pe care o luăm noi: adaugă o a patra culoare.
+
+**Cum e construit** — trei mecanisme suprapuse, niciunul cu text duplicat:
+1. **Fantome cromatice** — `filter: drop-shadow(±Npx 0 var(--glitch-a|b))`.
+   Funcționează pe orice text, pe oricâte rânduri, fără să atingă layout-ul.
+   (Alternativa clasică, `content: attr()` pe pseudo-elemente, se rupe la text care trece
+   pe mai multe rânduri — nu o folosi.)
+2. **Felii orizontale** — `clip-path: inset()` animat, ca un semnal prost.
+3. **Explozie de neon** — `text-shadow: var(--nt)` pe vârfurile glitch-ului.
+
+Timing `steps(1, end)`: tăieturi dure, fără interpolare. Așa arată un semnal stricat.
+
+**Ce declanșează glitch-ul** (toate funcționează pe mobil — niciunul nu depinde de hover):
+
+| Declanșator | Ținta |
+|---|---|
+| Intrarea în ecran | fiecare `h2` de secțiune, o singură dată |
+| Încărcarea paginii | cuvântul-cheie din titlul erou, dublu |
+| Atingere / hover | wordmark-ul din logo |
+| Schimbarea temei | logo + titlurile vizibile — „firma repornește" |
+| Puls ambiental, la ~7 s | un singur element vizibil, ales aleator din: cifrele de impact, marquee, bara promo, prețuri, titluri de categorie, titluri de lucrări |
+
+**Tubul de secțiune** (`.tube`): sub eticheta fiecărei secțiuni se desenează o linie de
+2px cu punct luminos la capăt, pâlpâind scurt la aprindere. Este momentul „luminos"
+care funcționează la fel de bine pe fundal deschis ca pe negru.
+
+Toate sunt dezactivate complet la `prefers-reduced-motion: reduce`.
 
 Cine primește neon (și nimeni altcineva — rozul rămâne sub 10%):
 CTA primar · un singur cuvânt din titlul erou · bara promo · badge-urile de coș și
@@ -246,6 +294,8 @@ Tokens:
 | 8 | **Numere care se aduna** legate de scroll | secțiunea de impact / poveste | `IntersectionObserver`, o singură rulare |
 | 9 | **Header care se condensează** în pastilă compactă | global | scroll > 80px, 240ms; nu se ascunde niciodată complet (cerință: antet sticky) |
 | 10 | **Miniatura care zboară în coș** + sertar cu revenire elastică | adăugare în coș | FLIP animation pe imagine + `--ease-out-back` pe sertar |
+| 11 | **Glitch de tipar** — plăcile magenta și albă se dezaliniază, felii orizontale, explozie de neon | titluri de secțiune la intrarea în ecran · titlul erou la încărcare · logo la atingere · la schimbarea temei · puls ambiental la ~7s | `drop-shadow` decalat + `clip-path: inset()`, `steps(1,end)`, 620ms. Vezi §3.5 |
+| 12 | **Tubul de secțiune** — linie de 2px care se desenează cu punct luminos la capăt | sub eticheta fiecărei secțiuni | `width` 0→38%, cu pâlpâire la aprindere |
 
 ### 6.2 Reguli obligatorii de mișcare
 

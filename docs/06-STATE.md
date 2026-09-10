@@ -148,6 +148,35 @@ Documentate în `08-DECISIONS.md`; `03-DESIGN-SYSTEM.md §3.3–3.4` și
 
 **Următoarea acțiune:** neschimbată — trimite mockup-ul clientei și cere aprobarea scrisă.
 
+### Sesiunea 3 — 10.09.2026
+**Milestone:** M0 (a doua revizuire de mockup)
+
+**Făcut:**
+- **Glitch de tipar** — răspunsul la „neonul nu se vede pe fundal deschis". Plăcile
+  magenta și albă se dezaliniază ~620 ms, cu felii orizontale și explozie de neon pe
+  vârfuri. **Roz și alb, nicio culoare nouă** — regula 70–20–10 rămâne intactă.
+  Declanșat de intrarea în ecran, încărcare, atingere, schimbarea temei și un puls
+  ambiental la ~7 s. **Toate funcționează pe mobil**, niciunul nu depinde de hover.
+- **Tub de secțiune** — sub eticheta fiecărei secțiuni se desenează o linie de 2px cu
+  punct luminos la capăt. Momentul „luminos" care merge la fel de bine pe alb ca pe negru.
+- **Logo complet pe telefon** — wordmark-ul „LIMIRA LAMIRA" lângă semn, la toate
+  dimensiunile. Ca să încapă la 360px, iconița de favorite a ieșit din antetul de mobil
+  (rămâne în meniu).
+
+**Decizii luate:** ADR-013 (glitch) și ADR-014 (logo complet).
+`03-DESIGN-SYSTEM.md §3.5` și `design/tokens/tokens.css` sunt aliniate.
+
+**De discutat cu clienta la revizuire:** varianta de glitch cu placă **cyan**
+(misregistration clasic de offset) are mai multă energie de tipar, dar adaugă o a patra
+culoare în paletă. Se schimbă un singur token. Decizia îi aparține.
+
+**Verificat vizual:** tema luminoasă, glitch-ul la schimbarea temei, logo-ul complet,
+antetul de desktop. **Neverificat pe device real:** layout-ul de mobil și glitch-ul la
+scroll — artefactul se randează într-un iframe de lățime fixă, iar scroll-ul și
+redimensionarea nu ajung la el. **Deschide link-ul pe telefon înainte de trimitere.**
+
+**Următoarea acțiune:** neschimbată — trimite mockup-ul clientei și cere aprobarea scrisă.
+
 ---
 
 ## Format pentru sesiunile următoare

@@ -71,6 +71,9 @@
   --nt:0 1px 14px rgb(var(--pink-rgb)/.32);
   --nb:0 4px 22px rgb(var(--pink-rgb)/.26);
   --tube:rgb(var(--pink-rgb)/.55);
+  /* plăcile de tipar dezaliniate — magenta iese, alb rămâne în urmă */
+  --glitch-a:rgb(var(--pink-rgb)/.9);
+  --glitch-b:rgb(255 255 255/.95);
   --grain-op:.05;
   color-scheme:light;
 }
@@ -93,6 +96,8 @@
   --nt:0 0 4px rgb(255 255 255/.22), 0 0 14px rgb(var(--pink-rgb)/.72), 0 0 34px rgb(var(--pink-rgb)/.42);
   --nb:0 0 0 1px rgb(var(--pink-rgb)/.45), 0 0 18px rgb(var(--pink-rgb)/.42), 0 0 46px rgb(var(--pink-rgb)/.2);
   --tube:rgb(var(--pink-rgb)/.9);
+  --glitch-a:rgb(var(--pink-rgb)/.95);
+  --glitch-b:rgb(255 255 255/.6);
   --grain-op:.07;
   color-scheme:dark;
 }
@@ -112,6 +117,8 @@
     --nt:0 0 4px rgb(255 255 255/.22), 0 0 14px rgb(var(--pink-rgb)/.72), 0 0 34px rgb(var(--pink-rgb)/.42);
     --nb:0 0 0 1px rgb(var(--pink-rgb)/.45), 0 0 18px rgb(var(--pink-rgb)/.42), 0 0 46px rgb(var(--pink-rgb)/.2);
     --tube:rgb(var(--pink-rgb)/.9);
+    --glitch-a:rgb(var(--pink-rgb)/.95);
+    --glitch-b:rgb(255 255 255/.6);
     --grain-op:.07;
     color-scheme:dark;
   }
@@ -176,6 +183,46 @@ a{color:inherit}
 }
 @keyframes sweep{from{transform:translateX(-130%) skewX(-18deg)}
                  to{transform:translateX(360%) skewX(-18deg)}}
+
+/* ---------- GLITCH ----------
+   Pe fundal deschis haloul de neon nu se vede — dar dezalinierea plăcilor de
+   tipar se vede foarte bine. Fantomele sunt făcute cu drop-shadow decalat, nu
+   cu text duplicat: funcționează pe orice text, pe oricâte rânduri, fără să
+   rupă layout-ul. Feliile taie orizontal, ca un semnal prost.               */
+@keyframes glitch{
+  0%  {filter:none; transform:translate(0); clip-path:inset(0)}
+  7%  {filter:drop-shadow(-4px 0 var(--glitch-a)) drop-shadow(4px 0 var(--glitch-b));
+       transform:translate(2px,-1px); clip-path:inset(0)}
+  13% {filter:none; transform:translate(0); clip-path:inset(0)}
+  21% {filter:drop-shadow(6px 0 var(--glitch-a)) drop-shadow(-5px 0 var(--glitch-b));
+       transform:translate(-4px,1px); clip-path:inset(24% 0 54% 0)}
+  27% {filter:none; transform:translate(0); clip-path:inset(0)}
+  36% {filter:drop-shadow(-5px 0 var(--glitch-a)) drop-shadow(3px 0 var(--glitch-b));
+       text-shadow:var(--nt); transform:translate(2px,2px); clip-path:inset(64% 0 16% 0)}
+  43% {filter:none; transform:translate(0); clip-path:inset(0)}
+  51% {filter:drop-shadow(-3px 0 var(--glitch-a)); text-shadow:var(--nt);
+       transform:translate(-1px,0); clip-path:inset(8% 0 78% 0)}
+  57% {filter:none; transform:translate(0); clip-path:inset(0)}
+  66% {filter:drop-shadow(2px 0 var(--glitch-a)) drop-shadow(-2px 0 var(--glitch-b));
+       transform:translate(1px,-1px); clip-path:inset(0)}
+  74%,100%{filter:none; transform:translate(0); clip-path:inset(0)}
+}
+.glitch{will-change:filter,transform}
+.glitch.fire{animation:glitch .62s steps(1,end) 1}
+.glitch.fire.twice{animation-iteration-count:2}
+
+/* Tubul care se desenează sub eticheta de secțiune — momentul „luminos"
+   care funcționează și pe fundal deschis. */
+.tube{display:block; height:2px; width:0; margin-top:.85rem; background:var(--accent);
+  box-shadow:0 0 10px var(--tube),0 0 26px var(--tube); position:relative}
+.tube.lit{animation:tubeDraw .9s var(--ease-out-expo) forwards}
+@keyframes tubeDraw{
+  0%{width:0; opacity:.2}
+  6%{opacity:1} 10%{opacity:.3} 16%{opacity:1}
+  to{width:min(120px,38%); opacity:1}
+}
+.tube::after{content:""; position:absolute; right:-3px; top:-3px; width:8px; height:8px;
+  border-radius:999px; background:var(--accent); box-shadow:0 0 14px var(--tube),0 0 30px var(--tube)}
 @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.55)}100%{transform:scale(1)}}
 @keyframes ring{0%{box-shadow:0 0 0 0 rgb(var(--pink-rgb)/.6)}
                 70%{box-shadow:0 0 0 20px rgb(var(--pink-rgb)/0)}
@@ -235,13 +282,19 @@ a{color:inherit}
   background:color-mix(in oklab,var(--bg) 86%,transparent); backdrop-filter:blur(14px)}
 .hdr .wrap{display:flex; align-items:center; gap:.4rem}
 
-.logo{display:flex; align-items:center; gap:.7rem; text-decoration:none;
-  flex-shrink:0; margin-inline-end:auto}
-.logo svg{width:32px; height:32px; display:block; filter:var(--nf-1);
-  transition:width var(--dur) var(--ease-out-expo)}
-.hdr.is-condensed .logo svg{width:27px}
-.logo .wm{font-family:var(--font-ui); font-weight:300; letter-spacing:.14em;
-  font-size:var(--step--1); color:var(--accent); white-space:nowrap; display:none}
+.logo{display:flex; align-items:center; gap:.55rem; text-decoration:none;
+  flex-shrink:0; margin-inline-end:auto; min-width:0}
+.logo svg{width:30px; height:30px; display:block; flex-shrink:0; filter:var(--nf-1);
+  transition:width var(--dur) var(--ease-out-expo), height var(--dur) var(--ease-out-expo)}
+.hdr.is-condensed .logo svg{width:26px; height:26px}
+/* logo complet — semn + wordmark — inclusiv pe telefon */
+.logo .wm{font-family:var(--font-ui); font-weight:300; color:var(--accent);
+  white-space:nowrap; font-size:.72rem; letter-spacing:.1em; line-height:1}
+@media (min-width:420px){.logo .wm{font-size:.8rem; letter-spacing:.12em}}
+@media (min-width:1200px){.logo .wm{font-size:var(--step--1); letter-spacing:.14em}}
+/* favoritele trăiesc în meniu pe ecrane mici — antetul rămâne respirabil */
+#wishBtn{display:none}
+@media (min-width:600px){#wishBtn{display:grid}}
 
 .nav{display:none}
 .hdr .desk{display:none}
@@ -289,8 +342,7 @@ a{color:inherit}
 
 @media (min-width:1200px){
   .hdr .wrap{gap:clamp(.8rem,2vw,1.8rem)}
-  .logo .wm{display:inline}
-  .logo{margin-inline-end:0}
+  .logo{margin-inline-end:0; gap:.7rem}
   .nav{display:flex; gap:clamp(1rem,1.8vw,1.7rem); margin-inline-start:auto}
   .nav a{font-size:var(--step--1); text-decoration:none; font-weight:500;
     position:relative; padding-block:.35em; white-space:nowrap}
@@ -784,6 +836,8 @@ a{color:inherit}
   .menu.closing{animation:none}
   .menu.open .menu-nav li > a{animation:none}
   .btn--hum,.dock a{animation:none}
+  .glitch.fire{animation:none !important; filter:none; transform:none; clip-path:none}
+  .tube.lit{animation:none; width:min(120px,38%)}
 }
 @media (prefers-reduced-transparency:reduce){
   :root{--grain-op:0}
@@ -901,6 +955,7 @@ a{color:inherit}
           <path d="M50 26 L74 50 L50 74 L26 50 Z"/><path d="M30 34 L70 74"/>
         </g>
       </svg>
+      <span class="wm">LIMIRA LAMIRA</span>
     </a>
     <button class="burger" type="button" id="burgerClose" aria-expanded="true"
       aria-label="Închide meniul"><i></i><i></i><i></i></button>
@@ -1045,7 +1100,8 @@ a{color:inherit}
     <div class="head rv">
       <div>
         <span class="label">Catalog &nbsp;/&nbsp; <b>04 secțiuni</b></span>
-        <h2>Caută după ce a fost, nu doar după ce este.</h2>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Caută după ce a fost, nu doar după ce este.</h2>
       </div>
       <p>Produsele în stoc, conceptele în lucru și colecțiile curatoriate au fiecare
         propriul fel de a fi răsfoit.</p>
@@ -1073,7 +1129,8 @@ a{color:inherit}
     <div class="head rv">
       <div>
         <span class="label">Noutăți &nbsp;/&nbsp; <b>Croite luna aceasta</b></span>
-        <h2>Atinge o piesă. Îi vezi materialul de dinainte.</h2>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Atinge o piesă. Îi vezi materialul de dinainte.</h2>
       </div>
       <p>Fiecare produs păstrează fotografia materialului-sursă. Este același câmp
         care alimentează, în faza a doua, mecanica „Ce poți face din...?".</p>
@@ -1088,7 +1145,8 @@ a{color:inherit}
     <div class="head rv">
       <div>
         <span class="label">Faza 2 &nbsp;/&nbsp; <b>Mecanica 01</b></span>
-        <h2>Ce poți face dintr-un blug vechi?</h2>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Ce poți face dintr-un blug vechi?</h2>
       </div>
       <p>Trage de bară. Este una dintre cele patru mecanici din modulul atelier —
         aici, ca previzualizare.</p>
@@ -1112,7 +1170,8 @@ a{color:inherit}
     <div class="head rv">
       <div>
         <span class="label">Galerie &nbsp;/&nbsp; <b>Piese unicat</b></span>
-        <h2>Aici nu se cumpără repede. Se privește întâi.</h2>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Aici nu se cumpără repede. Se privește întâi.</h2>
       </div>
       <p>Proporții mixte, fără crop agresiv, spațiu pentru poveste, proces și material.
         O piesă vândută rămâne vizibilă — face parte din portofoliu.</p>
@@ -1145,7 +1204,8 @@ a{color:inherit}
     <div class="atelier-grid">
       <div class="rv">
         <span class="label">Faza 2 &nbsp;/&nbsp; <b>A doua cale</b></span>
-        <h2>Atelierul tău, digitalizat.</h2>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Atelierul tău, digitalizat.</h2>
         <p style="margin-top:1.1rem; max-width:44ch; font-size:var(--step-1);
           line-height:1.45; font-weight:300;">
           Șase până la zece poziții fotografiate 360°, legate între ele. Vizitatorul se
@@ -1204,7 +1264,8 @@ a{color:inherit}
     <div class="head rv">
       <div>
         <span class="label">Despre &nbsp;/&nbsp; <b>Limira Lamira Art Studio</b></span>
-        <h2>Viața poate fi roz dacă alegi să o privești așa.</h2>
+        <span class="tube" aria-hidden="true"></span>
+        <h2 class="glitch">Viața poate fi roz dacă alegi să o privești așa.</h2>
       </div>
       <p>Cifrele de mai jos sunt exemplu de structură. Datele reale le pune la
         dispoziție studioul.</p>
@@ -1241,7 +1302,7 @@ a{color:inherit}
 <section class="nl section">
   <div class="wrap nl-grid">
     <div>
-      <h2>Piesele unicat pleacă în prima zi.</h2>
+      <h2 class="glitch">Piesele unicat pleacă în prima zi.</h2>
       <p style="color:var(--fg-muted); margin-top:.7rem; max-width:44ch;">
         Un email când apare ceva nou în atelier. Nimic altceva.</p>
     </div>
@@ -1256,7 +1317,7 @@ a{color:inherit}
 <section class="brief section" id="nota">
   <div class="wrap">
     <span class="label">Pentru Limira &nbsp;/&nbsp; <b>Cum citești acest mockup</b></span>
-    <h2 style="font-size:var(--step-4); margin-block:.8rem 2rem; max-width:22ch;">
+    <h2 class="glitch" style="font-size:var(--step-4); margin-block:.8rem 2rem; max-width:22ch;">
       Ce vezi aici este direcția, nu site-ul final.</h2>
 
     <div class="brief-grid">
@@ -1272,8 +1333,10 @@ a{color:inherit}
         <p>Neonul nu strălucește la lumina zilei. Pe tema luminoasă devine cerneală
           saturată cu o umbră colorată — lumina scursă pe hârtie. Pe tema întunecată
           se aprinde complet, cu miez alb și halou.</p>
-        <p style="margin-top:.8rem">Mișcarea rămâne aceeași în ambele. Cuvântul din
-          titlu se aprinde ca un tub de neon, la fiecare încărcare.</p>
+        <p style="margin-top:.8rem">Pe fundal deschis intră în schimb <strong>glitch-ul</strong>:
+          plăcile de tipar se dezaliniază pentru o jumătate de secundă — magenta iese,
+          albul rămâne în urmă. Efect de tipar din anii '90, în roz și alb, fără culori
+          noi în paletă.</p>
       </div>
       <div>
         <h3>Două comutatoare, două roluri</h3>
@@ -1380,6 +1443,43 @@ a{color:inherit}
     }, 2800);
   }
 
+  /* ---------- GLITCH ----------
+     Declanșat de: intrarea în ecran (merge și pe mobil, fără hover),
+     încărcarea eroului, atingerea logo-ului, schimbarea temei, plus un
+     puls ambiental care ține firma „vie". */
+  function glitch(el, twice) {
+    if (!el || reduced) return;
+    el.classList.add('glitch');
+    el.classList.remove('fire', 'twice');
+    void el.offsetWidth;                       // repornește animația
+    el.classList.add('fire');
+    if (twice) el.classList.add('twice');
+  }
+  document.addEventListener('animationend', function (e) {
+    if (e.animationName === 'glitch') e.target.classList.remove('fire', 'twice');
+  });
+  function inView(el) {
+    var r = el.getBoundingClientRect();
+    return r.bottom > 60 && r.top < window.innerHeight - 60;
+  }
+
+  /* logo: se dezaliniază la atingere sau la hover */
+  document.querySelectorAll('.logo').forEach(function (a) {
+    var wm = a.querySelector('.wm');
+    if (!wm) return;
+    a.addEventListener('pointerenter', function () { glitch(wm); });
+    a.addEventListener('click', function () { glitch(wm); });
+  });
+
+  /* puls ambiental: la ~7s, un singur element vizibil pâlpâie */
+  var pool = '.stat b, .marquee, .promo span, .card .price, .cat-txt h3, .gal figcaption strong';
+  setInterval(function () {
+    if (reduced || document.hidden) return;
+    var vis = Array.prototype.filter.call(document.querySelectorAll(pool), inView);
+    if (!vis.length) return;
+    glitch(vis[Math.floor(Math.random() * vis.length)]);
+  }, 7000);
+
   /* ---------- TEMĂ: luminos / întunecat / sistem ---------- */
   function syncTheme() {
     document.querySelectorAll('[data-theme-btn]').forEach(function (b) {
@@ -1389,6 +1489,8 @@ a{color:inherit}
   document.querySelectorAll('[data-theme-btn]').forEach(function (b) {
     b.addEventListener('click', function () {
       L.apply(b.dataset.themeBtn); syncTheme();
+      glitch(document.querySelector('.hdr .logo .wm'), true);
+      document.querySelectorAll('h2.glitch').forEach(function (h) { if (inView(h)) glitch(h); });
       var n = { light: 'Temă luminoasă', dark: 'Temă întunecată', system: 'Urmează sistemul' };
       toast(n[b.dataset.themeBtn]);
     });
@@ -1536,7 +1638,7 @@ a{color:inherit}
       spans.forEach(function (s) {
         s.addEventListener('animationend', function () {
           unmask(s);
-          if (++done === spans.length) h1.classList.add('lit');
+          if (++done === spans.length) { h1.classList.add('lit'); glitch(h1.querySelector('em'), true); }
         });
       });
       setTimeout(function () {           // plasă de siguranță
@@ -1658,6 +1760,22 @@ a{color:inherit}
   gal.addEventListener('pointermove', function (e) {
     if (!down) return; e.preventDefault(); gal.scrollLeft = sl - (e.clientX - sx);
   });
+
+  /* ---------- GLITCH + TUB LA INTRAREA ÎN ECRAN ---------- */
+  if ('IntersectionObserver' in window) {
+    var gio = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        if (el.classList.contains('tube')) el.classList.add('lit');
+        else glitch(el);
+        gio.unobserve(el);
+      });
+    }, { threshold: .3 });
+    document.querySelectorAll('h2.glitch, .tube').forEach(function (el) { gio.observe(el); });
+  } else {
+    document.querySelectorAll('.tube').forEach(function (t) { t.classList.add('lit'); });
+  }
 
   /* ---------- REVEAL + CONTOARE ---------- */
   if ('IntersectionObserver' in window && !reduced) {

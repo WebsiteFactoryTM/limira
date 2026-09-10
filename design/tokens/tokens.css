@@ -138,6 +138,9 @@
   --nt: 0 1px 14px rgb(var(--pink-rgb) / 0.32);
   --nb: 0 4px 22px rgb(var(--pink-rgb) / 0.26);
   --tube: rgb(var(--pink-rgb) / 0.55);
+  /* plăcile de tipar dezaliniate — vezi ADR-013. Roz + alb, nicio culoare nouă. */
+  --glitch-a: rgb(var(--pink-rgb) / 0.9);
+  --glitch-b: rgb(255 255 255 / 0.95);
 
   --grain-opacity: 0.05;
   color-scheme: light;
@@ -175,6 +178,8 @@
   --nb: 0 0 0 1px rgb(var(--pink-rgb) / 0.45), 0 0 18px rgb(var(--pink-rgb) / 0.42),
         0 0 46px rgb(var(--pink-rgb) / 0.2);
   --tube: rgb(var(--pink-rgb) / 0.9);
+  --glitch-a: rgb(var(--pink-rgb) / 0.95);
+  --glitch-b: rgb(255 255 255 / 0.6);
 
   --grain-opacity: 0.07;
   color-scheme: dark;
@@ -208,6 +213,8 @@
     --nb: 0 0 0 1px rgb(var(--pink-rgb) / 0.45), 0 0 18px rgb(var(--pink-rgb) / 0.42),
           0 0 46px rgb(var(--pink-rgb) / 0.2);
     --tube: rgb(var(--pink-rgb) / 0.9);
+    --glitch-a: rgb(var(--pink-rgb) / 0.95);
+    --glitch-b: rgb(255 255 255 / 0.6);
     --grain-opacity: 0.07;
     color-scheme: dark;
   }
@@ -284,6 +291,52 @@
   to   { transform: translateX(360%) skewX(-18deg); }
 }
 
+/* Glitch de tipar — „neonul" suprafețelor luminoase (ADR-013, §3.5).
+   Fantomele se fac cu drop-shadow decalat, NU cu text duplicat prin
+   `content: attr()` — duplicarea se rupe la text pe mai multe rânduri. */
+@keyframes glitch {
+  0%   { filter: none; transform: translate(0); clip-path: inset(0); }
+  7%   { filter: drop-shadow(-4px 0 var(--glitch-a)) drop-shadow(4px 0 var(--glitch-b));
+         transform: translate(2px, -1px); clip-path: inset(0); }
+  13%  { filter: none; transform: translate(0); clip-path: inset(0); }
+  21%  { filter: drop-shadow(6px 0 var(--glitch-a)) drop-shadow(-5px 0 var(--glitch-b));
+         transform: translate(-4px, 1px); clip-path: inset(24% 0 54% 0); }
+  27%  { filter: none; transform: translate(0); clip-path: inset(0); }
+  36%  { filter: drop-shadow(-5px 0 var(--glitch-a)) drop-shadow(3px 0 var(--glitch-b));
+         text-shadow: var(--nt); transform: translate(2px, 2px); clip-path: inset(64% 0 16% 0); }
+  43%  { filter: none; transform: translate(0); clip-path: inset(0); }
+  51%  { filter: drop-shadow(-3px 0 var(--glitch-a)); text-shadow: var(--nt);
+         transform: translate(-1px, 0); clip-path: inset(8% 0 78% 0); }
+  57%  { filter: none; transform: translate(0); clip-path: inset(0); }
+  66%  { filter: drop-shadow(2px 0 var(--glitch-a)) drop-shadow(-2px 0 var(--glitch-b));
+         transform: translate(1px, -1px); clip-path: inset(0); }
+  74%, 100% { filter: none; transform: translate(0); clip-path: inset(0); }
+}
+.u-glitch { will-change: filter, transform; }
+.u-glitch.is-firing { animation: glitch 0.62s steps(1, end) 1; }
+.u-glitch.is-firing.twice { animation-iteration-count: 2; }
+
+/* Tubul de secțiune: linie care se desenează, cu punct luminos la capăt. */
+.u-tube {
+  display: block; height: 2px; width: 0; position: relative;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--tube), 0 0 26px var(--tube);
+}
+.u-tube.is-lit { animation: tube-draw 0.9s var(--ease-out-expo) forwards; }
+.u-tube::after {
+  content: ""; position: absolute; right: -3px; top: -3px;
+  width: 8px; height: 8px; border-radius: var(--radius-pill);
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--tube), 0 0 30px var(--tube);
+}
+@keyframes tube-draw {
+  0%  { width: 0; opacity: 0.2; }
+  6%  { opacity: 1; }
+  10% { opacity: 0.3; }
+  16% { opacity: 1; }
+  to  { width: min(120px, 38%); opacity: 1; }
+}
+
 /* ==========================================================================
    Preferințe de utilizator — obligatoriu
    ========================================================================== */
@@ -301,6 +354,8 @@
     scroll-behavior: auto !important;
   }
   .u-neon-hum { animation: none; filter: var(--nf-2); }
+  .u-glitch.is-firing { animation: none !important; filter: none; transform: none; clip-path: none; }
+  .u-tube.is-lit { animation: none; width: min(120px, 38%); }
 }
 
 @media (prefers-reduced-transparency: reduce) {
