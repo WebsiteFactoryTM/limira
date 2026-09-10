@@ -1,0 +1,283 @@
+OFERT DE COLABORARE
+
+Propunere de
+colaborare
+
+Magazin online & experien imersiv -- mod i
+art din reciclare
+
+PENTRU                           DE LA                         DATA
+
+Limira                           Website Factory               3 august 2026
+
+Studio de design & art reciclat  Pixel Factory SRL · Timioara  Timioara
+
+Ofert valabil 15 zile lucrtoare de la data emiterii.
+Ce construim împreun 01 01 · ÎMPREUN
+
+Un magazin online care nu arat ca un magazin online. i,
+alturi de el, o a doua cale de a-l descoperi: atelierul tu,
+digitalizat, în care vizitatorul se plimb i caut.
+                                              Provocarea nu e tehnic, e de curatoriere: cum ii laolalt un
+                                              obiect care se cumpr repede i o pies de art care se
+                                              privete întâi i se cumpr dup. Rspunsul: dou moduri de
+                                              vizitare, un singur brand, aceeai identitate vizual.
+
+MOD & GENI                                    ART RECICLAT                           ATELIERUL
+Piese din materiale reciclate, catalog cu     Piese unicat, prezentare de tip        A doua cale: explorare, descoperire, joc.
+variante, filtre, parcurs rapid de cumprare.  galerie, spaiu pentru poveste, proces  Aceleai produse, alt ritm.
+                                              i material.
+                                                                                                                               P.02 / 15
+02 · EXPERIEN                                                                         02
+
+Design & experien
+de utilizare
+
+UX/UI nu înseamn ,,s arate frumos". Înseamn ca vizitatorul s îneleag în primele trei
+secunde unde a ajuns i ce are de fcut mai departe.
+
+CE FACEM CONCRET
+
+ Construim identitatea vizual a magazinului pornind de la paleta         Dou teme vizuale, o singur identitate: modul magazin, luminos
+    ta -- roz neon, negru, alb -- i de la felul în care arat munca ta.      i editorial; modul atelier, întunecat i cu accente de neon.
+    Nu adaptm un template.
+
+ Structurm informaia pornind de la comportamentul real                   Parcurs clar de la prima pagin pân la finalizarea comenzii, cu
+    de cumprare.                                                            cât mai puine puncte de abandon.
+
+ Testm pe mobil în primul rând. Majoritatea vizitatorilor vor
+    ajunge de pe telefon.
+
+                                                                                      P.03 / 15
+03 · TEHNOLOGIA, PE SCURT I PE ÎNELES             Nu construim pe o platform standard cu zeci de plugin-uri
+                                                  lipite unul de altul. Construim pe tehnologia folosit de
+Next.js / React                                   magazinele care îi permit s nu-i încetineasc vizitatorii.
++ Payload CMS
+
+VITEZ REAL                                        FR PLUGIN-URI CARE SE STRIC                        SECURITATE
+Paginile se încarc aproape instant. Cine          Tot ce face site-ul e scris pentru el. Nu se rupe  Fr cele mai comune ui de intrare ale
+ateapt trei secunde nu mai cumpr, iar             nimic dup o actualizare fcut de altcineva.         platformelor populare. Datele clienilor rmân
+Google observ asta.                                                                                  unde trebuie.
+
+LIBERTATE DE DESIGN                               PANOU DE ADMINISTRARE PE MSURA TA                  CRETE CU TINE
+                                                  Vezi doar câmpurile de care ai nevoie,             De la 40 la 4.000 de produse, de la un joc la
+Nimic nu ne limiteaz la ce permite o tem.         denumite în limba în care vorbeti despre           zece: se adaug, nu se reconstruiete.
+Atelierul digital nu s-ar putea construi altfel.  munca ta.
+
+03                                                                                                   P.04 / 15
+Ce include magazinul                                                                                                            01--08
+
+01 PAGINA PRINCIPAL Slider i bannere dinamice, seciuni de categorii, carusel          05 SECIUNEA DE ART RECICLAT Prezentare de tip galerie pentru piesele unicat, cu spaiu pentru
+
+       de produse, prezentare atelier, testimoniale, zon dedicat                             poveste, proces i material.
+       artei reciclate.
+
+02 ANTET Sticky header: logo, meniu, categorii, iconuri de cont, favorite,            06 CUTARE Acces rapid la produse i categorii.
+
+       cutare i co.
+
+03 CATEGORII / CATALOG Structur distinct pentru produse în stoc, concepte i colecii,  07 FILTRARE Pre, categorie, mrime, culoare, material i alte atribute.
+
+       cu categorii i subcategorii.
+
+04 PAGINA PRODUSULUI Galerie foto, descriere scurt i complet, stoc, variante de       08 PRODUSE SIMILARE / RECOMANDATE Recomandri pe baza categoriei sau a interesului artat
+
+       mrime, culoare i material, pre i pre redus, adugare în co,                            de vizitator.
+       favorite, comparare, recenzii cu rating.
+                                                                                                                                                            P.05 / 15
+Ce include magazinul continuare                                                                                                                                                    09--16
+
+09 PAGINA OFERTE Produsele aflate în promoie în perioada setat de tine.                          13 CONTACT Formular, adres, date de companie, hart i butoane rapide
+
+                                                                                                        de contact.
+
+10 DESPRE / ATELIER Povestea din spatele brandului: valorile, materialul, procesul.              14 CONTUL MEU Urmrirea comenzilor, editarea datelor de facturare i livrare,
+
+                                                                                                        descrcarea facturii.
+
+11 SISTEM BLOG · EDUCAIE & SEO Coninut actualizabil constant, factor important pentru a fi gsit  15 CO I FINALIZARE COMAND Actualizare cantiti, cupoane, checkout rapid, plat online cu
+
+       în Google în mai multe contexte de cutare.                                                       cardul, favorite i comparare.
+
+12 SISTEM DE COLECTARE FEEDBACK Colectarea i gestionarea feedback-ului primit de la clieni.      16 BILINGV · ROMÂN & ENGLEZ Site bilingv, SEO friendly, cu structur dedicat /en.
+
+                                                                                                                                                                                   P.06 / 15
+04 · INCLUS ÎN TARIF                                                                                04 SECURITATE I OPTIMIZARE
+
+Ce mai primeti, fr s ceri                                                                           Securitate la nivel de infrastructur i aplicaie
+                                                                                                    Sitemap
+MODULE ADMINISTRATIVE                           INTEGRRI                                            Optimizare SEO de baz
+                                                                                                    Optimizare foto/video pentru web
+Administrare comenzi                            API curier -- generare automat AWB                  Adaptare complet pentru mobil, tablet, laptop i
+Administrare produse                            API facturare                                       desktop
+Rapoarte de comenzi i vânzri                    Procesator de pli online
+Editare coninut                                 Google Analytics
+Co abandonat cu email reminder automat          Meta Pixel
+Discount-uri i cupoane                          Newsletter -- MailChimp / ActiveCampaign / Klaviyo
+Butoane de contact rapid -- WhatsApp, telefon,  Chat / WhatsApp
+email                                           Social media
+Cross-Sell & Up-Sell
+Notificri email pentru administrator i client
+PopUp / Header Banner pentru promoii
+Import i optimizare a pân la 150 de produse,
+incluse în tarif
+
+PAGINI LEGALE                                                                  Termenii i condiiile, politica de confidenialitate i cea de retur sunt puse la dispoziie
+                                                                               de ctre beneficiar.
+Termeni i condiii · Politica de confidenialitate · Politica cookie · Politica
+de livrare i retur · GDPR Consent
+
+                                                                                                    P.07 / 15
+05 · A DOUA CALE  La intrare, vizitatorul primete o alegere. Poate intra direct în
+                  magazin -- sau poate intra în atelier.
+Atelierul.
+A doua cale.      Dac alege atelierul, ajunge într-un spaiu fotografiat 360°:
+                  studioul tu, cu lucrrile, materialele i dezordinea lui. Se
+                  poate uita în jur, se poate deplasa între coluri, poate atinge
+                  obiectele. Unele sunt produse i le poate cumpra pe loc. Altele
+                  ascund rspunsuri.
+
+                  Pentru c vizitatorul primete i cinci întrebri. Rspunsurile sunt
+                  în atelier -- pe o etichet, pe un raft, într-o schi de pe perete.
+                  Gsete trei din cinci i primete o recompens pe care o poate
+                  folosi la prima comand.
+
+,,Nu construim un spaiu
+imaginar. Îl digitalizm pe al tu."
+
+                                                                                                                                                                  P.08 / 15
+Cum funcioneaz, concret                                                                                                  CINCI PAI
+
+01                           02                             03                         04                                05
+
+ALEGEREA                     EXPLORAREA                     DESCOPERIREA               JOCUL                             RECOMPENSA
+Pe prima pagin, dou intrri.  6-10 poziii fotografiate 360°  Obiectele marcate deschid  Întrebrile, indiciile, progresul  Cod unic, valabil limitat,
+Magazin sau atelier. Fr      în atelier, legate între ele.  fia produsului direct în   salvat automat. Poate juca        folosit la prima comand.
+pop-up care blocheaz.        Rotire cu degetul, iar pe      scen. Se adaug în co fr    fr cont; contul îl face doar
+Comutatorul rmâne            telefon i prin micarea         s iei din atelier.         când revendic recompensa.
+permanent disponibil         aparatului.
+în meniu.
+
+Coul e comun. Ce adaugi în atelier gseti în magazin, i invers.
+
+                                                                                                                         P.09 / 15
+Ce include modulul atelier                                                                                                   FAZA 2
+
+DEZVOLTARE                                                     CONINUT I PRODUCIE
+
+· Tur 360° cu 6-10 poziii legate între ele                     · Procesare i optimizare panorame
+· Pân la 40 de puncte interactive                              · Maparea punctelor interactive pe produse
+· Panou de administrare a scenelor i punctelor, în acelai CMS  · Configurarea primului traseu de joc i a întrebrilor
+· Motorul de joc: întrebri, indicii, progres, validare
+· Sistem de recompense cu coduri unice, limitate în timp         Sesiunea foto 360 a atelierului nu este inclus în pre.
+· Integrare complet cu contul de client i cu coul
+· Tem vizual dedicat -- negru i neon
+· Optimizare pentru mobil i încrcare rapid
+
+                                                               P.10 / 15
+Jocurile                                             În tariful de mai jos includem motorul de joc, vântoarea din atelier i dou jocuri suplimentare la
+                                                     alegerea ta din lista de mai jos. Restul rmân idei pe care le putem dezvolta ulterior, pe rând, în ritmul
+                                                     în care crete magazinul.
+
+Ce pies eti?         INCLUS                          Ce a fost înainte?                          INCLUS  Îl gseti pe Van Gogh?
+
+apte întrebri scurte despre stil, culoare i          Un cadru macro pe o textur. Vizitatorul ghicete     Al doilea sezon al vântorii: prin atelier sunt
+atitudine. La final: dou-trei piese recomandate i    materialul-surs: plas de pescuit, pungi, PET, o     ascunse trimiteri la lucrri celebre, reinterpretate
+un profil pe care vizitatorul îl poate distribui pe  jachet veche. Apoi vede piesa finit i povestea      de tine. Fiecare descoperire deschide un text
+Instagram. Cel mai simplu joc din list i, foarte     transformrii. Argumentul tu de vânzare,             despre influenele tale.
+probabil, cel care va vinde cel mai mult.            transformat în joc.
+                                                                                                         estimativ 250 EUR
+RECOMANDAREA NOASTR                                  RECOMANDAREA NOASTR
+
+Colecionarul                                         Croiete-i geanta                                    Roata atelierului
+
+Obiecte de colecionat rspândite prin tot site-ul,    Alegi materialul, forma, accentul de culoare. Vezi  O singur rotire pentru cine are produse în co i
+nu doar în atelier. Setul complet deschide o         previzualizarea. Trimii configuraia ca cerere de    d s plece. Premii mici, dar reale. Recupereaz
+recompens mai bun. Îi face pe oameni s               comand personalizat. Comenzile custom au cea        comenzi care altfel s-ar pierde.
+citeasc paginile pe care de obicei nimeni nu         mai bun marj.
+le deschide.
+                                                     estimativ 800 EUR                                   estimativ 300 EUR
+estimativ 350 EUR
+
+Sezoane                                              Cheia dubl                                          Licitaia piesei unicat
+
+La fiecare 4-6 sptmâni obiectele se rearanjeaz       Unele indicii nu se pot descoperi singur.           Piese singulare, scoase la licitaie pe o fereastr
+i întrebrile se schimb. Un joc jucat o dat e o       Îi invii un prieten, jucai împreun, primii          de 48 de ore. Potrivit pentru arta reciclat, dar
+experien. Unul care se reînnoiete devine obicei.     amândoi recompensa.                                 cu implicaii juridice i tehnice. De discutat
+                                                                                                         dup lansare.
+
+inclus în mentenan                                   estimativ 350 EUR                                   de evaluat separat
+
+                                                                          Preurile estimative sunt orientative i se confirm la momentul dezvoltrii. P.1 1 / 1 5
+06 · PROCES                                                       06
+
+Cum lucrm
+
+FAZA 1 · MAGAZINUL                                                         5-6 sptmâni
+
+01                            02                         03       04
+
+Proiectare design i structur  Dezvoltare                 Testare  Lansare
+
+FAZA 2 · ATELIERUL            02                                           3-4 sptmâni
+
+01                            Construcie tur i joc       03       04
+
+Sesiune foto                                             Testare  Lansare
+
+Dup fiecare etap ne auzim sau ne vedem pentru feedback.  Magazinul se lanseaz primul i începe s vând în timp ce construim
+                                                         atelierul. Nu atepi totul ca s porneti. Sau lansm împreun -
+                                                         TU DECIZI.
+
+                                                                           P.12 / 15
+07 · INVESTIIA                                                                                                                    Nu se percepe TVA
+
+Investiia                                                                  FAZA 2
+
+    FAZA 1                                                                 Atelierul & sistemul de joc
+
+  Magazinul online                                                         1.350 EUR
+
+ 1.850 EUR                                                                 Tot ce este descris la paginile 8-11, inclusiv dou jocuri la alegerea ta.
+                                                                           Plata: 50% la începerea fazei · 50% la predare.
+   Tot ce este descris la paginile 5-7, cu identitate vizual construit pe
+   brandul tu.                                                                        3.200 EUR
+    Plata: 50% la semnarea contractului · 50% la predare.
+
+    TOTAL
+
+INCLUS                                            PROPRIETATEA CODULUI                              DUP PRIMELE 4 LUNI
+
+4 luni de mentenan gratuit dup lansare: editare   Devine integral a ta la achitarea ultimei trane.  Mentenan opional, 150 EUR / lun. Hosting: nu
+coninut i media, rezolvarea problemelor tehnice,                                                    este inclus.
+actualizri, suport pentru acomodarea cu panoul
+de control.
+
+                                                                                                    P.13 / 15
+PREGTIRE                                              Fotografiile produselor i textele descriptive -- te putem ghida cu un ghid
+                                                         scurt de fotografiere.
+Ce ne trebuie
+de la tine                                            Foto 360 a studio-ului pe baza cruia s îl digitalizam
+                                                      Povestea brandului: de ce acest domeniu, ce te-a adus aici, ce vrei s îneleag
+Nimic complicat i nimic dintr-o dat. Le strângem pe
+rând, în ordinea în care avem nevoie de ele.             cineva care ajunge pentru prima dat pe site.
+                                                      Termenii i condiiile, politica de confidenialitate i cea de retur.
+                                                      Conturile pentru curier, facturare i procesatorul de pli.
+                                                      Ideile tale pentru întrebrile din atelier -- nimeni nu-i cunoate obiectele
+
+                                                         mai bine.
+
+Cu cât materialele vin mai devreme, cu atât lansm mai repede. E singurul factor care poate
+întârzia proiectul.
+
+                                                                                                                 P.14 / 15
+Ateptm cu interes
+    feedback-ul tu.
+
+                                         Ofert valabil 15 zile lucrtoare de la data emiterii.
+
+                             O sptmân frumoas,
+                              Echipa Website Factory
+
+                    office@websitefactory.ro · +40 728 567 830 · Timioara
+

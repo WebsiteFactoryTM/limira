@@ -1,0 +1,1295 @@
+<title>Limira Lamira</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Montserrat:wght@300..700&family=Space+Mono:wght@400;700&display=swap">
+
+<style>
+/* ============================================================
+   LIMIRA LAMIRA — NEON SALVAGE
+   Mockup de direcție vizuală · Website Factory · 09.2026
+   ============================================================ */
+
+/* ---- TOKENS: paleta completă se declară aici, o singură dată ---- */
+:root {
+  --limira-pink:#e64593;
+  --pink-100:#ffe9f3; --pink-300:#ff9ec9; --pink-500:#e64593;
+  --pink-600:#c9316f; --pink-700:#a31e60; --pink-rgb:230 69 147;
+
+  --ink-950:#08070a; --ink-900:#0e0d11; --ink-800:#17161b; --ink-700:#222027;
+  --ink-600:#35323c; --ink-400:#6e6a78; --ink-300:#9b96a3; --ink-200:#c9c4ce;
+  --ink-100:#e7e3e8; --bone:#f5f2ee; --paper:#ffffff;
+
+  --font-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --font-ui:"Montserrat","Segoe UI",system-ui,sans-serif;
+  --font-mono:"Space Mono",ui-monospace,"Courier New",monospace;
+
+  --step--2:clamp(.69rem,.66rem + .12vw,.75rem);
+  --step--1:clamp(.83rem,.78rem + .22vw,.94rem);
+  --step-0:clamp(1rem,.94rem + .3vw,1.13rem);
+  --step-1:clamp(1.15rem,1.05rem + .5vw,1.44rem);
+  --step-2:clamp(1.38rem,1.2rem + .8vw,1.85rem);
+  --step-3:clamp(1.66rem,1.4rem + 1.25vw,2.35rem);
+  --step-4:clamp(2rem,1.6rem + 1.9vw,3rem);
+  --step-5:clamp(2.4rem,1.85rem + 2.75vw,3.8rem);
+  --step-6:clamp(2.9rem,2.1rem + 3.9vw,4.8rem);
+  --step-7:clamp(3.4rem,2.3rem + 5.5vw,6rem);
+
+  --gutter:clamp(1.1rem,3.5vw,2.5rem);
+  --container:min(1400px,100% - 2*var(--gutter));
+  --section-y:clamp(3.5rem,8vw,7.5rem);
+  --cut:18px;
+
+  --ease-out-expo:cubic-bezier(.16,1,.3,1);
+  --ease-inout-quart:cubic-bezier(.76,0,.24,1);
+  --ease-out-back:cubic-bezier(.34,1.56,.64,1);
+  --dur-fast:180ms; --dur:320ms; --dur-slow:620ms;
+
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- MOD MAGAZIN (implicit): luminos, editorial ---- */
+:root, :root[data-mode="shop"] {
+  --bg:var(--bone); --bg-alt:var(--paper); --surface:var(--paper);
+  --surface-sunken:#ebe7e2;
+  --fg:var(--ink-950); --fg-muted:var(--ink-400); --fg-faint:var(--ink-300);
+  --line:rgb(0 0 0 / .12); --line-strong:rgb(0 0 0 / .3);
+  --accent:var(--pink-500); --accent-hover:var(--pink-600);
+  --accent-fg:#000; --accent-text:var(--pink-700); --accent-soft:var(--pink-100);
+  --glow:0 0 0 rgb(var(--pink-rgb)/0);
+  --grain-op:.05; --shade:1;
+  color-scheme:light;
+}
+
+/* ---- MOD ATELIER: întunecat, neon ---- */
+:root[data-mode="atelier"] {
+  --bg:var(--ink-950); --bg-alt:var(--ink-900); --surface:var(--ink-900);
+  --surface-sunken:#000;
+  --fg:#fff; --fg-muted:var(--ink-300); --fg-faint:var(--ink-400);
+  --line:rgb(255 255 255 / .14); --line-strong:rgb(255 255 255 / .34);
+  --accent:var(--pink-500); --accent-hover:var(--pink-300);
+  --accent-fg:#000; --accent-text:var(--pink-300);
+  --accent-soft:rgb(var(--pink-rgb)/.12);
+  --glow:0 0 60px rgb(var(--pink-rgb)/.35);
+  --grain-op:.07; --shade:0;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--font-ui); font-size:var(--step-0); line-height:1.6;
+  font-weight:400; -webkit-font-smoothing:antialiased;
+  transition:background var(--dur) ease, color var(--dur) ease;
+  overflow-x:hidden;
+}
+img{max-width:100%}
+::selection{background:var(--accent); color:#000}
+
+/* grain global */
+.grain{
+  position:fixed; inset:0; z-index:9000; pointer-events:none;
+  background-image:var(--grain); opacity:var(--grain-op);
+  mix-blend-mode:overlay;
+}
+
+.wrap{width:var(--container); margin-inline:auto}
+.section{padding-block:var(--section-y)}
+
+h1,h2,h3,h4{font-family:var(--font-display); font-weight:700; margin:0;
+  line-height:.92; letter-spacing:-.03em; text-wrap:balance;
+  font-variation-settings:"wdth" 100;}
+p{margin:0}
+a{color:inherit}
+
+.label{
+  font-family:var(--font-mono); font-size:var(--step--2); text-transform:uppercase;
+  letter-spacing:.16em; color:var(--fg-muted); display:inline-flex; gap:.6em;
+  align-items:center;
+}
+.label b{color:var(--accent-text); font-weight:400}
+.num{font-variant-numeric:tabular-nums}
+
+/* forme cut & fold */
+.cut{clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,0 100%)}
+.seam{border:1px dashed color-mix(in oklab,var(--accent) 55%,transparent)}
+
+/* ---------- butoane ---------- */
+.btn{
+  font-family:var(--font-ui); font-weight:600; font-size:var(--step--1);
+  letter-spacing:.02em; padding:.95em 1.6em; border:1px solid transparent;
+  background:var(--accent); color:var(--accent-fg); cursor:pointer;
+  display:inline-flex; align-items:center; gap:.6em; text-decoration:none;
+  transition:background var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out-back);
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);
+}
+.btn:hover{background:var(--accent-hover); transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn--ghost{background:transparent; color:var(--fg); border-color:var(--line-strong)}
+.btn--ghost:hover{background:transparent; border-color:var(--accent); color:var(--accent-text)}
+.btn--sm{padding:.6em 1.1em; font-size:var(--step--2)}
+
+:where(a,button,input,[tabindex]):focus-visible{
+  outline:2px solid var(--accent); outline-offset:3px;
+}
+
+/* ================= PROMO BAR ================= */
+.promo{
+  background:var(--accent); color:#000; font-family:var(--font-mono);
+  font-size:var(--step--2); letter-spacing:.08em; text-transform:uppercase;
+  padding:.55rem 0;
+}
+.promo .wrap{display:flex; justify-content:space-between; gap:1rem; align-items:center}
+.promo span:last-child{opacity:.72}
+@media(max-width:700px){.promo span:last-child{display:none}}
+
+/* ================= HEADER ================= */
+.hdr{
+  position:sticky; top:0; z-index:800; background:var(--bg);
+  border-bottom:1px solid var(--line);
+  transition:padding var(--dur) var(--ease-out-expo), background var(--dur) ease;
+  padding-block:1.15rem;
+}
+.hdr.is-condensed{padding-block:.55rem; background:color-mix(in oklab,var(--bg) 88%,transparent);
+  backdrop-filter:blur(14px)}
+.hdr .wrap{display:flex; align-items:center; gap:clamp(1rem,3vw,2.5rem)}
+
+.logo{display:flex; align-items:center; gap:.75rem; text-decoration:none; flex-shrink:0}
+.logo svg{width:34px; height:34px; display:block; transition:width var(--dur) var(--ease-out-expo)}
+.hdr.is-condensed .logo svg{width:28px}
+.logo .wm{
+  font-family:var(--font-ui); font-weight:300; letter-spacing:.14em;
+  font-size:var(--step--1); color:var(--accent); white-space:nowrap;
+}
+@media(max-width:900px){.logo .wm{display:none}}
+
+.nav{display:flex; gap:1.6rem; margin-inline-start:auto}
+.nav a{
+  font-size:var(--step--1); text-decoration:none; font-weight:500;
+  position:relative; padding-block:.3em; white-space:nowrap;
+}
+.nav a::after{
+  content:""; position:absolute; left:0; right:100%; bottom:0; height:1.5px;
+  background:var(--accent); transition:right var(--dur) var(--ease-out-expo);
+}
+.nav a:hover::after,.nav a[aria-current]::after{right:0}
+@media(max-width:1024px){.nav{display:none}}
+
+.icons{display:flex; gap:.35rem; align-items:center; margin-inline-start:auto}
+@media(min-width:1025px){.icons{margin-inline-start:0}}
+.ico{
+  background:none; border:0; color:inherit; cursor:pointer; padding:.5rem;
+  position:relative; display:grid; place-items:center; line-height:0;
+}
+.ico svg{width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.5}
+.ico .badge{
+  position:absolute; top:1px; right:0; min-width:17px; height:17px; padding:0 4px;
+  background:var(--accent); color:#000; border-radius:999px;
+  font-family:var(--font-mono); font-size:10px; font-weight:700;
+  display:grid; place-items:center; line-height:1;
+}
+.ico .badge[data-empty="1"]{display:none}
+
+/* comutator de mod — cerință contractuală, permanent în meniu */
+.modesw{
+  display:flex; align-items:center; gap:0; border:1px solid var(--line-strong);
+  padding:2px; flex-shrink:0;
+}
+.modesw button{
+  font-family:var(--font-mono); font-size:10px; letter-spacing:.12em;
+  text-transform:uppercase; padding:.5em .85em; border:0; cursor:pointer;
+  background:transparent; color:var(--fg-muted); transition:all var(--dur-fast) ease;
+  white-space:nowrap;
+}
+.modesw button[aria-pressed="true"]{background:var(--accent); color:#000; font-weight:700}
+@media(max-width:560px){.modesw button{padding:.5em .6em; font-size:9px}}
+
+/* ================= HERO ================= */
+.hero{position:relative; padding-block:clamp(2rem,4.5vw,3.75rem) clamp(2.5rem,5vw,4rem)}
+.hero-grid{
+  display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:clamp(1.5rem,4vw,4rem); align-items:center;
+}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+
+.hero h1{
+  font-size:var(--step-7); margin-block:1.2rem 0; line-height:.86;
+  font-variation-settings:"wdth" 96;
+}
+/* padding-ul compensează overflow:hidden ca să nu taie diacriticele ș/ț */
+.hero h1 .w{display:inline-block; overflow:hidden; vertical-align:bottom;
+  padding-bottom:.16em; margin-bottom:-.16em}
+.hero h1 .w > span{display:inline-block; transform:translateY(0)}
+.js .hero h1 .w > span{transform:translateY(110%); animation:riseUp .9s var(--ease-out-expo) forwards}
+@keyframes riseUp{to{transform:translateY(0)}}
+.hero h1 em{font-style:normal; color:var(--accent-text)}
+
+.hero-lead{
+  margin-top:1.6rem; max-width:46ch; color:var(--fg-muted); font-size:var(--step-1);
+  line-height:1.45; font-weight:300;
+}
+.hero-cta{display:flex; gap:.8rem; margin-top:2.2rem; flex-wrap:wrap}
+
+.hero-art{position:relative; aspect-ratio:4/5; min-height:280px;
+  height:min(62vh,540px); justify-self:end; width:100%; max-width:100%}
+@media(max-width:900px){.hero-art{height:auto; justify-self:stretch}}
+.hero-art .swatch{position:absolute; inset:0}
+.hero-art .tag{
+  position:absolute; left:-8px; bottom:22px; background:var(--accent); color:#000;
+  font-family:var(--font-mono); font-size:var(--step--2); letter-spacing:.1em;
+  padding:.5em .9em; text-transform:uppercase;
+}
+.hero-art .halo{
+  position:absolute; inset:12%; border-radius:50%; box-shadow:var(--glow);
+  pointer-events:none; animation:bloom 9s ease-in-out infinite;
+}
+@keyframes bloom{0%,100%{opacity:.55; transform:scale(.94)}50%{opacity:1; transform:scale(1.05)}}
+
+/* ================= MARQUEE ================= */
+.marquee{
+  border-block:1px solid var(--line); background:var(--accent); color:#000;
+  overflow:hidden; padding-block:.7rem; user-select:none;
+}
+.marquee-track{display:flex; width:max-content; will-change:transform}
+.marquee span{
+  font-family:var(--font-mono); font-size:var(--step--1); text-transform:uppercase;
+  letter-spacing:.18em; padding-inline:1.5rem; white-space:nowrap; font-weight:700;
+}
+
+/* ================= SWATCH (placeholder de imagine) ================= */
+.swatch{
+  position:relative; overflow:hidden; background:var(--sw-a,#2a2f4a);
+  background-image:
+    radial-gradient(120% 90% at 20% 12%, var(--sw-b,#4a5580) 0%, transparent 55%),
+    radial-gradient(90% 70% at 85% 95%, rgb(var(--pink-rgb)/.4) 0%, transparent 60%),
+    linear-gradient(155deg, var(--sw-a,#2a2f4a) 0%, #08070a 100%);
+  isolation:isolate;
+}
+.swatch::before{
+  content:""; position:absolute; inset:0;
+  background-image:radial-gradient(circle at center, rgb(0 0 0/.55) 1.1px, transparent 1.2px);
+  background-size:7px 7px; opacity:.4; mix-blend-mode:multiply;
+}
+.swatch::after{
+  content:""; position:absolute; inset:0;
+  background-image:var(--grain); opacity:.16; mix-blend-mode:overlay;
+}
+.swatch .sw-note{
+  position:absolute; left:12px; top:12px; z-index:2;
+  font-family:var(--font-mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:rgb(255 255 255/.62);
+  border:1px solid rgb(255 255 255/.3); padding:.35em .6em;
+}
+/* materiale */
+.m-denim{--sw-a:#1d2b4a;--sw-b:#3c5a8f}
+.m-wool{--sw-a:#3b2f24;--sw-b:#8a6c48}
+.m-net{--sw-a:#0f3b3a;--sw-b:#2c7f74}
+.m-linen{--sw-a:#454034;--sw-b:#a2957a}
+.m-leather{--sw-a:#3a1f1c;--sw-b:#7d4433}
+.m-plastic{--sw-a:#2a1140;--sw-b:#6b3fa0}
+
+/* ================= CATEGORII ================= */
+.head{display:flex; align-items:end; justify-content:space-between; gap:2rem;
+  margin-bottom:clamp(1.5rem,3vw,2.75rem); flex-wrap:wrap}
+.head h2{font-size:var(--step-5); transition:font-variation-settings .45s var(--ease-out-expo)}
+.head h2:hover{font-variation-settings:"wdth" 82}
+.head p{color:var(--fg-muted); max-width:38ch; font-size:var(--step--1)}
+
+.cats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line)}
+@media(max-width:900px){.cats{grid-template-columns:repeat(2,1fr)}}
+.cat{
+  position:relative; aspect-ratio:3/4; display:block; text-decoration:none;
+  overflow:hidden; background:var(--bg);
+}
+.cat .swatch{position:absolute; inset:0; transition:transform .7s var(--ease-out-expo)}
+.cat:hover .swatch{transform:scale(1.06)}
+.cat-txt{
+  position:absolute; inset:auto 0 0 0; padding:1.1rem; z-index:2;
+  background:linear-gradient(to top,rgb(0 0 0/.82),transparent);
+}
+.cat-txt h3{color:#fff; font-size:var(--step-2)}
+.cat-txt .label{color:rgb(255 255 255/.65); margin-top:.35rem}
+.cat::after{
+  content:""; position:absolute; inset:0; border:2px solid var(--accent);
+  opacity:0; transition:opacity var(--dur) ease; z-index:3;
+}
+.cat:hover::after{opacity:1}
+
+/* ================= PRODUSE ================= */
+.rail{
+  display:grid; grid-auto-flow:column; grid-auto-columns:minmax(230px,1fr);
+  gap:clamp(.8rem,2vw,1.5rem); overflow-x:auto; scroll-snap-type:x mandatory;
+  padding-bottom:1rem; margin-inline:calc(var(--gutter)*-1);
+  padding-inline:var(--gutter); scrollbar-width:thin;
+}
+.rail > *{scroll-snap-align:start}
+@media(min-width:1100px){
+  .rail{grid-auto-flow:row; grid-template-columns:repeat(5,1fr); overflow:visible;
+    margin-inline:0; padding-inline:0}
+}
+
+.card{display:flex; flex-direction:column; gap:.85rem}
+.card-media{position:relative; aspect-ratio:4/5; overflow:hidden}
+.card-media .swatch{position:absolute; inset:0; transition:opacity .45s var(--ease-out-expo),transform .7s var(--ease-out-expo)}
+.card-media .face-mat{opacity:0}
+.card:hover .face-prod{opacity:0; transform:scale(1.04)}
+.card:hover .face-mat{opacity:1}
+.card-media .flag{
+  position:absolute; top:0; right:0; z-index:3; background:var(--accent); color:#000;
+  font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.12em;
+  padding:.4em .7em; text-transform:uppercase;
+}
+.card-media .flip-hint{
+  position:absolute; left:0; bottom:0; z-index:3; background:rgb(0 0 0/.75); color:#fff;
+  font-family:var(--font-mono); font-size:9px; letter-spacing:.12em; padding:.45em .7em;
+  text-transform:uppercase; opacity:0; transform:translateY(100%);
+  transition:all var(--dur) var(--ease-out-expo);
+}
+.card:hover .flip-hint{opacity:1; transform:translateY(0)}
+.card h3{font-size:var(--step-1); line-height:1.05}
+.card .meta{font-family:var(--font-mono); font-size:var(--step--2); color:var(--fg-muted);
+  letter-spacing:.06em; text-transform:uppercase}
+.card .price{display:flex; align-items:baseline; gap:.6rem; font-family:var(--font-mono);
+  font-size:var(--step-0); font-weight:700}
+.card .price s{color:var(--fg-faint); font-weight:400; font-size:var(--step--1)}
+.card .price .off{color:var(--accent-text); font-size:var(--step--2)}
+.card .add{margin-top:.2rem; align-self:flex-start}
+
+/* ================= BEFORE / AFTER ================= */
+.ba{position:relative; aspect-ratio:16/10; overflow:hidden; user-select:none;
+  touch-action:pan-y; cursor:ew-resize}
+.ba .layer{position:absolute; inset:0}
+.ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
+.ba .bar{
+  position:absolute; top:0; bottom:0; left:var(--pos,50%); width:2px;
+  background:var(--accent); z-index:4; box-shadow:0 0 20px rgb(var(--pink-rgb)/.8);
+}
+.ba .knob{
+  position:absolute; top:50%; left:var(--pos,50%); translate:-50% -50%; z-index:5;
+  width:52px; height:52px; background:var(--accent); color:#000;
+  display:grid; place-items:center; font-family:var(--font-mono); font-size:11px;
+  font-weight:700; border-radius:999px; box-shadow:0 0 30px rgb(var(--pink-rgb)/.6);
+}
+.ba .cap{
+  position:absolute; z-index:3; bottom:14px; font-family:var(--font-mono);
+  font-size:var(--step--2); letter-spacing:.14em; text-transform:uppercase;
+  background:rgb(0 0 0/.72); color:#fff; padding:.5em .8em;
+}
+.ba .cap-l{left:14px} .ba .cap-r{right:14px}
+
+/* ================= GALERIE ARTĂ ================= */
+.gal{
+  display:flex; gap:clamp(.8rem,2vw,1.6rem); overflow-x:auto; scroll-snap-type:x proximity;
+  padding-bottom:1.2rem; margin-inline:calc(var(--gutter)*-1); padding-inline:var(--gutter);
+  align-items:flex-end; cursor:grab;
+}
+.gal.dragging{cursor:grabbing; scroll-snap-type:none}
+.gal figure{margin:0; flex:0 0 auto; scroll-snap-align:center;
+  width:clamp(210px,32vw,380px)}
+.gal figure:nth-child(2n){width:clamp(170px,24vw,290px)}
+.gal .swatch{aspect-ratio:var(--ar,3/4)}
+.gal figure:nth-child(1) .swatch{--ar:4/5}
+.gal figure:nth-child(2) .swatch{--ar:1/1}
+.gal figure:nth-child(3) .swatch{--ar:3/4}
+.gal figure:nth-child(4) .swatch{--ar:5/4}
+.gal figure:nth-child(5) .swatch{--ar:2/3}
+.gal figcaption{margin-top:.8rem}
+.gal figcaption strong{font-family:var(--font-display); font-size:var(--step-1);
+  font-weight:600; display:block; line-height:1.1}
+.gal figcaption span{font-family:var(--font-mono); font-size:var(--step--2);
+  color:var(--fg-muted); letter-spacing:.1em; text-transform:uppercase}
+.gal .sold{color:var(--accent-text)}
+
+/* ================= ATELIER ================= */
+.atelier{
+  background:var(--ink-950); color:#fff; position:relative; overflow:hidden;
+  border-block:1px solid var(--line);
+}
+.atelier .wrap{position:relative; z-index:2}
+.atelier h2{font-size:var(--step-6); color:#fff}
+.atelier .label{color:var(--ink-300)}
+.atelier p{color:var(--ink-200)}
+.atelier-grid{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(1.8rem,4vw,4rem); align-items:center}
+@media(max-width:900px){.atelier-grid{grid-template-columns:1fr}}
+
+.pano{position:relative; aspect-ratio:16/10; overflow:hidden;
+  border:1px solid rgb(255 255 255/.16)}
+.pano .swatch{position:absolute; inset:0}
+.pano .vig{position:absolute; inset:0;
+  background:radial-gradient(120% 90% at 50% 45%,transparent 30%,rgb(0 0 0/.75) 100%)}
+.hot{
+  position:absolute; width:26px; height:26px; border-radius:999px; border:0; padding:0;
+  background:var(--pink-500); cursor:pointer; z-index:3; translate:-50% -50%;
+  box-shadow:0 0 0 0 rgb(var(--pink-rgb)/.6);
+  animation:pulse 2.6s ease-out infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgb(var(--pink-rgb)/.65)}
+  70%{box-shadow:0 0 0 22px rgb(var(--pink-rgb)/0)}
+  100%{box-shadow:0 0 0 0 rgb(var(--pink-rgb)/0)}
+}
+.hot::after{content:""; position:absolute; inset:8px; background:#000; border-radius:999px}
+.hot[aria-expanded="true"]{animation:none; background:#fff}
+.hot-pop{
+  position:absolute; z-index:5; width:min(250px,72vw); background:#0e0d11;
+  border:1px solid rgb(var(--pink-rgb)/.55); padding:1rem; translate:-50% 14px;
+  box-shadow:0 20px 60px rgb(0 0 0/.7);
+}
+.hot-pop[hidden]{display:none}
+.hot-pop .label{color:var(--pink-300); margin-bottom:.4rem}
+.hot-pop strong{font-family:var(--font-display); font-size:var(--step-1); display:block;
+  line-height:1.1; margin-bottom:.35rem; color:#fff}
+.hot-pop p{font-size:var(--step--1); color:var(--ink-200); line-height:1.45}
+.hot-pop .price{font-family:var(--font-mono); color:var(--pink-300); font-weight:700;
+  margin-top:.6rem; display:block}
+
+.mechs{display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
+  background:rgb(255 255 255/.14); margin-top:clamp(2rem,4vw,3.5rem)}
+@media(max-width:700px){.mechs{grid-template-columns:1fr}}
+.mech{background:var(--ink-950); padding:clamp(1.2rem,2.5vw,1.8rem)}
+.mech .n{font-family:var(--font-mono); font-size:var(--step--2); color:var(--pink-300);
+  letter-spacing:.14em}
+.mech h4{font-size:var(--step-2); margin-block:.5rem .5rem; color:#fff}
+.mech p{font-size:var(--step--1); color:var(--ink-300); line-height:1.5}
+
+/* ================= STATS ================= */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(1rem,3vw,2.5rem)}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat b{font-family:var(--font-display); font-size:var(--step-6); font-weight:700;
+  display:block; line-height:.9; font-variant-numeric:tabular-nums; color:var(--accent-text)}
+.stat span{font-family:var(--font-mono); font-size:var(--step--2); text-transform:uppercase;
+  letter-spacing:.14em; color:var(--fg-muted); display:block; margin-top:.6rem}
+
+/* ================= TESTIMONIALE ================= */
+.quotes{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line)}
+@media(max-width:900px){.quotes{grid-template-columns:1fr}}
+.quote{background:var(--bg); padding:clamp(1.4rem,3vw,2.2rem)}
+.quote blockquote{margin:0; font-family:var(--font-display); font-size:var(--step-2);
+  line-height:1.15; letter-spacing:-.02em}
+.quote .who{margin-top:1.2rem; font-family:var(--font-mono); font-size:var(--step--2);
+  color:var(--fg-muted); letter-spacing:.1em; text-transform:uppercase}
+.quote .stars{color:var(--accent); letter-spacing:.15em; font-size:var(--step--1)}
+
+/* ================= NEWSLETTER + FOOTER ================= */
+.nl{border-block:1px solid var(--line); background:var(--bg-alt)}
+.nl-grid{display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center}
+@media(max-width:800px){.nl-grid{grid-template-columns:1fr}}
+.nl h2{font-size:var(--step-4)}
+.nl form{display:flex; gap:.5rem; flex-wrap:wrap}
+.nl input{
+  font-family:var(--font-ui); font-size:var(--step--1); padding:.95em 1.1em;
+  border:1px solid var(--line-strong); background:var(--surface); color:var(--fg);
+  min-width:min(280px,70vw);
+}
+.nl input::placeholder{color:var(--fg-faint)}
+
+.ft{padding-block:clamp(2.5rem,5vw,4rem) 2rem; font-size:var(--step--1)}
+.ft-grid{display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:2rem;
+  padding-bottom:2.5rem; border-bottom:1px solid var(--line)}
+@media(max-width:900px){.ft-grid{grid-template-columns:1fr 1fr}}
+.ft h4{font-family:var(--font-mono); font-size:var(--step--2); text-transform:uppercase;
+  letter-spacing:.14em; color:var(--fg-muted); font-weight:400; margin-bottom:.9rem}
+.ft ul{list-style:none; padding:0; margin:0; display:grid; gap:.55rem}
+.ft a{text-decoration:none; color:var(--fg-muted)}
+.ft a:hover{color:var(--accent-text)}
+.ft-bot{display:flex; justify-content:space-between; gap:1rem; padding-top:1.5rem;
+  flex-wrap:wrap; font-family:var(--font-mono); font-size:var(--step--2);
+  color:var(--fg-faint); letter-spacing:.06em}
+
+/* ================= CART DRAWER ================= */
+.scrim{
+  position:fixed; inset:0; background:rgb(0 0 0/.6); z-index:840; opacity:0;
+  pointer-events:none; transition:opacity var(--dur) ease; backdrop-filter:blur(3px);
+}
+.scrim.open{opacity:1; pointer-events:auto}
+.drawer{
+  position:fixed; top:0; right:0; bottom:0; width:min(420px,100%); z-index:850;
+  background:var(--bg); border-left:1px solid var(--line);
+  transform:translateX(101%); transition:transform var(--dur-slow) var(--ease-out-expo);
+  display:flex; flex-direction:column;
+}
+.drawer.open{transform:translateX(0)}
+.drawer-hd{display:flex; align-items:center; justify-content:space-between;
+  padding:1.3rem var(--gutter); border-bottom:1px solid var(--line)}
+.drawer-hd h3{font-size:var(--step-2)}
+.drawer-body{flex:1; overflow-y:auto; padding:var(--gutter)}
+.drawer-empty{color:var(--fg-muted); font-size:var(--step--1); text-align:center;
+  padding-block:3rem; line-height:1.6}
+.ci{display:grid; grid-template-columns:64px 1fr auto; gap:.9rem; align-items:start;
+  padding-block:1rem; border-bottom:1px solid var(--line)}
+.ci .swatch{aspect-ratio:4/5}
+.ci h4{font-family:var(--font-ui); font-weight:600; font-size:var(--step--1);
+  letter-spacing:0; line-height:1.3}
+.ci .meta{font-family:var(--font-mono); font-size:10px; color:var(--fg-muted);
+  text-transform:uppercase; letter-spacing:.1em; margin-top:.25rem}
+.ci .qty{display:flex; align-items:center; gap:.5rem; margin-top:.6rem}
+.ci .qty button{width:24px; height:24px; border:1px solid var(--line-strong);
+  background:transparent; color:var(--fg); cursor:pointer; font-family:var(--font-mono);
+  line-height:1; display:grid; place-items:center}
+.ci .qty span{font-family:var(--font-mono); font-size:var(--step--1); min-width:1.4ch;
+  text-align:center}
+.ci .ln{font-family:var(--font-mono); font-weight:700; font-size:var(--step--1); white-space:nowrap}
+.drawer-ft{padding:var(--gutter); border-top:1px solid var(--line);
+  display:grid; gap:.9rem; background:var(--bg-alt)}
+.drawer-ft .row{display:flex; justify-content:space-between; font-family:var(--font-mono);
+  font-size:var(--step--1)}
+.drawer-ft .row.total{font-size:var(--step-1); font-weight:700}
+.drawer-ft .btn{justify-content:center; width:100%}
+
+/* ================= NOTĂ DE PREZENTARE ================= */
+.brief{background:var(--surface-sunken); border-block:1px solid var(--line)}
+.brief-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1.5rem,3vw,2.5rem)}
+@media(max-width:900px){.brief-grid{grid-template-columns:1fr}}
+.brief h3{font-size:var(--step-2); margin-bottom:.7rem}
+.brief p,.brief li{font-size:var(--step--1); color:var(--fg-muted); line-height:1.6}
+.brief ul{padding-left:1.1rem; margin:.5rem 0 0; display:grid; gap:.4rem}
+.brief .ask{border-left:2px solid var(--accent); padding-left:1rem; margin-top:1rem}
+.brief .ask strong{color:var(--fg)}
+
+/* ================= CURSOR ================= */
+.cursor{
+  position:fixed; top:0; left:0; z-index:9500; pointer-events:none;
+  width:26px; height:26px; border:1.5px solid var(--accent); border-radius:999px;
+  translate:-50% -50%; transition:width .25s var(--ease-out-expo),
+    height .25s var(--ease-out-expo), background .25s ease, border-radius .25s ease;
+  display:none; place-items:center;
+}
+.cursor.on{display:grid}
+.cursor.big{width:74px; height:74px; background:var(--accent); border-color:var(--accent)}
+.cursor i{font-family:var(--font-mono); font-style:normal; font-size:9px; font-weight:700;
+  letter-spacing:.1em; color:#000; opacity:0; transition:opacity .2s ease; white-space:nowrap}
+.cursor.big i{opacity:1}
+
+/* ================= REVEAL ================= */
+.js .rv{opacity:.001; transform:translateY(26px)}
+.js .rv.in{opacity:1; transform:none;
+  transition:opacity .8s var(--ease-out-expo), transform .8s var(--ease-out-expo)}
+
+/* ================= SEAM WIPE (comutare de mod) ================= */
+::view-transition-old(root){animation:none}
+::view-transition-new(root){
+  animation:seam 620ms cubic-bezier(.76,0,.24,1) forwards;
+  mix-blend-mode:normal;
+}
+@keyframes seam{
+  from{clip-path:polygon(0% 0%,0% 0%,-42% 100%,-42% 100%)}
+  to{clip-path:polygon(0% 0%,142% 0%,100% 100%,-42% 100%)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms !important; animation-iteration-count:1 !important;
+    transition-duration:120ms !important;
+  }
+  .js .hero h1 .w > span{transform:none; animation:none}
+  .js .rv{opacity:1; transform:none}
+  .cursor{display:none !important}
+  ::view-transition-new(root){animation:none}
+}
+</style>
+
+<script>
+  // se execută înainte de primul paint: fără flash de temă greșită
+  // ADR-008: modul e o decizie editorială, nu o preferință de sistem.
+  // Pagina principală e o rută de magazin → pornim mereu în modul „shop".
+  (function () {
+    var r = document.documentElement;
+    r.classList.add('js');
+    r.setAttribute('data-mode', 'shop');
+  })();
+</script>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><i></i></div>
+
+<!-- ============ PROMO ============ -->
+<div class="promo">
+  <div class="wrap">
+    <span>Transport gratuit peste 300 lei</span>
+    <span>Fiecare piesă are o viață anterioară</span>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Limira Lamira — acasă">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="#e64593" stroke-width="6" stroke-linecap="square">
+          <path d="M30 12 H88 V88"/>
+          <path d="M70 88 H12 V12"/>
+          <path d="M50 26 L74 50 L50 74 L26 50 Z"/>
+          <path d="M30 34 L70 74"/>
+        </g>
+      </svg>
+      <span class="wm">LIMIRA LAMIRA</span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="#produse" aria-current="page">Magazin</a>
+      <a href="#categorii">Categorii</a>
+      <a href="#arta">Artă unicat</a>
+      <a href="#atelier">Atelier</a>
+      <a href="#despre">Poveste</a>
+    </nav>
+
+    <div class="modesw" role="group" aria-label="Mod de vizitare">
+      <button type="button" data-mode-btn="shop" aria-pressed="true">Magazin</button>
+      <button type="button" data-mode-btn="atelier" aria-pressed="false">Atelier</button>
+    </div>
+
+    <div class="icons">
+      <button class="ico" type="button" aria-label="Caută">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+      <button class="ico" type="button" aria-label="Contul meu">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+      </button>
+      <button class="ico" type="button" aria-label="Favorite">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7 2.6C19 15.4 12 20 12 20z"/></svg>
+        <span class="badge num">2</span>
+      </button>
+      <button class="ico" type="button" id="cartBtn" aria-label="Coșul meu">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="badge num" id="cartCount" data-empty="1">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="label">Timișoara &nbsp;/&nbsp; <b>Studio de modă și artă reciclată</b></span>
+      <h1 id="heroTitle">Nimic nu se aruncă. Totul se <em>croiește</em> din nou.</h1>
+      <p class="hero-lead">
+        Genți, haine și piese unicat făcute manual din materiale care aveau deja
+        o poveste. Intri în magazin — sau intri direct în atelier, unde le vezi
+        cum se nasc.
+      </p>
+      <div class="hero-cta">
+        <a class="btn" href="#produse" data-cursor="Vezi">Vezi magazinul</a>
+        <button class="btn btn--ghost" type="button" data-mode-btn="atelier" data-cursor="Intră">
+          Intră în atelier &nbsp;↗
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="halo" aria-hidden="true"></div>
+      <div class="swatch m-denim cut">
+        <span class="sw-note">Foto erou · placeholder</span>
+      </div>
+      <span class="tag">Colecția „A doua viață"</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" id="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mqTrack"></div>
+</div>
+
+<!-- ============ CATEGORII ============ -->
+<section class="section" id="categorii">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="label">Catalog &nbsp;/&nbsp; <b>04 secțiuni</b></span>
+        <h2>Caută după ce a fost, nu doar după ce este.</h2>
+      </div>
+      <p>Produsele în stoc, conceptele în lucru și colecțiile curatoriate au fiecare
+        propriul fel de a fi răsfoit.</p>
+    </div>
+
+    <div class="cats rv">
+      <a class="cat" href="#produse" data-cursor="Vezi">
+        <div class="swatch m-denim"><span class="sw-note">Foto categorie</span></div>
+        <div class="cat-txt"><h3>Genți</h3><span class="label">24 de piese</span></div>
+      </a>
+      <a class="cat" href="#produse" data-cursor="Vezi">
+        <div class="swatch m-wool"><span class="sw-note">Foto categorie</span></div>
+        <div class="cat-txt"><h3>Haine</h3><span class="label">31 de piese</span></div>
+      </a>
+      <a class="cat" href="#produse" data-cursor="Vezi">
+        <div class="swatch m-leather"><span class="sw-note">Foto categorie</span></div>
+        <div class="cat-txt"><h3>Accesorii</h3><span class="label">18 piese</span></div>
+      </a>
+      <a class="cat" href="#arta" data-cursor="Vezi">
+        <div class="swatch m-plastic"><span class="sw-note">Foto categorie</span></div>
+        <div class="cat-txt"><h3>Artă unicat</h3><span class="label">9 lucrări</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUSE ============ -->
+<section class="section" id="produse" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="label">Noutăți &nbsp;/&nbsp; <b>Croite luna aceasta</b></span>
+        <h2>Trece cu mouse-ul peste o piesă. Îi vezi materialul de dinainte.</h2>
+      </div>
+      <p>Fiecare produs păstrează fotografia materialului-sursă. Este același câmp
+        care alimentează, în faza a doua, mecanica „Ce poți face din...?".</p>
+    </div>
+
+    <div class="rail rv" id="rail"></div>
+  </div>
+</section>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="label">Faza 2 &nbsp;/&nbsp; <b>Mecanica 01</b></span>
+        <h2>Ce poți face dintr-un blug vechi?</h2>
+      </div>
+      <p>Trage de bară. Este una dintre cele patru mecanici din modulul atelier —
+        aici, ca previzualizare.</p>
+    </div>
+    <div class="ba rv" id="ba" style="--pos:46%">
+      <div class="layer swatch m-denim"><span class="sw-note">Material sursă</span></div>
+      <div class="layer after swatch m-leather"><span class="sw-note">Piesa finită</span></div>
+      <span class="cap cap-l">Înainte · blug recuperat</span>
+      <span class="cap cap-r">După · Geanta MONO 01</span>
+      <div class="bar" aria-hidden="true"></div>
+      <div class="knob" aria-hidden="true">↔</div>
+      <input type="range" min="4" max="96" value="46" id="baRange"
+        aria-label="Compară înainte și după"
+        style="position:absolute;inset:auto 0 0 0;width:100%;opacity:0;height:100%;cursor:ew-resize">
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARTĂ UNICAT ============ -->
+<section class="section" id="arta" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="label">Galerie &nbsp;/&nbsp; <b>Piese unicat</b></span>
+        <h2>Aici nu se cumpără repede. Se privește întâi.</h2>
+      </div>
+      <p>Proporții mixte, fără crop agresiv, spațiu pentru poveste, proces și material.
+        O piesă vândută rămâne vizibilă — face parte din portofoliu.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="gal rv" id="gal">
+      <figure>
+        <div class="swatch m-net"><span class="sw-note">Foto lucrare</span></div>
+        <figcaption><strong>Fereastra din spate</strong>
+          <span>Colaj textil · 2026 · <span class="sold">disponibilă</span></span></figcaption>
+      </figure>
+      <figure>
+        <div class="swatch m-wool"><span class="sw-note">Foto lucrare</span></div>
+        <figcaption><strong>Cusătura roșie</strong>
+          <span>Panou · 2025 · vândută</span></figcaption>
+      </figure>
+      <figure>
+        <div class="swatch m-plastic"><span class="sw-note">Foto lucrare</span></div>
+        <figcaption><strong>Nod II</strong>
+          <span>Obiect · 2026 · <span class="sold">disponibilă</span></span></figcaption>
+      </figure>
+      <figure>
+        <div class="swatch m-linen"><span class="sw-note">Foto lucrare</span></div>
+        <figcaption><strong>Perdeaua de la etaj</strong>
+          <span>Textil · 2025 · vândută</span></figcaption>
+      </figure>
+      <figure>
+        <div class="swatch m-denim"><span class="sw-note">Foto lucrare</span></div>
+        <figcaption><strong>Indigo, de trei ori</strong>
+          <span>Colaj · 2026 · <span class="sold">disponibilă</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATELIER ============ -->
+<section class="atelier section" id="atelier">
+  <div class="wrap">
+    <div class="atelier-grid">
+      <div class="rv">
+        <span class="label">Faza 2 &nbsp;/&nbsp; <b>A doua cale</b></span>
+        <h2>Atelierul tău, digitalizat.</h2>
+        <p style="margin-top:1.2rem; max-width:44ch; font-size:var(--step-1);
+          line-height:1.45; font-weight:300;">
+          Șase până la zece poziții fotografiate 360°, legate între ele. Vizitatorul se
+          uită în jur, atinge obiectele, descoperă. Unele sunt produse și le poate
+          cumpăra pe loc, fără să iasă din scenă.
+        </p>
+        <p style="margin-top:1rem; max-width:44ch; font-size:var(--step--1);">
+          Coșul e comun. Ce adaugi în atelier găsești în magazin, și invers.
+        </p>
+        <div class="hero-cta">
+          <button class="btn" type="button" data-mode-btn="atelier" data-cursor="Comută">
+            Vezi tema atelier
+          </button>
+        </div>
+      </div>
+
+      <div class="pano rv" id="pano">
+        <div class="swatch m-wool"><span class="sw-note">Panoramă 360° · placeholder</span></div>
+        <div class="vig" aria-hidden="true"></div>
+        <button class="hot" type="button" style="left:26%; top:58%" aria-expanded="false"
+          data-hot="p1" aria-label="Punct interactiv: Geanta MONO 01"></button>
+        <button class="hot" type="button" style="left:62%; top:38%" aria-expanded="false"
+          data-hot="p2" aria-label="Punct interactiv: mașina de cusut"></button>
+        <button class="hot" type="button" style="left:81%; top:70%" aria-expanded="false"
+          data-hot="p3" aria-label="Punct interactiv: raftul de materiale"></button>
+
+        <div class="hot-pop" id="p1" hidden style="left:26%; top:58%">
+          <span class="label">Produs în scenă</span>
+          <strong>Geanta MONO 01</strong>
+          <p>Din blug recuperat, croită manual. Adaugă în coș fără să ieși din atelier.</p>
+          <span class="price">420 lei</span>
+        </div>
+        <div class="hot-pop" id="p2" hidden style="left:62%; top:38%">
+          <span class="label">Hai în backstage</span>
+          <strong>Mașina de cusut</strong>
+          <p>Idee, schiță, croi, lucru manual. Procesul, arătat în locul în care se întâmplă.</p>
+        </div>
+        <div class="hot-pop" id="p3" hidden style="left:81%; top:70%">
+          <span class="label">Atinge materialul</span>
+          <strong>Raftul de materiale</strong>
+          <p>Textura, proveniența, ce se poate face mai departe din ea.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mechs rv">
+      <div class="mech">
+        <span class="n">01</span>
+        <h4>Ce poți face din...?</h4>
+        <p>Un slider între materialul-sursă și piesa finită. Argumentul de vânzare al
+          brandului, transformat în gest.</p>
+      </div>
+      <div class="mech">
+        <span class="n">02</span>
+        <h4>Găsește arta</h4>
+        <p>Referințe artistice ascunse în atelier. Fără ghicit, fără răspuns greșit —
+          doar descoperire.</p>
+      </div>
+      <div class="mech">
+        <span class="n">03</span>
+        <h4>Ce nu vezi pe etichetă</h4>
+        <p>Mini-povești cu titluri care provoacă curiozitatea. Vizitatorul alege ce
+          îl interesează.</p>
+      </div>
+      <div class="mech">
+        <span class="n">04</span>
+        <h4>Atinge materialul</h4>
+        <p>Mostre și texturi: de unde vine, cum se comportă, ce mai poate deveni.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POVESTE + STATS ============ -->
+<section class="section" id="despre">
+  <div class="wrap">
+    <div class="head rv">
+      <div>
+        <span class="label">Despre &nbsp;/&nbsp; <b>Limira Lamira Art Studio</b></span>
+        <h2>Viața poate fi roz dacă alegi să o privești așa.</h2>
+      </div>
+      <p>Cifrele de mai jos sunt exemplu de structură. Datele reale le pune la
+        dispoziție studioul.</p>
+    </div>
+    <div class="stats rv">
+      <div class="stat"><b class="num" data-count="147">0</b><span>Piese croite</span></div>
+      <div class="stat"><b class="num" data-count="86">0</b><span>Kg material salvat</span></div>
+      <div class="stat"><b class="num" data-count="9">0</b><span>Lucrări unicat</span></div>
+      <div class="stat"><b class="num" data-count="1">0</b><span>Atelier, în Piața Unirii</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALE ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="quotes rv">
+      <div class="quote">
+        <span class="stars">★★★★★</span>
+        <blockquote>„Am primit geanta și prima întrebare a fost din ce e făcută.
+          A doua, dacă mai are."</blockquote>
+        <div class="who">A. M. · Timișoara</div>
+      </div>
+      <div class="quote">
+        <span class="stars">★★★★★</span>
+        <blockquote>„Nu semăna cu nimic din ce aveam. Exact ăsta era scopul."</blockquote>
+        <div class="who">R. P. · Cluj-Napoca</div>
+      </div>
+      <div class="quote">
+        <span class="stars">★★★★★</span>
+        <blockquote>„Am intrat să mă uit. Am ieșit cu două piese și cu povestea lor."</blockquote>
+        <div class="who">D. I. · București</div>
+      </div>
+    </div>
+    <p class="label" style="margin-top:1rem">Text de exemplu · recenziile reale vin din panoul de administrare</p>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="nl section">
+  <div class="wrap nl-grid">
+    <div>
+      <h2>Piesele unicat pleacă în prima zi.</h2>
+      <p style="color:var(--fg-muted); margin-top:.7rem; max-width:44ch;">
+        Un email când apare ceva nou în atelier. Nimic altceva.</p>
+    </div>
+    <form onsubmit="return false">
+      <input type="email" placeholder="adresa ta de email" aria-label="Adresa de email">
+      <button class="btn" type="submit" data-cursor="Trimite">Abonează-mă</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ NOTĂ DE PREZENTARE ============ -->
+<section class="brief section" id="nota">
+  <div class="wrap">
+    <span class="label">Pentru Limira &nbsp;/&nbsp; <b>Cum citești acest mockup</b></span>
+    <h2 style="font-size:var(--step-4); margin-block:.8rem 2rem; max-width:22ch;">
+      Ce vezi aici este direcția, nu site-ul final.</h2>
+
+    <div class="brief-grid">
+      <div>
+        <h3>Ce este real</h3>
+        <p>Paleta, tipografia, ritmul, felul în care se mișcă lucrurile, structura
+          paginii și cele două teme. Comutatorul <em>Magazin / Atelier</em> din antet
+          este exact mecanismul care va exista pe site.</p>
+        <p style="margin-top:.8rem">Rozul ocupă sub 10% din fiecare ecran, conform
+          regulii 70–20–10 pe care ai cerut-o.</p>
+      </div>
+      <div>
+        <h3>Ce este provizoriu</h3>
+        <p>Toate imaginile sunt texturi generate, marcate ca atare. Produsele,
+          prețurile, cifrele și recenziile sunt exemple.</p>
+        <ul>
+          <li>Fotografiile de produs le facem după ghidul pe care ți-l trimitem</li>
+          <li>Fiecare produs are nevoie de o macro-fotografie a materialului-sursă</li>
+          <li>Textele legale și poveștile vin de la tine</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Ce urmează</h3>
+        <p>După confirmarea direcției începem construcția efectivă a magazinului
+          (Faza 1, 5–6 săptămâni de la primirea materialelor).</p>
+        <div class="ask">
+          <strong>Avem nevoie de un răspuns la:</strong>
+          <ul>
+            <li>Direcția vizuală este bună?</li>
+            <li>Ce schimbi la ea? (ai 2 runde de revizuiri incluse)</li>
+            <li>Procesator de plăți, curier și firmă de facturare</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <a class="logo" href="#top" style="margin-bottom:1rem" aria-label="Limira Lamira">
+          <svg viewBox="0 0 100 100" aria-hidden="true" style="width:30px;height:30px">
+            <g fill="none" stroke="#e64593" stroke-width="6" stroke-linecap="square">
+              <path d="M30 12 H88 V88"/><path d="M70 88 H12 V12"/>
+              <path d="M50 26 L74 50 L50 74 L26 50 Z"/><path d="M30 34 L70 74"/>
+            </g>
+          </svg>
+          <span class="wm">LIMIRA LAMIRA</span>
+        </a>
+        <p style="color:var(--fg-muted); max-width:32ch; margin-top:.8rem">
+          Studio de modă și artă din materiale reciclate. Piața Unirii 13, Timișoara.</p>
+      </div>
+      <div>
+        <h4>Magazin</h4>
+        <ul><li><a href="#produse">Noutăți</a></li><li><a href="#categorii">Categorii</a></li>
+        <li><a href="#produse">Oferte</a></li><li><a href="#arta">Artă unicat</a></li></ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul><li><a href="#despre">Povestea</a></li><li><a href="#atelier">Atelierul</a></li>
+        <li><a href="#nota">Blog</a></li><li><a href="#nota">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Informații</h4>
+        <ul><li><a href="#nota">Termeni și condiții</a></li><li><a href="#nota">Confidențialitate</a></li>
+        <li><a href="#nota">Livrare și retur</a></li><li><a href="#nota">Cookie-uri</a></li></ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>Mockup de direcție vizuală · Website Factory · septembrie 2026</span>
+      <span>Sistem de design NEON SALVAGE</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ COȘ ============ -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Coșul meu" aria-hidden="true">
+  <div class="drawer-hd">
+    <h3>Coșul tău</h3>
+    <button class="ico" type="button" id="closeCart" aria-label="Închide coșul">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="cartBody">
+    <p class="drawer-empty">Încă gol.<br>Fiecare piesă de aici a avut o viață înainte.</p>
+  </div>
+  <div class="drawer-ft">
+    <div class="row"><span>Subtotal</span><span class="num" id="sub">0 lei</span></div>
+    <div class="row"><span>Transport</span><span id="ship">—</span></div>
+    <div class="row total"><span>Total</span><span class="num" id="tot">0 lei</span></div>
+    <button class="btn" type="button" data-cursor="Comandă">Finalizează comanda</button>
+  </div>
+</aside>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- COMUTATOR DE MOD ---------- */
+  function setMode(m) {
+    root.setAttribute('data-mode', m);
+    document.querySelectorAll('[data-mode-btn]').forEach(function (b) {
+      if (b.closest('.modesw')) b.setAttribute('aria-pressed', String(b.dataset.modeBtn === m));
+    });
+  }
+  document.querySelectorAll('[data-mode-btn]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var m = b.dataset.modeBtn;
+      if (root.getAttribute('data-mode') === m) return;
+      if (document.startViewTransition && !reduced) {
+        document.startViewTransition(function () { setMode(m); });
+      } else { setMode(m); }
+    });
+  });
+
+  /* ---------- HEADER CONDENSAT ---------- */
+  var hdr = document.getElementById('hdr');
+  var lastY = 0, ticking = false, vel = 0;
+  function onScroll() {
+    var y = window.scrollY;
+    vel = y - lastY; lastY = y;
+    hdr.classList.toggle('is-condensed', y > 80);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+
+  /* ---------- MARQUEE ---------- */
+  var words = ['Piese unicat', 'Materiale recuperate', 'Croit manual în Timișoara',
+    'Nimic nu se aruncă', 'A doua viață', 'Făcut de mână, nu de fabrică'];
+  var track = document.getElementById('mqTrack');
+  var html = '';
+  for (var r = 0; r < 4; r++) {
+    words.forEach(function (w) { html += '<span>' + w + ' ·</span>'; });
+  }
+  track.innerHTML = html;
+  if (!reduced) {
+    var off = 0, half = 0;
+    requestAnimationFrame(function () { half = track.scrollWidth / 2; });
+    (function tick() {
+      if (!half) half = track.scrollWidth / 2;
+      off -= 0.55 + Math.min(Math.abs(vel) * 0.06, 3);
+      if (half && off <= -half) off += half;
+      track.style.transform = 'translate3d(' + off + 'px,0,0)';
+      requestAnimationFrame(tick);
+    })();
+  }
+
+  /* ---------- TITLU CINETIC ---------- */
+  var h1 = document.getElementById('heroTitle');
+  if (h1 && !reduced) {
+    var parts = h1.innerHTML.split(' ');
+    h1.innerHTML = parts.map(function (w, i) {
+      return '<span class="w"><span style="animation-delay:' + (i * 55) + 'ms">' + w + '</span></span>';
+    }).join(' ');
+  }
+
+  /* ---------- PRODUSE ---------- */
+  var products = [
+    { id: 1, n: 'Geanta MONO 01', m: 'Din blug recuperat', p: 420, o: 0, mat: 'm-denim', src: 'm-linen' },
+    { id: 2, n: 'Sacou REVERS', m: 'Din sacou de lână', p: 690, o: 850, mat: 'm-wool', src: 'm-leather' },
+    { id: 3, n: 'Rucsac PLASĂ', m: 'Din plasă de pescuit', p: 380, o: 0, mat: 'm-net', src: 'm-plastic' },
+    { id: 4, n: 'Fusta CROI 04', m: 'Din perdea de in', p: 340, o: 0, mat: 'm-linen', src: 'm-wool' },
+    { id: 5, n: 'Geanta NOD', m: 'Din curea de piele', p: 520, o: 0, mat: 'm-leather', src: 'm-denim' }
+  ];
+  var rail = document.getElementById('rail');
+  rail.innerHTML = products.map(function (p) {
+    var off = p.o ? Math.round((1 - p.p / p.o) * 100) : 0;
+    return '<article class="card">' +
+      '<div class="card-media">' +
+        (p.o ? '<span class="flag">−' + off + '%</span>' : '') +
+        '<div class="swatch face-prod ' + p.mat + '"><span class="sw-note">Foto produs</span></div>' +
+        '<div class="swatch face-mat ' + p.src + '"><span class="sw-note">Material sursă</span></div>' +
+        '<span class="flip-hint">← materialul de dinainte</span>' +
+      '</div>' +
+      '<div><h3>' + p.n + '</h3><span class="meta">' + p.m + '</span></div>' +
+      '<div class="price num">' + p.p + ' lei' +
+        (p.o ? ' <s>' + p.o + ' lei</s> <span class="off">reducere</span>' : '') +
+      '</div>' +
+      '<button class="btn btn--sm add" type="button" data-add="' + p.id + '" data-cursor="Adaugă">' +
+        'Pune-l în coș</button>' +
+      '</article>';
+  }).join('');
+
+  /* ---------- COȘ ---------- */
+  var cart = [];
+  var drawer = document.getElementById('drawer'), scrim = document.getElementById('scrim');
+  var cartBody = document.getElementById('cartBody'), cartCount = document.getElementById('cartCount');
+
+  function fmt(n) { return n.toLocaleString('ro-RO') + ' lei'; }
+  function render() {
+    var qty = cart.reduce(function (s, i) { return s + i.q; }, 0);
+    cartCount.textContent = qty;
+    cartCount.dataset.empty = qty ? '0' : '1';
+    if (!cart.length) {
+      cartBody.innerHTML = '<p class="drawer-empty">Încă gol.<br>Fiecare piesă de aici a avut o viață înainte.</p>';
+    } else {
+      cartBody.innerHTML = cart.map(function (i) {
+        return '<div class="ci">' +
+          '<div class="swatch ' + i.mat + '"></div>' +
+          '<div><h4>' + i.n + '</h4><div class="meta">' + i.m + '</div>' +
+            '<div class="qty"><button type="button" data-q="-1" data-id="' + i.id + '" aria-label="Scade">−</button>' +
+            '<span class="num">' + i.q + '</span>' +
+            '<button type="button" data-q="1" data-id="' + i.id + '" aria-label="Crește">+</button></div></div>' +
+          '<div class="ln num">' + fmt(i.p * i.q) + '</div></div>';
+      }).join('');
+    }
+    var sub = cart.reduce(function (s, i) { return s + i.p * i.q; }, 0);
+    var ship = sub === 0 ? 0 : (sub >= 300 ? 0 : 22);
+    document.getElementById('sub').textContent = fmt(sub);
+    document.getElementById('ship').textContent = sub === 0 ? '—' : (ship ? fmt(ship) : 'gratuit');
+    document.getElementById('tot').textContent = fmt(sub + ship);
+  }
+  function openCart(o) {
+    drawer.classList.toggle('open', o); scrim.classList.toggle('open', o);
+    drawer.setAttribute('aria-hidden', String(!o));
+    if (o) document.getElementById('closeCart').focus();
+  }
+  document.addEventListener('click', function (e) {
+    var add = e.target.closest('[data-add]');
+    if (add) {
+      var p = products.filter(function (x) { return x.id === +add.dataset.add; })[0];
+      var ex = cart.filter(function (x) { return x.id === p.id; })[0];
+      if (ex) ex.q++; else cart.push({ id: p.id, n: p.n, m: p.m, p: p.p, mat: p.mat, q: 1 });
+      render(); openCart(true);
+      return;
+    }
+    var q = e.target.closest('[data-q]');
+    if (q) {
+      var it = cart.filter(function (x) { return x.id === +q.dataset.id; })[0];
+      if (it) { it.q += +q.dataset.q; if (it.q < 1) cart = cart.filter(function (x) { return x.id !== it.id; }); }
+      render();
+    }
+  });
+  document.getElementById('cartBtn').addEventListener('click', function () { openCart(true); });
+  document.getElementById('closeCart').addEventListener('click', function () { openCart(false); });
+  scrim.addEventListener('click', function () { openCart(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { openCart(false); closeHots(); }
+  });
+  render();
+
+  /* ---------- BEFORE / AFTER ---------- */
+  var ba = document.getElementById('ba'), baR = document.getElementById('baRange');
+  baR.addEventListener('input', function () { ba.style.setProperty('--pos', baR.value + '%'); });
+
+  /* ---------- HOTSPOTS ---------- */
+  function closeHots() {
+    document.querySelectorAll('.hot-pop').forEach(function (p) { p.hidden = true; });
+    document.querySelectorAll('.hot').forEach(function (h) { h.setAttribute('aria-expanded', 'false'); });
+  }
+  document.querySelectorAll('.hot').forEach(function (h) {
+    h.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = h.getAttribute('aria-expanded') === 'true';
+      closeHots();
+      if (!open) {
+        h.setAttribute('aria-expanded', 'true');
+        document.getElementById(h.dataset.hot).hidden = false;
+      }
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.pano')) closeHots();
+  });
+
+  /* ---------- GALERIE: drag ---------- */
+  var gal = document.getElementById('gal'), down = false, sx = 0, sl = 0;
+  gal.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse') return;   // pe touch lăsăm scroll-ul nativ
+    down = true; sx = e.clientX; sl = gal.scrollLeft; gal.classList.add('dragging');
+  });
+  window.addEventListener('pointerup', function () { down = false; gal.classList.remove('dragging'); });
+  gal.addEventListener('pointermove', function (e) {
+    if (!down) return; e.preventDefault(); gal.scrollLeft = sl - (e.clientX - sx);
+  });
+
+  /* ---------- REVEAL + CONTOARE ---------- */
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  var counters = document.querySelectorAll('[data-count]');
+  if ('IntersectionObserver' in window) {
+    var io2 = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target, target = +el.dataset.count, t0 = null;
+        if (reduced) { el.textContent = target; io2.unobserve(el); return; }
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var k = Math.min((ts - t0) / 1100, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3)));
+          if (k < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step); io2.unobserve(el);
+      });
+    }, { threshold: .4 });
+    counters.forEach(function (c) { io2.observe(c); });
+  } else {
+    counters.forEach(function (c) { c.textContent = c.dataset.count; });
+  }
+
+  /* ---------- CURSOR MAGNETIC (doar desktop) ---------- */
+  if (window.matchMedia('(pointer:fine)').matches && !reduced) {
+    var cur = document.querySelector('.cursor'), lbl = cur.querySelector('i');
+    var cx = -100, cy = -100, tx = -100, ty = -100;
+    cur.classList.add('on');
+    window.addEventListener('pointermove', function (e) { tx = e.clientX; ty = e.clientY; });
+    (function loop() {
+      cx += (tx - cx) * .18; cy += (ty - cy) * .18;
+      cur.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+      requestAnimationFrame(loop);
+    })();
+    document.addEventListener('pointerover', function (e) {
+      var t = e.target.closest('[data-cursor]');
+      if (t) { cur.classList.add('big'); lbl.textContent = t.dataset.cursor.toUpperCase(); }
+      else if (e.target.closest('a,button')) { cur.classList.add('big'); lbl.textContent = ''; }
+      else { cur.classList.remove('big'); }
+    });
+  }
+})();
+</script>

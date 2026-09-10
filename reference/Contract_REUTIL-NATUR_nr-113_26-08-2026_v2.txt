@@ -1,0 +1,452 @@
+                                  CONTRACT DE PRESTRI SERVICII
+
+                                                       Nr. 113
+
+Încheiat azi, 26.08.2026 între:
+
+1. SC PIXEL FACTORY SRL, cu sediul social în sat. Ghiroda, com. Ghiroda, Str. Bega, Nr. 47, Jud. Timi,
+înregistrat la O.R.C. Timi sub nr. J35/154/2023, având cod unic de înregistrare 47452355, cont bancar
+IBAN RO34BACX0000004140710000 deschis la Unicredit Bank SA, reprezentat prin dl. Slach
+Laureniu-Ernest în calitate de Administrator - denumit în continuare ,,Executant";
+
+                                                                i
+
+2. REUTIL NATUR SRL, societate înregistrat în România, la O.R.C. Timi sub nr. J2022001549357, având
+cod unic de înregistrare RO45931319, cu sediul social în Piaa Unirii nr. 13, ap. bir. 3, Timioara, jud. Timi,
+reprezentat prin dna. Fran Limira în calitate de Administrator - denumit în continuare ,,Beneficiar".
+Prile de mai sus, îndeplinind condiiile generale de capacitate i manifestând un consimmânt liber i
+neviciat, recunoscând principiul libertii contractuale, au convenit perfectarea prezentului contract de
+prestri servicii, denumit în continuare ,,Contractul", i îneleg s confere deplin for juridic
+urmtoarelor clauze contractuale.
+
+Raporturile dintre prile semnatare ale Contractului vor fi guvernate de prezentele clauze, care vor putea
+fi completate - dup caz - cu dispoziii specifice consemnate în anexe sau acte adiionale semnate de
+ctre reprezentanii cu drept de semntur ai prilor.
+
+În executarea Contractului, prile semnatare au statut de comerciant independent una fa de cealalt.
+
+1. Durata Contractului
+
+1.1. Prezentul Contract intr în vigoare la data semnrii de ctre ambele pri i înceteaz la data
+finalizrii proiectelor, respectiv predrii ctre Beneficiar a proiectelor descrise în anexele individuale, cu
+respectarea prevederilor privind plata integral a preului.
+
+1.2. Proiectul se realizeaz în dou faze distincte: Faza 1 -- magazinul online; Faza 2 -- modulul atelier i
+sistemul de joc, conform Anexei nr. 1. Fiecare faz se pred i se recepioneaz separat. Faza 2 începe la
+data agreat în scris de pri, ulterior lansrii Fazei 1 sau simultan cu aceasta, la opiunea Beneficiarului,
+sub condiia achitrii tranei aferente începerii Fazei 2.
+
+1.3. Prezentul Contract înceteaz de plin drept, fr a mai fi necesar intervenia unei instane
+judectoreti, în cazul în care una dintre pri:
+
+      a) este declarat în stare de incapacitate de pli sau a fost declanat procedura de insolven /
+      lichidare;
+
+      b) îi încalc în mod repetat vreuna dintre obligaiile sale, dup ce a fost notificat de ctre cealalt
+      parte, cu acordarea unui termen rezonabil de remediere de minim 15 zile calendaristice, c o nou
+      nerespectare va duce la rezilierea Contractului;
+
+      c) în cazul neachitrii de ctre Beneficiar a oricrei sume datorate Executantului pentru o perioad
+      mai mare de 15 zile de la scaden, Executantul are dreptul de a rezilia unilateral Contractul, fr
+      intervenia instanei i fr alte formaliti, cu încasarea integral a sumelor scadente.
+
+                                                                       1
+1.4. Partea care invoc o cauz de încetare a prevederilor Contractului o va notifica celeilalte pri în scris,
+în termen de 7 zile înainte de data la care încetarea urmeaz s-i produc efectele.
+
+1.5. Încetarea Contractului nu va avea niciun efect asupra obligaiilor deja scadente între prile
+contractante. Contractul îi înceteaz efectele, indiferent de faza de dezvoltare în care se gsete, prile
+fiind obligate:
+
+      a) Beneficiarul s achite integral contravaloarea prestaiilor efectuate de Executant pân la data
+      respectiv, inclusiv materialele, coninutul, orele de consultan i alte costuri rezonabile angajate;
+
+      b) Executantul s predea proiectul în faza în care se afl, sub condiia achitrii integrale de ctre
+      Beneficiar a tuturor sumelor datorate pân la data încetrii. Pân la achitarea integral, Executantul
+      nu este obligat s predea livrabile, cod-surs, fiiere de lucru sau Chei de acces.
+
+1.6. Neînceperea Fazei 2. Dac Beneficiarul nu solicit în scris începerea Fazei 2 în termen de 6 luni de la
+predarea Fazei 1, Faza 2 se consider suspendat, iar reluarea ei se face pe baza unei oferte actualizate.
+Preul Fazei 1, prestaiile efectuate i perioada de mentenan inclus nu sunt afectate.
+
+2. Obiectul Contractului
+
+2.1. Obiectul prezentului Contract îl constituie realizarea de ctre Executant, în condiiile stabilite prin
+prezentul Contract i prin anexele individuale, a serviciilor denumite în continuare ,,Proiectul", i predarea
+acestui Proiect ctre Beneficiar.
+
+2.2. Proiectul cu care Executantul este însrcinat const în realizarea componentelor descrise în anexele
+individuale la prezentul Contract. Specificaiile agreate în anexe reprezint coninutul integral al obligaiilor
+Executantului. Orice funcionalitate, modificare, cerere de dezvoltare suplimentar sau schimbare a
+scopului care excede anexelor va fi considerat activitate suplimentar i va fi facturat separat, pe baza
+unui act adiional sau a unei comenzi scrise agreate de ambele pri, la tarifele comerciale standard ale
+Executantului.
+
+2.3. În vederea realizrii obiectului Contractului, Executantul se va folosi de cunotinele, procedeele i
+metodele tehnice proprii. Know-how-ul, metodologiile, bibliotecile de cod, abloanele i componentele
+reutilizabile preexistente ale Executantului, precum i orice instrumente, componente open-source sau
+produse tere integrate, rmân proprietatea exclusiv a Executantului, respectiv a titularilor lor, i sunt
+liceniate Beneficiarului exclusiv pentru utilizarea ca parte integrant a Proiectului.
+
+2.4. Executantul se angajeaz s realizeze obiectul Contractului într-o manier profesionist, în
+concordan cu standardele generale în materie.
+
+2.5. Beneficiarul are obligaia de a pune la dispoziia Executantului, în timp util i în format utilizabil, toate
+materialele, informaiile, coninutul, specificaiile, documentaia, datele de acces i aprobrile necesare
+pentru executarea Contractului, inclusiv, dar fr a se limita la: fotografiile produselor i textele
+descriptive; fotografiile panoramice 360° ale atelierului; povestea brandului; coninut editorial; materiale
+grafice i de identitate vizual în formate editabile i cu drepturile de utilizare aferente; termenii i
+condiiile, politica de confidenialitate, politica de cookie-uri i politica de livrare i retur; datele de acces
+la domeniu, hosting, conturile de curierat, de facturare, de procesare a plilor i la celelalte conturi tere
+(analytics, newsletter, social media); regulile, indiciile, informaiile i coninutul necesar configurrii
+mecanicilor interactive; feedback scris asupra livrabilelor intermediare.
+
+                                                                       2
+2.6. Termenul de punere la dispoziie a materialelor. Materialele i informaiile prevzute la art. 2.5 se pun
+la dispoziia Executantului în termen de maximum 10 (zece) zile lucrtoare de la data solicitrii scrise a
+Executantului. Solicitrile se transmit etapizat, în ordinea în care materialele sunt necesare pentru
+desfurarea lucrrilor. Depirea acestui termen suspend de drept termenele Executantului cu acelai
+numr de zile, conform art. 2.8, fr sanciuni pentru Executant. Dac întârzierea depete 30 de zile
+lucrtoare de la solicitare, Executantul poate suspenda lucrrile, cu notificare prealabil de 5 zile
+lucrtoare, iar reluarea se face în funcie de disponibilitatea sa de resurse la acel moment, printr-un
+calendar reagreat în scris.
+
+2.7. Beneficiarul garanteaz c toate materialele, coninutul i informaiile puse la dispoziia Executantului
+sunt legale, exacte i nu încalc drepturile de proprietate intelectual, dreptul la imagine sau alte drepturi
+ale terilor, inclusiv în privina fotografiilor, a materialelor grafice, a textelor i a oricror referine la opere
+sau autori teri utilizate în coninutul jocurilor. Beneficiarul va despgubi integral Executantul pentru orice
+plângeri, cereri, pretenii sau daune formulate de teri pe baza materialelor furnizate de Beneficiar.
+
+2.8. Beneficiarul este obligat s furnizeze feedback scris i consolidat asupra livrabilelor intermediare în
+termen de maximum 5 (cinci) zile lucrtoare de la primirea acestora. În lipsa feedback-ului în acest
+termen, Executantul transmite Beneficiarului o notificare scris de reamintire. Dac nici în termen de 3
+(trei) zile lucrtoare de la data notificrii de reamintire Beneficiarul nu transmite feedback scris sau o
+validare expres, livrabilul se consider validat. Orice întârziere imputabil Beneficiarului (inclusiv
+întârzieri în punerea la dispoziie a materialelor, validri tardive, sau modificri ale specificaiilor)
+suspend de drept termenele Executantului cu acelai numr de zile, fr sanciuni pentru Executant.
+
+2.9. Conformitatea comerului electronic. Beneficiarul declar c îi asum integral responsabilitatea
+pentru legalitatea i conformitatea activitii de comer electronic desfurate prin intermediul
+Proiectului, inclusiv, cu titlu exemplificativ, dar fr a se limita la: protecia consumatorilor i dreptul de
+retragere (O.U.G. nr. 34/2014), comerul electronic (Legea nr. 365/2002), obligaiile fiscale i de facturare,
+conformitatea produselor comercializate, corectitudinea afirmaiilor privind materialele reciclate i
+impactul de mediu, precum i regulamentul, mecanica i fiscalitatea recompenselor, codurilor de reducere
+i a jocurilor implementate. Executantul nu ofer consultan juridic i nu poart rspundere pentru
+riscurile legale ale modelului comercial al Beneficiarului.
+
+2.10. Delimitarea scopului. Nu fac obiectul Contractului, cu titlu exemplificativ: sesiunea de fotografiere
+360° a atelierului i orice alt producie foto sau video; redactarea coninutului editorial, a descrierilor de
+produs, a textelor legale sau traducerea acestora; importul i optimizarea produselor peste plafonul
+prevzut în Anexa nr. 1; jocurile care nu sunt enumerate expres în Anexa nr. 1; serviciile de marketing
+digital, SEO off-page i publicitate pltit; achiziia de imagini de stoc, fonturi comerciale sau licene tere;
+gzduirea website-ului. Acestea pot fi cotate separat, prin anex ulterioar sau act adiional.
+
+2.11. Materialul foto 360°. În cazul în care se dorete modul 360, realizarea modulului atelier depinde de
+calitatea i de acoperirea materialului fotografic panoramic pus la dispoziie de Beneficiar. Executantul
+proceseaz i optimizeaz panoramele primite i mapeaz punctele interactive pe acestea. Dac
+materialul primit nu permite construirea turului în parametrii prevzui în Anexa nr. 1 (numr de poziii,
+acoperire, rezoluie, continuitate între scene), prile vor conveni în scris fie refacerea materialului de
+ctre Beneficiar, fie ajustarea scopului i a preului. Termenele Executantului se suspend pe durata
+acestui proces.
+
+                                                                       3
+2.12. Revizuiri. Fiecare livrabil de design aferent Fazei 1 include 2 (dou) runde de revizuiri, iar fiecare
+livrabil de design aferent Fazei 2 include 3 (trei) runde de revizuiri, în limitele direciei aprobate de
+Beneficiar. Revizuirile suplimentare, reluarea unei etape deja validate (tacit sau expres) sau schimbarea
+direciei aprobate constituie activitate suplimentar în sensul art. 2.2 i se factureaz separat, la tarifele
+comerciale standard ale Executantului.
+
+2.13. Servicii i produse tere. Funcionarea magazinului depinde de servicii tere integrate (curierat i
+generare AWB, facturare, procesare pli, analytics, newsletter, chat). Conturile la aceti furnizori se
+deschid pe numele i pe cheltuiala Beneficiarului, iar Executantul realizeaz exclusiv integrarea tehnic, în
+limitele interfeelor (API) puse la dispoziie de furnizori. Executantul nu rspunde pentru disponibilitatea,
+tarifarea, modificarea unilateral, întreruperea sau politicile comerciale ale acestor furnizori i nici pentru
+deciziile procesatorilor de plat cu privire la contul Beneficiarului.
+
+3. Preul Contractului. Termene de plat
+
+3.1. Tariful contractual la care Executantul se oblig s execute Proiectul i valoarea Contractului se vor
+stabili în anexele individuale la Contract (Anexa 1).
+
+3.2. Preul Contractului se achit în 4 (patru) trane, conform ealonrii stabilite în Anexa nr. 1, respectiv:
+pentru Faza 1 -- 50% la semnarea Contractului i a Anexei i 50% la predarea Fazei 1; pentru Faza 2 --
+50% la începerea Fazei 2 i 50% la predarea Fazei 2.
+
+3.3. Preul Contractului se achit prin virament bancar, în contul bancar al Executantului indicat în partea
+introductiv a Contractului sau în factur. Preul este exprimat în EUR i se factureaz i se achit în lei
+(RON), la cursul de schimb valutar al Bncii Comerciale Române (BCR) din data emiterii facturii.
+Executantul este nepltitor de TVA (regim special de scutire pentru întreprinderi mici, conform art. 310 din
+Legea nr. 227/2015 privind Codul fiscal), facturile fiind emise fr TVA. În ipoteza în care, pe durata
+Contractului, Executantul devine pltitor de TVA, preurile se vor majora cu TVA-ul aferent, pentru facturile
+emise ulterior acestei date.
+
+3.4. Plile serviciilor prestate se vor efectua de ctre Beneficiar în termen de 5 zile calendaristice de la
+data comunicrii facturii.
+
+3.5. În cazul întârzierii la plat peste termenul prevzut la art. 3.4, Beneficiarul datoreaz Executantului
+penaliti de întârziere de 0,05% pe zi calculate asupra sumei restante, precum i dobânda legal, fr a fi
+necesar o notificare prealabil. Penalitile de întârziere pot depi valoarea sumei datorate.
+
+3.6. În cazul neplii oricrei sume datorate la scaden, Executantul are dreptul, la alegerea sa: (i) s
+suspende prestarea serviciilor i/sau accesul la livrabile, cu o notificare prealabil de 10 zile; (ii) s refuze
+predarea livrabilelor finale sau intermediare, a codului-surs, fiierelor de lucru sau Cheilor de acces pân
+la achitarea integral; (iii) s rezilieze unilateral Contractul conform art. 1.3.c. Exercitarea acestor drepturi
+nu atrage nicio rspundere a Executantului pentru consecinele asupra activitii Beneficiarului.
+
+3.7. Transferul drepturilor de proprietate intelectual asupra Proiectului sau a componentelor acestuia
+ctre Beneficiar opereaz sub condiia suspensiv a achitrii integrale a preului prevzut în anexele
+individuale. Codul dezvoltat de Executant devine integral proprietatea Beneficiarului la achitarea ultimei
+trane. Pân la achitarea integral, Beneficiarul are exclusiv o licen limitat, neexclusiv,
+netransferabil, pentru utilizare intern i testare. Transferul nu privete elementele prevzute la art. 2.3
+i nici componentele open-source ori produsele tere, care rmân supuse licenelor proprii.
+
+                                                                       4
+La achitarea integral a preului, Executantul pred Beneficiarului, în termen de 10 (zece) zile lucrtoare:
+codul-surs complet al componentelor dezvoltate nemijlocit pentru Proiect; structura i coninutul bazei
+de date; fiierele grafice i editabile create special pentru Proiect; documentaia tehnic de predare i
+manualul de utilizare a panoului de administrare; accesul de administrator; un export complet al
+repository-ului dedicat Proiectului; precum i cheile, parolele i conturile care aparin Beneficiarului.
+Predarea nu include accesul la infrastructura intern, la instrumentele de lucru sau la bibliotecile
+reutilizabile preexistente ale Executantului, prevzute la art. 2.3, i nici componentele open-source,
+produsele ori serviciile tere, fonturile sau imaginile liceniate, care rmân supuse licenelor proprii.
+
+4. Mentenan inclus i mentenan ulterioar
+
+4.1. Executantul acord, fr costuri suplimentare, o perioad de 4 (patru) luni de mentenan de la data
+lansrii, cuprinzând: editarea coninutului i a materialelor media, rezolvarea problemelor tehnice
+aprute în funcionarea Proiectului, actualizri i suport pentru acomodarea Beneficiarului cu panoul de
+administrare. Mentenana inclus nu cuprinde dezvoltarea de funcionaliti noi, jocuri suplimentare,
+redesign sau import masiv de produse. În sensul prezentului articol, prin ,,import masiv de produse" se
+înelege orice import, actualizare sau optimizare în bloc a mai mult de 20 (douzeci) de produse într-o
+singur solicitare, precum i orice import care depete plafonul de 150 de produse prevzut în Anexa
+nr. 1.
+
+4.2. Fiecare faz beneficiaz de 4 (patru) luni de mentenan inclus, calculate de la data lansrii
+respectivei faze i aplicabile componentelor acelei faze. Garania prevzut la art. 6.2 curge separat, pe o
+perioad de 90 de zile calendaristice de la data predrii fiecrei faze, i se aplic în paralel cu perioada de
+mentenan inclus, fr a se cumula cu aceasta.
+
+4.3. Dup expirarea perioadei de 4 luni, mentenana este opional i se poate contracta separat, prin act
+adiional, la tariful de 150 EUR / lun. Costul gzduirii (hosting) nu este inclus nici în preul Proiectului, nici
+în tariful de mentenan, i rmâne în sarcina direct a Beneficiarului.
+
+5. Clauz de exonerare
+
+5.1. Beneficiarul declar, înelege i accept c Executantul nu poate i nu garanteaz pentru creterea
+beneficiilor materiale sau de orice alt natur ale Beneficiarului ca urmare a realizrii obiectului
+prezentului Contract.
+
+5.2. Executantul nu garanteaz pentru: (i) poziionarea Proiectului în motoarele de cutare; (ii) volumul de
+trafic, vânzri, conversii sau alte rezultate comerciale; (iii) compatibilitatea Proiectului cu versiuni viitoare
+ale tehnologiilor, browserelor, sistemelor de operare sau platformelor tere; (iv) funcionarea
+componentelor, serviciilor sau produselor tere integrate în Proiect; (v) deciziile comerciale ale
+procesatorilor de plat, ale firmelor de curierat sau ale altor furnizori cu privire la contul ori la activitatea
+Beneficiarului; (vi) performana modulului atelier pe dispozitive sau conexiuni care nu îndeplinesc cerinele
+tehnice minime rezonabile pentru redarea coninutului panoramic.
+
+6. Garanii
+
+6.1. Executantul garanteaz asupra originalitii componentelor dezvoltate nemijlocit de acesta i poart
+rspunderea pentru coninutul acestora. Garania nu se extinde asupra: (i) materialelor, coninutului sau
+componentelor furnizate de Beneficiar, inclusiv fotografiile i materialul panoramic; (ii) componentelor
+
+                                                                       5
+open-source, librriilor tere sau produselor/serviciilor tere integrate în Proiect; (iii) utilizrilor Proiectului
+de ctre Beneficiar într-un mod ce excede scopului agreat în anexe.
+
+6.2. Executantul acord o garanie pentru remedierea eventualelor neconformiti raportate la
+specificaiile din anexe, pe o perioad de 90 de zile calendaristice de la data predrii fiecrei faze.
+Garania nu acoper defeciunile cauzate de: modificri operate de Beneficiar sau de teri asupra
+Proiectului, actualizri ale serviciilor tere integrate, intervenii asupra gzduirii, atacuri informatice ori
+coninut adugat ulterior predrii. Dup expirarea acestui termen i a perioadei de mentenan inclus,
+orice intervenii vor fi facturate separat, pe baza tarifelor comerciale ale Executantului.
+
+6.3. Executantul nu garanteaz pentru creterea beneficiilor materiale ale Beneficiarului dup realizarea
+Proiectului.
+
+7. Drept de referin comercial
+
+7.1. Executantul are dreptul de a meniona colaborarea cu Beneficiarul i Proiectul realizat în portofoliul
+su comercial, inclusiv pe website-ul propriu, în prezentri comerciale, materiale de marketing i reele
+sociale profesionale, cu includerea de capturi de ecran i descrieri generale, cu respectarea obligaiilor de
+confidenialitate privind datele sensibile de business ale Beneficiarului. Publicarea se poate face numai
+dup lansarea public a Proiectului. Anterior primei publicri, Executantul transmite Beneficiarului
+materialele propuse spre publicare, iar Beneficiarul poate formula obiecii motivate în termen de 5 (cinci)
+zile lucrtoare de la primire; în lipsa unui rspuns în acest termen, materialele se consider aprobate.
+Aprobarea nu poate fi refuzat în mod nerezonabil.
+
+8. Confidenialitatea informaiilor
+
+8.1. Prile contractante convin s pstreze deplina confidenialitate în legtur cu coninutul i
+desfurarea Contractului. Nicio parte nu are dreptul de a divulga, direct sau indirect, terelor persoane
+informaiile de natur confidenial legate de cealalt parte, cu excepia cazului în care, în scopul exclusiv
+al bunei desfurri a Contractului, oricare dintre pri alege s angajeze colaborarea cu persoane fizice
+sau juridice pe baza unui angajament de confidenialitate.
+
+8.2. Prin ,,informaie confidenial" se înelege orice informaie care vizeaz una dintre prile
+contractante sau obiectul Contractului, cu excepia informaiilor care sunt publice sau destinate a fi fcute
+publice prin natura obiectului Contractului, precum i a referinelor comerciale permise expres la art. 7.
+
+8.3. Obligaia de confidenialitate este reciproc i se menine pe durata Contractului i pentru o perioad
+de 2 (doi) ani dup încetarea acestuia. Pentru mecanica jocurilor, conceptele originale, know-how-ul,
+strategiile comerciale i informaiile nepublice ale prilor, termenul este de 5 (cinci) ani de la încetarea
+Contractului.
+
+Prin excepie, prezenta clauz nu limiteaz dreptul Executantului de a utiliza în activitatea sa know-how-ul,
+metodologiile, bibliotecile de cod, abloanele, componentele reutilizabile i soluiile tehnice generice
+proprii, prevzute la art. 2.3, i nici dreptul de referin comercial prevzut la art. 7.
+
+8.4. Informaiile confideniale vor putea fi utilizate numai pentru realizarea obiectului Contractului.
+
+8.5. Prezenta clauz se aplic tuturor participanilor la realizarea obiectului Contractului, indiferent de
+statutul lor juridic.
+
+9. Rspunderea prilor
+
+                                                                       6
+9.1. Niciuna dintre prile contractante nu are dreptul de a denuna unilateral i abuziv clauzele
+prezentului Contract, sub sanciunea plii daunelor-interese.
+
+9.2. În eventualitatea denunrii abuzive i unilaterale a clauzelor contractuale, partea care este în culp
+va datora celeilalte pri:
+
+      a) dac denunarea provine din partea Executantului, acesta va fi obligat s predea Beneficiarului
+      Proiectul în faza în care se afl, cu meninerea dreptului de a încasa contravaloarea prestaiilor
+      efectiv realizate pân la data denunrii. Restituirea sumelor deja încasate este exclus în msura în
+      care acestea corespund unor prestaii efectiv realizate.
+
+      b) În situaia în care Beneficiarul denun unilateral Contractul în mod nejustificat, acesta datoreaz
+      Executantului contravaloarea lucrrilor efectiv prestate pân la data încetrii, precum i o
+      compensaie de 20% din preul rmas de achitat aferent fazei aflate în derulare la data notificrii.
+      Avansul încasat pentru faza aflat în derulare nu se restituie, reprezentând contravaloarea capacitii
+      de lucru rezervate i a lucrrilor demarate.
+
+      c) Prin denunare unilateral nejustificat se înelege încetarea Contractului la iniiativa
+      Beneficiarului din motive care nu in de îndeplinirea obligaiilor Executantului, cum ar fi, cu titlu
+      exemplificativ: schimbarea planurilor de business, renunarea la proiect, contractarea unui alt
+      furnizor, lipsa fondurilor sau pierderea interesului pentru proiect.
+
+      d) Compensaia prevzut la lit. b) nu este datorat atunci când încetarea intervine ca urmare a
+      neexecutrii, executrii necorespunztoare, nerespectrii specificaiilor agreate în Anexa nr. 1 sau a
+      unor întârzieri semnificative imputabile Executantului. Se consider întârziere semnificativ
+      depirea cu mai mult de 30 de zile calendaristice a termenului agreat pentru faza respectiv. Nu
+      constituie întârziere imputabil Executantului întârzierea cauzat de nepunerea la dispoziie de ctre
+      Beneficiar, în termenele agreate, a materialelor, informaiilor, coninutului sau aprobrilor necesare.
+
+      e) Invocarea de ctre Beneficiar a unui motiv dintre cele prevzute la lit. d) este condiionat de
+      transmiterea prealabil ctre Executant a unei notificri scrise care s descrie neconformitatea
+      invocat, precum i de acordarea unui termen de remediere de minimum 15 zile lucrtoare. Dac
+      Executantul remediaz neconformitatea în acest termen, încetarea intervenit ulterior pentru
+      acelai motiv este considerat nejustificat.
+
+      f) Compensaia nu se aplic fazelor neîncepute la data încetrii.
+
+9.3. Odat denunat unilateral, Contractul îi înceteaz orice efect, cu respectarea prevederilor de mai sus
+privind rspunderea prilor.
+
+9.4. Niciuna dintre prile contractante nu rspunde de neexecutarea la termen sau de executarea
+necorespunztoare (total sau parial) a oricrei obligaii care îi revine în baza prezentului Contract, dac
+neexecutarea a fost cauzat de for major, aa cum este definit de lege.
+
+9.5. Partea care invoc fora major este obligat s notifice celeilalte pri, în termen de 5 zile,
+producerea evenimentului i s ia toate msurile posibile în vederea limitrii consecinelor. Dac în
+termen de 30 de zile de la producere evenimentul nu înceteaz, prile au dreptul s-i notifice încetarea
+de plin drept a Contractului, fr ca vreuna dintre ele s pretind daune-interese, cu excepia dreptului
+Executantului de a încasa contravaloarea prestaiilor efectiv realizate pân la acea dat.
+
+9.6. Rspunderea total cumulat a Executantului în temeiul prezentului Contract, indiferent de temei
+(contractual, delictual sau altul), este limitat la valoarea preului efectiv încasat de Executant de la
+
+                                                                       7
+Beneficiar în cadrul Contractului. Executantul nu rspunde în nicio situaie pentru prejudicii indirecte,
+beneficii nerealizate, pierderi comerciale, pierderi de date sau daune reputaionale ale Beneficiarului sau
+ale terilor.
+
+10. Notificrile între pri
+
+10.1. Notificrile între pri se pot realiza prin orice mijloc legal de comunicare care returneaz
+expeditorului o confirmare de primire (pot recomandat, curier, email).
+
+10.2. Notificrile trimise prin email se consider primite în prima zi lucrtoare dup cea în care au fost
+expediate, la adresele de email indicate de pri. Adresele agreate sunt: pentru Executant -
+office@websitefactory.ro; pentru Beneficiar - limira.voinescu@gmail.com. Solicitrile de materiale
+prevzute la art. 2.6 se transmit prin email i marcheaz începutul termenului de 10 zile lucrtoare.
+
+10.3. Notificrile verbale nu se iau în considerare dac nu sunt confirmate prin una dintre modalitile
+prevzute la alineatele precedente.
+
+10.4. Orice modificare privitoare la informaiile de contact ale uneia dintre pri necomunicat celeilalte
+atrage de drept inopozabilitatea modificrii.
+
+11. Informare i cooperare
+
+11.1. Fiecare parte contractant este obligat s furnizeze celeilalte informaii complete, transparente i
+corecte, astfel încât cealalt parte s poat lua decizii informate cu privire la interesele implicate i la
+consecinele acestora.
+
+11.2. Beneficiarul se oblig s desemneze o persoan de contact autorizat, cu putere de decizie pentru
+validri i aprobri, pentru a asigura un flux operativ de comunicare cu Executantul.
+
+12. Cesiunea Contractului
+
+12.1. Prile contractante nu vor putea cesiona drepturile i obligaiile prevzute de prezentul Contract
+unei tere persoane fr acordul expres, dat în scris, de cealalt parte. Prin excepie, Executantul poate
+apela la subcontractori sau colaboratori specializai pentru anumite componente tehnice ale Proiectului
+(de exemplu, integrri, design, testare), rmânând direct rspunztor fa de Beneficiar pentru rezultatul
+final.
+
+12.2. Nerespectarea obligaiilor privind cesiunea atrage, de plin drept, rezilierea prezentului Contract, cu
+acordarea unui termen rezonabil de remediere de 15 zile de la notificare.
+
+13. Protecia datelor cu caracter personal
+
+13.1. Prile se oblig s prelucreze orice date cu caracter personal obinute în legtur cu executarea
+prezentului Contract în conformitate cu Regulamentul (UE) 2016/679 (GDPR) i legislaia naional
+aplicabil.
+
+13.2. În msura în care Proiectul implic prelucrarea datelor cu caracter personal ale utilizatorilor finali
+(clieni, participani la jocuri, abonai newsletter), Beneficiarul are calitatea de operator, iar Executantul are
+calitatea de persoan împuternicit exclusiv pe durata i în limitele necesare executrii Contractului.
+Prile vor încheia un acord separat de prelucrare (DPA) anterior începerii prelucrrii efective a datelor cu
+caracter personal.
+
+                                                                       8
+13.3. Executantul va implementa msuri de securitate tehnice i organizaionale rezonabile, proporionale
+cu riscurile specifice, în limita bunelor practici din industrie.
+
+14. Litigii
+14.1. Prile au convenit ca toate neînelegerile privind validitatea prezentului Contract sau rezultate din
+interpretarea, executarea ori încetarea acestuia s fie rezolvate pe cale amiabil.
+14.2. În cazul în care soluionarea pe cale amiabil nu este posibil în termen de 30 de zile de la
+notificarea scris a litigiului, acesta va fi soluionat de ctre instanele judectoreti competente din
+Timioara, România. Contractul este guvernat de legea român.
+
+15. Declaraii
+15.1. Prile contractante declar i garanteaz reciproc c fiecare este înfiinat i funcioneaz în
+conformitate cu legile în vigoare i are capacitatea juridic deplin de a se obliga prin semnarea
+prezentului Contract.
+15.2. Prile recunosc c acioneaz în calitate de profesioniti i c prezentul Contract a fost negociat
+integral, prevederile Codului Civil privind clauzele standard sau neuzuale nefiind aplicabile.
+
+16. Dispoziii finale
+16.1. Prezentul Contract, împreun cu Anexa nr. 1, reprezint acordul de voin al prilor. Modificarea
+Contractului se poate face numai cu acordul deplin de voin al prilor, consemnat într-un act adiional
+scris i semnat de reprezentanii legali ai ambelor pri.
+16.2. Invaliditatea eventual a oricrei prevederi din prezentul Contract nu va afecta valabilitatea sau
+executabilitatea celorlalte prevederi.
+16.3. Prezentul înscris servete interesul comun al prilor, care declar pe proprie rspundere c au luat
+la cunotin i sunt de acord cu prezentele clauze i se oblig s le execute întocmai, cu bun-credin.
+16.4. Prezentul Contract a fost încheiat astzi, 26.08.2026, în 2 (dou) exemplare originale, câte unul
+pentru fiecare parte contractant.
+
+SC PIXEL FACTORY SRL                                   REUTIL NATUR SRL
+Slach Laureniu-Ernest / Administrator                  Fran Limira / Administrator
+
+Laurentiu- Laurentiu-Ernest Slach Digitally signed by  ________________________
+Ernest Slach 17:11:23 +03'00' Date: 2026.08.26         Semntura
+
+________________________
+Semntura
+
+                                                       9
+

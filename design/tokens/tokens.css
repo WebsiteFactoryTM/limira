@@ -1,0 +1,235 @@
+/* ==========================================================================
+   LIMIRA LAMIRA — NEON SALVAGE design tokens
+   Sursa de adevăr pentru culoare, tipografie, spațiu și mișcare.
+   Documentație: docs/03-DESIGN-SYSTEM.md
+   Se importă în src/app/(frontend)/globals.css înaintea Tailwind.
+   ========================================================================== */
+
+:root {
+  /* ---------- BRAND (nu se modifică) ---------- */
+  --limira-pink: #e64593;
+  --limira-black: #000000;
+  --limira-white: #ffffff;
+
+  /* ---------- Rampa roz (stări + accesibilitate) ---------- */
+  --pink-100: #ffe9f3;
+  --pink-300: #ff9ec9;
+  --pink-500: #e64593;
+  --pink-600: #c9316f;
+  --pink-700: #a31e60;
+  --pink-rgb: 230 69 147;
+
+  /* ---------- Neutre calde ---------- */
+  --ink-950: #08070a;
+  --ink-900: #0e0d11;
+  --ink-800: #17161b;
+  --ink-700: #222027;
+  --ink-600: #35323c;
+  --ink-400: #6e6a78;
+  --ink-300: #9b96a3;
+  --ink-200: #c9c4ce;
+  --ink-100: #e7e3e8;
+  --bone: #f5f2ee;
+  --paper: #ffffff;
+
+  /* ---------- Semantice de stare ---------- */
+  --ok: #2f9e6b;
+  --warn: #d98a12;
+  --err: #d63a3a;
+
+  /* ---------- Tipografie ---------- */
+  --font-display: "Bricolage Grotesque", "Syne", system-ui, sans-serif;
+  --font-ui: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Space Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --step--2: clamp(0.69rem, 0.66rem + 0.12vw, 0.75rem);
+  --step--1: clamp(0.83rem, 0.78rem + 0.22vw, 0.94rem);
+  --step-0: clamp(1rem, 0.94rem + 0.3vw, 1.19rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.44rem, 1.28rem + 0.8vw, 1.9rem);
+  --step-3: clamp(1.73rem, 1.48rem + 1.25vw, 2.4rem);
+  --step-4: clamp(2.07rem, 1.7rem + 1.9vw, 3.03rem);
+  --step-5: clamp(2.49rem, 1.94rem + 2.75vw, 3.82rem);
+  --step-6: clamp(2.99rem, 2.2rem + 3.9vw, 4.83rem);
+  --step-7: clamp(3.58rem, 2.48rem + 5.5vw, 6.1rem);
+  --step-display: clamp(3rem, 1rem + 11vw, 12rem);
+
+  --lh-display: 0.88;
+  --lh-tight: 1.08;
+  --lh-body: 1.6;
+  --ls-display: -0.03em;
+  --ls-label: 0.16em;
+
+  /* ---------- Spațiu (bază 4px) ---------- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-24: 6rem;
+  --sp-32: 8rem;
+  --sp-48: 12rem;
+
+  --gutter: clamp(1rem, 3vw, 2rem);
+  --container: min(1440px, 100% - 2 * var(--gutter));
+  --section-y: clamp(4rem, 10vw, 10rem);
+
+  /* ---------- Formă ---------- */
+  --radius-0: 0px;
+  --radius-1: 2px;
+  --radius-pill: 999px;
+  --cut: 18px; /* dimensiunea colțului tăiat */
+  --hairline: 1px;
+
+  /* ---------- Mișcare ---------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 180ms;
+  --dur: 320ms;
+  --dur-slow: 620ms;
+  --dur-reveal: 900ms;
+
+  /* ---------- Straturi ---------- */
+  --z-grain: 9000;
+  --z-cursor: 9500;
+  --z-header: 800;
+  --z-drawer: 850;
+  --z-modal: 900;
+}
+
+/* ==========================================================================
+   MOD MAGAZIN — luminos, editorial (implicit)
+   ========================================================================== */
+:root,
+[data-mode="shop"] {
+  --bg: var(--bone);
+  --bg-alt: var(--paper);
+  --surface: var(--paper);
+  --surface-sunken: #ebe7e2;
+  --fg: var(--ink-950);
+  --fg-muted: var(--ink-400);
+  --fg-faint: var(--ink-300);
+  --line: rgb(0 0 0 / 0.12);
+  --line-strong: rgb(0 0 0 / 0.28);
+
+  --accent: var(--pink-500);
+  --accent-hover: var(--pink-600);
+  --accent-fg: #000000; /* text NEGRU pe roz — 5,64:1 */
+  --accent-text: var(--pink-700); /* roz pentru text de corp — 7,24:1 */
+  --accent-soft: var(--pink-100);
+
+  --glow: none;
+  --grain-opacity: 0.045;
+  --scheme: light;
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   MOD ATELIER — întunecat, neon
+   ========================================================================== */
+[data-mode="atelier"] {
+  --bg: var(--ink-950);
+  --bg-alt: var(--ink-900);
+  --surface: var(--ink-900);
+  --surface-sunken: #000000;
+  --fg: var(--limira-white);
+  --fg-muted: var(--ink-300);
+  --fg-faint: var(--ink-400);
+  --line: rgb(255 255 255 / 0.14);
+  --line-strong: rgb(255 255 255 / 0.32);
+
+  --accent: var(--pink-500);
+  --accent-hover: var(--pink-300);
+  --accent-fg: #000000;
+  --accent-text: var(--pink-300); /* 10,4:1 pe ink-950 */
+  --accent-soft: rgb(var(--pink-rgb) / 0.12);
+
+  --glow: 0 0 48px rgb(var(--pink-rgb) / 0.32);
+  --grain-opacity: 0.06;
+  --scheme: dark;
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   Utilitare de formă din sistemul „cut & fold"
+   ========================================================================== */
+.u-cut {
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--cut)) 0,
+    100% var(--cut),
+    100% 100%,
+    0 100%
+  );
+}
+.u-cut-tl {
+  clip-path: polygon(
+    var(--cut) 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 var(--cut)
+  );
+}
+.u-seam {
+  border: var(--hairline) dashed color-mix(in oklab, var(--accent) 60%, transparent);
+}
+.u-label {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--fg-muted);
+}
+.u-num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Preferințe de utilizator — obligatoriu
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 1ms;
+    --dur: 120ms;
+    --dur-slow: 120ms;
+    --dur-reveal: 120ms;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glow: none;
+    --grain-opacity: 0;
+  }
+}
+
+@media (prefers-contrast: more) {
+  [data-mode="shop"] {
+    --fg-muted: var(--ink-600);
+    --line: rgb(0 0 0 / 0.3);
+  }
+  [data-mode="atelier"] {
+    --fg-muted: var(--ink-200);
+    --line: rgb(255 255 255 / 0.35);
+  }
+}
+
+/* Focus vizibil pe ambele moduri — nenegociabil */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-1);
+}

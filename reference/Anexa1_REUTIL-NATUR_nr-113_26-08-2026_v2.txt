@@ -1,0 +1,274 @@
+                                        Anexa nr. 1 / 26.08.2026
+
+                                  la Contract prestri servicii nr. 113 din 26.08.2026
+
+În accepiunea prilor contractante, obiectul prezentei anexe are în vedere detalierea elementelor
+componente referitoare la dezvoltarea proiectului i a preului contractual, conform ofertei de colaborare
+din 03.08.2026.
+
+ÎN LEGTUR CU CAPITOLUL 2 DIN CONTRACT (OBIECTUL):
+
+Magazin online & experien imersiv -- mod i art din reciclare
+
+Proiectul const în realizarea unui magazin online cu identitate vizual construit pe brandul
+Beneficiarului i, în a doua faz, a unui modul ,,atelier" -- tur virtual 360° al studioului, cu puncte
+interactive, sistem de joc i recompense -- integrat cu acelai catalog, cont de client i co.
+
+Stack tehnologic
+
+   Framework principal: Next.js / React + TypeScript
+   Panou de administrare i coninut: Payload CMS
+   Baz de date: PostgreSQL
+   Site bilingv (român implicit + englez pe structur dedicat /en), SEO friendly
+   Gzduire: nu este inclus în preul prezentei anexe (art. 4.3 din Contract)
+
+FAZA 1 -- Magazinul online
+
+Design i experien de utilizare
+   Identitate vizual construit pe brandul Beneficiarului (palet roz neon, negru, alb), fr adaptare
+       de template
+   Dou teme vizuale, o singur identitate: modul magazin (luminos, editorial) i modul atelier
+       (întunecat, cu accente de neon)
+   Structurarea informaiei pe baza comportamentului de cumprare; parcurs clar de la prima pagin
+       pân la finalizarea comenzii
+   Abordare mobile-first, testare pe mobil, tablet, laptop i desktop
+
+Structura i funcionalitile magazinului
+   Pagina principal: slider i bannere dinamice, seciuni de categorii, carusel de produse, prezentare
+       atelier, testimoniale, zon dedicat artei reciclate
+   Antet sticky: logo, meniu, categorii, iconuri de cont, favorite, cutare i co
+   Categorii / catalog: structur distinct pentru produse în stoc, concepte i colecii, cu categorii i
+       subcategorii
+   Pagina produsului: galerie foto, descriere scurt i complet, stoc, variante de mrime, culoare i
+       material, pre i pre redus, adugare în co, favorite, comparare, recenzii cu rating
+   Seciunea de art reciclat: prezentare de tip galerie pentru piesele unicat, cu spaiu pentru poveste,
+       proces i material
+
+                                                                       1
+   Cutare, filtrare (pre, categorie, mrime, culoare, material i alte atribute), produse similare /
+       recomandate
+
+   Pagina oferte, pagina despre / atelier, pagina de contact cu formular, hart i butoane rapide
+   Sistem de blog pentru coninut i SEO; sistem de colectare i gestionare a feedback-ului de la clieni
+   Contul meu: urmrirea comenzilor, editarea datelor de facturare i livrare, descrcarea facturii
+   Co i finalizare comand: actualizare cantiti, cupoane, checkout rapid, plat online cu cardul,
+
+       favorite i comparare
+
+Module administrative
+   Administrare comenzi, administrare produse, rapoarte de comenzi i vânzri, editare coninut
+   Co abandonat cu email reminder automat; discount-uri i cupoane; cross-sell i up-sell
+   Butoane de contact rapid (WhatsApp, telefon, email); notificri email pentru administrator i client;
+       popup / header banner pentru promoii
+   Import i optimizare a pân la 150 de produse, incluse în tarif
+
+Integrri
+   API curier -- generare automat AWB; API facturare; procesator de pli online
+   Google Analytics, Meta Pixel, newsletter (MailChimp / ActiveCampaign / Klaviyo), chat / WhatsApp,
+       social media
+   Conturile la furnizorii teri se deschid pe numele i pe cheltuiala Beneficiarului (art. 2.13 din Contract)
+
+Securitate i optimizare
+   Securitate la nivel de infrastructur i aplicaie; sitemap; optimizare SEO de baz; optimizare
+       foto/video pentru web
+   Pagini legale implementate: Termeni i condiii, Politica de confidenialitate, Politica cookie, Politica
+       de livrare i retur, GDPR Consent
+   Coninutul juridic al acestor pagini (termeni i condiii, politica de confidenialitate, politica de retur)
+       este pus la dispoziie de Beneficiar
+
+FAZA 2 -- Atelierul & sistemul de joc
+
+Dezvoltare
+   Tur 360° cu 6-10 poziii legate între ele, cu rotire la atingere i, pe mobil, prin micarea aparatului
+   Pân la 40 de puncte interactive; obiectele marcate deschid fia produsului direct în scen, cu
+       adugare în co fr ieirea din atelier
+   Panou de administrare a scenelor, a punctelor interactive i a coninutului acestora, în acelai CMS
+   Motorul de explorare: puncte descoperite i nedescoperite, progres salvat automat, colecii
+       completate, deblocarea recompensei la atingerea condiiilor stabilite din panoul de administrare;
+       fr întrebri, fr rspunsuri corecte sau greite i fr validare de rspunsuri
+   Sistem de recompense cu coduri unice, limitate în timp, folosibile la comand
+   Integrare complet cu contul de client i cu coul -- coul este comun cu magazinul
+   Tem vizual dedicat (negru i neon); optimizare pentru mobil i încrcare rapid
+
+                                                                       2
+   Comutator permanent între magazin i atelier, disponibil în meniu
+
+Coninut i producie
+
+   Procesarea i optimizarea panoramelor puse la dispoziie de Beneficiar
+   Maparea punctelor interactive pe produse
+   Configurarea primului traseu de explorare, a punctelor interactive i a coninutului aferent acestora
+   În cazul în care se dorete, sesiunea de fotografiere 360° a atelierului NU este inclus în pre i se
+
+       realizeaz de ctre Beneficiar (art. 2.10 i 2.11 din Contract)
+
+Mecanicile incluse în Faza 2
+
+Prezenta anex include motorul de explorare, sistemul de recompense i urmtoarele 4 (patru) mecanici
+principale, agreate de pri:
+
+   1. Ce poi face din...? -- mecanica Before & After: utilizatorul mut un slider i vede transformarea
+       materialului-surs în piesa finit (blug vechi  geant; sacou vechi  hain nou)
+
+   2. Gsete arta -- fragmente i referine artistice ascunse în diferite puncte ale atelierului; prin
+       interaciune, utilizatorul afl opera, artistul i o informaie sau poveste scurt. Nu trebuie s
+       ghiceasc i nu exist rspuns corect sau greit
+
+   3. Ce nu vezi pe etichet -- zon educativ sub forma unei serii de mini-poveti, cu titluri care
+       provoac curiozitatea; utilizatorul alege ce îl intereseaz i deschide informaia, fr chestionare
+
+   4. Atinge materialul -- puncte interactive dedicate materialelor i texturilor: utilizatorul deschide o
+       mostr sau un obiect i descoper vizual textura, proveniena, caracteristicile i posibilitile de
+       reutilizare
+
+Sistemul de recompense (,,Surpriza te ateapt") este inclus ca motor transversal, funcionând peste toate
+cele patru mecanici de mai sus, i nu se numr ca mecanic distinct. Recompensa, codul, valabilitatea
+i condiiile de acordare se administreaz din panoul de control.
+
+Urmtoarele elemente se implementeaz ca panouri i puncte interactive în cadrul celor pân la 40 de
+puncte prevzute mai sus, fr a fi considerate mecanici suplimentare i fr cost adiional:
+
+   Hai în backstage -- procesul creativ: idee, schi, alegerea materialului, croi, lucru manual, detalii i
+       piesa final, cu fotografii i secvene scurte puse la dispoziie de Beneficiar
+
+   Joaca culorilor -- experien vizual de combinare i descoperire a culorilor, pe o palet i
+       combinaii predefinite, administrabile din CMS; nu este configurator de produs i nu este legat de
+       stoc
+
+   Secrete din Art Studio -- puncte de explorare prin care utilizatorul descoper obiecte, tehnici,
+       materiale, detalii i poveti din atelier
+
+Coninutul mini-povetilor din ,,Ce nu vezi pe etichet", inclusiv datele i afirmaiile privind impactul de
+mediu, coninutul i referinele artistice din ,,Gsete arta", informaiile despre materiale din ,,Atinge
+materialul", precum i perechile de imagini pentru ,,Ce poi face din...?" se pun la dispoziie de Beneficiar,
+conform art. 2.5 i 2.6 din Contract. Executantul implementeaz mecanica i interfaa, nu determin i nu
+valideaz datele de mediu, informaiile despre materiale i referinele artistice afiate.
+
+Celelalte concepte de joc prezentate în ofert sau discutate între pri (Construiete-i geanta, Cât salvezi
+planeta?, Descoper povestea produsului, Îl gseti pe Van Gogh?, Colecionarul, Roata atelierului,
+
+                                                                       3
+Sezoane, Cheia dubl, Licitaia piesei unicat) nu fac parte din prezenta anex i se coteaz separat, la
+momentul dezvoltrii.
+
+Administrarea coninutului din panoul de control
+
+Beneficiarul poate modifica din panoul de administrare, fr intervenie de programare:
+
+   textele, imaginile, titlurile i descrierile punctelor interactive
+   indiciile i informaiile afiate
+   poziionarea punctelor interactive pe scene
+   activarea sau dezactivarea punctelor interactive i a scenelor
+   coninutul mini-povetilor din ,,Ce nu vezi pe etichet"
+   perechile de imagini Before & After
+   recompensele, codurile, valabilitatea i condiiile de acordare a acestora
+Necesit dezvoltare suplimentar, cotat separat conform art. 2.2 din Contract: adugarea de mecanici
+sau tipuri de joc noi fa de cele patru incluse; modificarea logicii sau a interfeei unei mecanici deja
+livrate; adugarea de scene 360° peste numrul contractat; depirea plafonului de 40 de puncte
+interactive.
+
+Componente ce nu sunt incluse în prezenta anex
+
+Urmtoarele nu fac parte din scope-ul acoperit de prezenta anex, putând fi cotate separat printr-o anex
+ulterioar sau act adiional:
+
+   Sesiunea de fotografiere 360° a atelierului i orice alt producie foto sau video
+   Fotografierea produselor, redactarea descrierilor de produs i a coninutului editorial, corectura i
+
+       traducerea textelor (inclusiv versiunea în englez)
+   Redactarea sau revizuirea juridic a termenilor i condiiilor, a politicilor de confidenialitate, cookie
+
+       i retur
+   Importul i optimizarea produselor peste plafonul de 150 de produse incluse
+   Mecanicile i jocurile care nu sunt enumerate expres mai sus
+   Gzduirea website-ului, domeniul, certificatele, licenele comerciale pentru fonturi sau imagini de
+
+       stoc
+   Costurile i abonamentele serviciilor tere (curierat, facturare, procesator de pli, newsletter, chat)
+   SEO off-page, campanii de marketing digital, publicitate pltit, administrarea reelelor sociale
+   Mentenana i dezvoltarea ulterioar dup expirarea celor 4 luni incluse
+
+Obligaiile Beneficiarului pentru demararea i derularea lucrrilor
+
+Materialele de mai jos se pun la dispoziia Executantului în termen de maximum 10 (zece) zile lucrtoare
+de la solicitarea scris, conform art. 2.6 din Contract. Solicitrile se transmit etapizat, în ordinea în care
+materialele sunt necesare:
+
+   Fotografiile produselor i textele descriptive
+   Opional: Fotografiile panoramice 360° ale atelierului, în parametrii tehnici agreai
+   Povestea brandului i coninutul editorial pentru paginile de prezentare
+
+                                                                       4
+   Termenii i condiiile, politica de confidenialitate i politica de livrare i retur
+   Conturile i datele de acces pentru curier, facturare i procesatorul de pli
+   Coninutul necesar configurrii mecanicilor: textele mini-povetilor, referinele i informaiile
+
+       artistice, descrierile materialelor, perechile de imagini Before & After i recompensele acordate
+   Persoan de contact cu putere de decizie i feedback scris în maximum 5 zile lucrtoare de la
+
+       primirea livrabilelor intermediare, respectiv 3 zile lucrtoare de la notificarea de reamintire (art. 2.8
+       din Contract)
+
+Durata estimat de execuie
+
+Faza 1 -- magazinul online: 5-6 sptmâni. Faza 2 -- atelierul i sistemul de joc: 3-4 sptmâni.
+Termenele curg de la data la care sunt îndeplinite cumulativ: încasarea tranei aferente fazei i primirea
+materialelor necesare demarrii acesteia. Magazinul se poate lansa înaintea atelierului, la opiunea
+Beneficiarului. Eventuale întârzieri imputabile Beneficiarului suspend de drept termenele conform art.
+2.6 i 2.8 din Contract.
+
+ÎN LEGTUR CU CAPITOLUL 3 DIN CONTRACT (PREUL):                  Durat   Cost (EUR)
+ Faz / Component                                              5-6 spt.  1.850 EUR
+ Faza 1 -- Magazinul online                                   3-4 spt.  1.350 EUR
+ Faza 2 -- Atelierul & sistemul de joc (4 mecanici incluse)  8-10 spt.  3.200 EUR
+ TOTAL ANEX (fr TVA)
+
+Total costuri servicii: 3.200 EUR (trei mii dou sute EUR). Executantul este nepltitor de TVA (regim special
+de scutire, art. 310 Cod fiscal) -- facturile se emit fr TVA. Tariful este exprimat în EUR; facturarea i
+încasarea se fac în lei (RON), la cursul de schimb valutar al BCR din data emiterii facturii, conform art. 3.3
+din Contract.
+
+Ealonarea plii -- 4 trane
+
+   Trana 1 -- 925 EUR (50% din Faza 1) -- la semnarea Contractului i a prezentei Anexe, ca avans
+       pentru demararea lucrrilor. Factur emis la semnare; termen de plat 5 zile calendaristice.
+
+   Trana 2 -- 925 EUR (50% din Faza 1) -- la predarea Fazei 1 (magazinul online). Factur emis la
+       predare; termen de plat 5 zile calendaristice.
+
+   Trana 3 -- 675 EUR (50% din Faza 2) -- la începerea Fazei 2, agreat în scris de pri. Factur emis
+       la începerea fazei; termen de plat 5 zile calendaristice.
+
+   Trana 4 -- 675 EUR (50% din Faza 2) -- la predarea Fazei 2 (atelierul i sistemul de joc). Factur
+       emis la predare; termen de plat 5 zile calendaristice.
+
+Plata se efectueaz prin virament bancar, în contul Executantului indicat la art. 1 din Contract sau în
+factura emis. Codul dezvoltat devine integral proprietatea Beneficiarului la achitarea ultimei trane,
+conform art. 3.7 din Contract.
+
+Mentenan
+
+5
+   4 luni de mentenan incluse pentru fiecare faz, calculate de la data lansrii respectivei faze, fr
+       costuri suplimentare: editare coninut i media, rezolvarea problemelor tehnice, actualizri, suport
+       pentru acomodarea cu panoul de administrare (art. 4 din Contract)
+
+   Dup expirarea celor 4 luni: mentenan opional, 150 EUR / lun, contractat separat prin act
+       adiional
+
+   Gzduirea (hosting) nu este inclus nici în preul Proiectului, nici în tariful de mentenan
+
+Costuri operaionale (separate, în sarcina Beneficiarului)
+
+Rmân în sarcina direct a Beneficiarului: gzduirea website-ului, înregistrarea i reînnoirea domeniului,
+certificatele, licenele comerciale pentru fonturi sau imagini de stoc, precum i abonamentele i
+comisioanele serviciilor tere integrate (curierat, facturare, procesator de pli, newsletter, chat).
+
+SC PIXEL FACTORY SRL                   REUTIL NATUR SRL
+Slach Laureniu-Ernest / Administrator  Fran Limira / Administrator
+
+________________________               ________________________
+Semntura                               Semntura
+
+                                       6
+

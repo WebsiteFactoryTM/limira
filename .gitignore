@@ -1,0 +1,37 @@
+# deps
+node_modules/
+.pnpm-store/
+
+# next / build
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# env & secrete — niciodată în Git
+.env
+.env.*
+!.env.example
+
+# payload
+app/media/
+app/public/media/
+
+# teste
+coverage/
+test-results/
+playwright-report/
+.playwright/
+
+# sistem / editor
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# temporare
+*.tgz
+tmp/
